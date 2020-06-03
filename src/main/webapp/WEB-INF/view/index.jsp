@@ -105,8 +105,8 @@
     <h5 class="card-title"> PARK YERİ Mİ ARIYORSUNUZ ?</h5>
     <p class="card-text"> Sistemimize Kayıt olarak kolay, ucuz ve güvenli park yeri bulabilir. Park yeri ararken ki streslerinizden kurtulabilir,
     zaman ve yakıt tasaarufu sağlayabilirsiniz.</p>
-    <a href="#" class="btn btn-primary"> KAYIT </a>
-    <a href="#" class="btn btn-primary">GİRİŞ</a>
+    <a href="/driverSignUp" class="btn btn-primary"> KAYIT </a>
+    <a href="/driverLogin" class="btn btn-primary">GİRİŞ</a>
   </div>
   
   
@@ -117,8 +117,8 @@
   <div class="card-body">
     <h5 class="card-title">PARK YERİNİZİ KİRALAMAK MI İSTİYORSUNUZ ?</h5>
     <p class="card-text"> Park yerinizi kiralamak için kayıt butonuyla bizimle iletişime geçebilir, kullanmadığınız zamanlarda ek gelir elde edebilirsiniz. </p>
-    <a href="#" class="btn btn-primary">KAYIT</a>
-    <a href="#" class="btn btn-primary">GİRİŞ</a>
+    <a href="/ownerSignUp" class="btn btn-primary">KAYIT</a>
+    <a href="/ownerLogin" class="btn btn-primary">GİRİŞ</a>
   </div>
 </div>
 

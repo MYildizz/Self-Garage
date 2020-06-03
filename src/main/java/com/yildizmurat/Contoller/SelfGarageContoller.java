@@ -14,6 +14,29 @@ public class SelfGarageContoller {
 
         return "index";
     }
+
+    @RequestMapping(value="/driverLogin", method = RequestMethod.GET)
+    public String driverLogin(){
+
+        return "driverLogin";
+    }
     
+    @RequestMapping(value="/ownerLogin", method = RequestMethod.GET)
+    public String ownerLogin(){
+
+        return "ownerLogin";
+    }
+    
+    @RequestMapping(value="/driverSignUp", method = RequestMethod.GET)
+    public String driverSignUp(){
+
+        return "driverSignUp";
+    }
+    
+    @RequestMapping(value="/ownerSignUp", method = RequestMethod.GET)
+    public String ownerSignUp(){
+
+        return "ownerSignUp";
+    }
 
 }
