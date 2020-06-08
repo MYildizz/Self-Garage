@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Data
 @MappedSuperclass
-public class BaseCreditCardInformation implements Serializable {
+public abstract class BaseCreditCardInformation implements Serializable {
 
     @Column(name="name",length =30)
     private String name;
