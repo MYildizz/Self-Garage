@@ -1,11 +1,12 @@
 package com.yildizmurat.Service;
 
 import com.yildizmurat.Entity.ParkingSpacesUsages;
+import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 
 public interface ParkingSpacesUsagesService {
 
-    ParkingSpacesUsages save(ParkingSpacesUsages parkingSpacesUsages);
-    ParkingSpacesUsages getById(Long id);
-    Boolean delete(ParkingSpacesUsages parkingSpacesUsages);
+    ParkingSpacesUsagesDto save(ParkingSpacesUsagesDto parkingSpacesUsages);
+    ParkingSpacesUsagesDto getById(Long id);
+    Boolean delete(ParkingSpacesUsagesDto parkingSpacesUsages);
 
 }

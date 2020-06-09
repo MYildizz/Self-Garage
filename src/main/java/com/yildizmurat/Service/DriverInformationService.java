@@ -1,10 +1,11 @@
 package com.yildizmurat.Service;
 
 import com.yildizmurat.Entity.DriverInformation;
+import com.yildizmurat.dto.DriverInformationDto;
 
 public interface DriverInformationService {
 
-    DriverInformation save(DriverInformation driverInformation);
-    DriverInformation getById(Long id);
-    Boolean delete(DriverInformation driverInformation);
+    DriverInformationDto save(DriverInformationDto driverInformation);
+    DriverInformationDto getById(Long id);
+    Boolean delete(DriverInformationDto driverInformation);
 }

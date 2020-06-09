@@ -1,31 +1,42 @@
 package com.yildizmurat.Service.implementation;
 
 import com.yildizmurat.Entity.ParkingOwnerInformation;
+import com.yildizmurat.Entity.ParkingOwnerInformation;
+import com.yildizmurat.Repository.ParkingOwnerInformationRepository;
 import com.yildizmurat.Repository.ParkingOwnerInformationRepository;
 import com.yildizmurat.Service.ParkingOwnerInformationService;
+import com.yildizmurat.dto.ParkingOwnerInformationDto;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ParkingOwnerInformationImpl implements ParkingOwnerInformationService {
 
     private final ParkingOwnerInformationRepository parkingOwnerInformationRepository;
+    private final ModelMapper modelMapper;
 
-    public ParkingOwnerInformationImpl(ParkingOwnerInformationRepository parkingOwnerInformationRepository) {
+    public ParkingOwnerInformationImpl(ParkingOwnerInformationRepository parkingOwnerInformationRepository, ModelMapper modelMapper) {
         this.parkingOwnerInformationRepository = parkingOwnerInformationRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
-    public ParkingOwnerInformation save(ParkingOwnerInformation parkingOwnerInformation) {
-        return parkingOwnerInformationRepository.save(parkingOwnerInformation);
+    public ParkingOwnerInformationDto save(ParkingOwnerInformationDto parkingOwnerInformationDto) {
+        ParkingOwnerInformation parkingOwnerInformation=  modelMapper.map(parkingOwnerInformationDto,ParkingOwnerInformation.class);
+        parkingOwnerInformation= parkingOwnerInformationRepository.save(parkingOwnerInformation);
+
+        return modelMapper.map(parkingOwnerInformation,ParkingOwnerInformationDto.class);
     }
 
     @Override
-    public ParkingOwnerInformation getById(Long id) {
-        return parkingOwnerInformationRepository.getOne(id);
+    public ParkingOwnerInformationDto getById(Long id) {
+        ParkingOwnerInformation parkingOwnerInformation = parkingOwnerInformationRepository.getOne(id);
+        return modelMapper.map(parkingOwnerInformation,ParkingOwnerInformationDto.class);
     }
 
     @Override
-    public Boolean delete(ParkingOwnerInformation parkingOwnerInformation) {
+    public Boolean delete(ParkingOwnerInformationDto parkingOwnerInformationDto) {
+        ParkingOwnerInformation parkingOwnerInformation=  modelMapper.map(parkingOwnerInformationDto,ParkingOwnerInformation.class);
         parkingOwnerInformationRepository.delete(parkingOwnerInformation);
         return Boolean.TRUE;
     }

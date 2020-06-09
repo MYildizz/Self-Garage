@@ -1,10 +1,11 @@
 package com.yildizmurat.Service;
 
 import com.yildizmurat.Entity.RentalRequests;
+import com.yildizmurat.dto.RentalRequestsDto;
 
 public interface RentalRequestsService {
 
-    RentalRequests save(RentalRequests rentalRequests);
-    RentalRequests getById(Long id);
-    Boolean delete(RentalRequests rentalRequests);
+    RentalRequestsDto save(RentalRequestsDto rentalRequests);
+    RentalRequestsDto getById(Long id);
+    Boolean delete(RentalRequestsDto rentalRequests);
 }

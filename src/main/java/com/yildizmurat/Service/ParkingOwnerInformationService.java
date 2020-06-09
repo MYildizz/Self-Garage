@@ -1,10 +1,11 @@
 package com.yildizmurat.Service;
 
 import com.yildizmurat.Entity.ParkingOwnerInformation;
+import com.yildizmurat.dto.ParkingOwnerInformationDto;
 
 public interface ParkingOwnerInformationService {
 
-    ParkingOwnerInformation save(ParkingOwnerInformation parkingOwnerInformation);
-    ParkingOwnerInformation getById(Long id);
-    Boolean delete(ParkingOwnerInformation parkingOwnerInformation);
+    ParkingOwnerInformationDto save(ParkingOwnerInformationDto parkingOwnerInformation);
+    ParkingOwnerInformationDto getById(Long id);
+    Boolean delete(ParkingOwnerInformationDto parkingOwnerInformation);
 }

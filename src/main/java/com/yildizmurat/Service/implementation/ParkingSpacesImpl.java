@@ -1,31 +1,42 @@
 package com.yildizmurat.Service.implementation;
 
 import com.yildizmurat.Entity.ParkingSpaces;
+import com.yildizmurat.Entity.ParkingSpaces;
+import com.yildizmurat.Repository.ParkingSpacesRepository;
 import com.yildizmurat.Repository.ParkingSpacesRepository;
 import com.yildizmurat.Service.ParkingSpacesService;
+import com.yildizmurat.dto.ParkingSpacesDto;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ParkingSpacesImpl implements ParkingSpacesService {
 
     private final ParkingSpacesRepository parkingSpacesRepository;
+    private final ModelMapper modelMapper;
 
-    public ParkingSpacesImpl(ParkingSpacesRepository parkingSpacesRepository) {
+    public ParkingSpacesImpl(ParkingSpacesRepository parkingSpacesRepository, ModelMapper modelMapper) {
         this.parkingSpacesRepository = parkingSpacesRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
-    public ParkingSpaces save(ParkingSpaces parkingSpaces) {
-        return parkingSpacesRepository.save(parkingSpaces);
+    public ParkingSpacesDto save(ParkingSpacesDto parkingSpacesDto) {
+        ParkingSpaces parkingSpaces=  modelMapper.map(parkingSpacesDto,ParkingSpaces.class);
+        parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
+
+        return modelMapper.map(parkingSpaces,ParkingSpacesDto.class);
     }
 
     @Override
-    public ParkingSpaces getById(Long id) {
-        return parkingSpacesRepository.getOne(id);
+    public ParkingSpacesDto getById(Long id) {
+        ParkingSpaces parkingSpaces = parkingSpacesRepository.getOne(id);
+        return modelMapper.map(parkingSpaces,ParkingSpacesDto.class);
     }
 
     @Override
-    public Boolean delete(ParkingSpaces parkingSpaces) {
+    public Boolean delete(ParkingSpacesDto parkingSpacesDto) {
+        ParkingSpaces parkingSpaces=  modelMapper.map(parkingSpacesDto,ParkingSpaces.class);
         parkingSpacesRepository.delete(parkingSpaces);
         return Boolean.TRUE;
     }

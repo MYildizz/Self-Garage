@@ -1,9 +1,10 @@
 package com.yildizmurat.Service;
 
 import com.yildizmurat.Entity.ManagerInformation;
+import com.yildizmurat.dto.ManagerInformationDto;
 
 public interface ManagerInformationService {
-    ManagerInformation save(ManagerInformation managerInformation);
-    ManagerInformation getById(Long id);
-    Boolean delete(ManagerInformation managerInformation);
+    ManagerInformationDto save(ManagerInformationDto managerInformation);
+    ManagerInformationDto getById(Long id);
+    Boolean delete(ManagerInformationDto managerInformation);
 }

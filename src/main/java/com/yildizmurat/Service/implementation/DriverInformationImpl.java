@@ -3,30 +3,39 @@ package com.yildizmurat.Service.implementation;
 import com.yildizmurat.Entity.DriverInformation;
 import com.yildizmurat.Repository.DriverInformationRepository;
 import com.yildizmurat.Service.DriverInformationService;
+import com.yildizmurat.dto.DriverInformationDto;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DriverInformationImpl implements DriverInformationService {
 
     private final DriverInformationRepository driverInformationRepository;
+    private final ModelMapper modelMapper;
 
-    public DriverInformationImpl(DriverInformationRepository driverInformationRepository){
-        this.driverInformationRepository=driverInformationRepository;
+    public DriverInformationImpl(DriverInformationRepository driverInformationRepository, ModelMapper modelMapper) {
+        this.driverInformationRepository = driverInformationRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
-    public DriverInformation save(DriverInformation driverInformation) {
-        return driverInformationRepository.save(driverInformation);
+    public DriverInformationDto save(DriverInformationDto driverInformationDto) {
+       DriverInformation driverInformation=  modelMapper.map(driverInformationDto,DriverInformation.class);
+        driverInformation= driverInformationRepository.save(driverInformation);
+
+        return modelMapper.map(driverInformation,DriverInformationDto.class);
     }
 
     @Override
-    public DriverInformation getById(Long id) {
-        return driverInformationRepository.getOne(id);
+    public DriverInformationDto getById(Long id) {
+        DriverInformation driverInformation = driverInformationRepository.getOne(id);
+        return modelMapper.map(driverInformation,DriverInformationDto.class);
     }
 
     @Override
-    public Boolean delete(DriverInformation driverInformation) {
-        driverInformationRepository.delete(driverInformation);
+    public Boolean delete(DriverInformationDto driverInformationDto) {
+        DriverInformation driverInformation=  modelMapper.map(driverInformationDto,DriverInformation.class);
+         driverInformationRepository.delete(driverInformation);
         return Boolean.TRUE;
     }
 }
