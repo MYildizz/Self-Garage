@@ -5,11 +5,10 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 @Table(name="driver_creditCard_information")
 public class DriverCreditCardInformation  extends BaseCreditCardInformation {
 

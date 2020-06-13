@@ -1,16 +1,19 @@
 package com.yildizmurat.Entity;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
+
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 @Table(name="parking_spaces_usages")
 public class ParkingSpacesUsages {
 
@@ -23,15 +26,19 @@ public class ParkingSpacesUsages {
     private String ownerId;
     @Column(name="driverId",length =20)
     private String driverId;
+
     @Column(name="entry")
     @Temporal(TemporalType.TIMESTAMP)
     private Date entry;
+
+    @Column(name="departure")
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="exit")
-    private Date exit;
+    private Date departure;
+
     @Column(name="totalTime")
     @Temporal(TemporalType.TIMESTAMP)
     private Date totalTime;
+
     @Column(name="price")
     private Double price;
     @Column(name="district",length =30)

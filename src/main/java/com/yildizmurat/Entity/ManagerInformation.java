@@ -5,11 +5,10 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 @Table(name="manager_information")
 public class ManagerInformation extends BaseUserInformation {
 

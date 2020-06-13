@@ -15,6 +15,11 @@ public class ManagerInformationImpl implements ManagerInformationService {
     private final ManagerInformationRepository managerInformationRepository;
     private final ModelMapper modelMapper;
 
+    public ManagerInformationImpl() {
+        this.managerInformationRepository=null;
+        this.modelMapper=null;
+    }
+
     public ManagerInformationImpl(ManagerInformationRepository managerInformationRepository, ModelMapper modelMapper) {
         this.managerInformationRepository = managerInformationRepository;
         this.modelMapper = modelMapper;

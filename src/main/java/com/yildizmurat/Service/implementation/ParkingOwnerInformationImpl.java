@@ -15,6 +15,11 @@ public class ParkingOwnerInformationImpl implements ParkingOwnerInformationServi
     private final ParkingOwnerInformationRepository parkingOwnerInformationRepository;
     private final ModelMapper modelMapper;
 
+    public ParkingOwnerInformationImpl() {
+        this.parkingOwnerInformationRepository=null;
+        this.modelMapper=null;
+    }
+
     public ParkingOwnerInformationImpl(ParkingOwnerInformationRepository parkingOwnerInformationRepository, ModelMapper modelMapper) {
         this.parkingOwnerInformationRepository = parkingOwnerInformationRepository;
         this.modelMapper = modelMapper;

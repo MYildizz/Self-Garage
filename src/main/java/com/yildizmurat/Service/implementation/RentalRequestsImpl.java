@@ -15,6 +15,11 @@ public class RentalRequestsImpl implements RentalRequestsService {
     private final RentalRequestsRepository rentalRequestsRepository;
     private final ModelMapper modelMapper;
 
+    public RentalRequestsImpl() {
+        this.rentalRequestsRepository=null;
+        this.modelMapper=null;
+    }
+
     public RentalRequestsImpl(RentalRequestsRepository rentalRequestsRepository, ModelMapper modelMapper) {
         this.rentalRequestsRepository = rentalRequestsRepository;
         this.modelMapper = modelMapper;

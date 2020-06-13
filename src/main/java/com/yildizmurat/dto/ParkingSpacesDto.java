@@ -1,5 +1,13 @@
 package com.yildizmurat.dto;
 
+import com.yildizmurat.Entity.ParkStatus;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ParkingSpacesDto {
 
     private String nameId;

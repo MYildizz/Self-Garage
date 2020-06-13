@@ -16,6 +16,11 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
     private final ParkingSpacesUsagesRepository parkingSpacesUsagesRepository;
     private final ModelMapper modelMapper;
 
+    public ParkingSpacesUsagesImpl() {
+        this.parkingSpacesUsagesRepository=null;
+        this.modelMapper=null;
+    }
+
     public ParkingSpacesUsagesImpl(ParkingSpacesUsagesRepository parkingSpacesUsagesRepository, ModelMapper modelMapper) {
         this.parkingSpacesUsagesRepository = parkingSpacesUsagesRepository;
         this.modelMapper = modelMapper;

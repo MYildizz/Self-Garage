@@ -10,6 +10,10 @@ public class ParkingOwnerCreditCardInformationImpl implements ParkingOwnerCredit
 
     private final ParkingOwnerCreditCardInformationRepository parkingOwnerCreditCardInformationRepository;
 
+    public ParkingOwnerCreditCardInformationImpl() {
+        this.parkingOwnerCreditCardInformationRepository=null;
+    }
+
     public ParkingOwnerCreditCardInformationImpl(ParkingOwnerCreditCardInformationRepository parkingOwnerCreditCardInformationRepository) {
         this.parkingOwnerCreditCardInformationRepository = parkingOwnerCreditCardInformationRepository;
     }

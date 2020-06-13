@@ -8,6 +8,10 @@ public class DriverCreditCardInformationImpl implements DriverCreditCardInformat
 
     private final DriverCreditCardInformationRepository driverCreditCardInformationRepository;
 
+    public DriverCreditCardInformationImpl() {
+        this.driverCreditCardInformationRepository=null;
+    }
+
     public DriverCreditCardInformationImpl(DriverCreditCardInformationRepository driverCreditCardInformationRepository) {
         this.driverCreditCardInformationRepository = driverCreditCardInformationRepository;
     }

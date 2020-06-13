@@ -1,6 +1,7 @@
 package com.yildizmurat.Service.implementation;
 
 import com.yildizmurat.Entity.DriverInformation;
+
 import com.yildizmurat.Repository.DriverInformationRepository;
 import com.yildizmurat.Service.DriverInformationService;
 import com.yildizmurat.dto.DriverInformationDto;
@@ -13,6 +14,11 @@ public class DriverInformationImpl implements DriverInformationService {
     private final DriverInformationRepository driverInformationRepository;
     private final ModelMapper modelMapper;
 
+    public DriverInformationImpl() {
+        this.driverInformationRepository=null;
+        this.modelMapper=null;
+    }
+
     public DriverInformationImpl(DriverInformationRepository driverInformationRepository, ModelMapper modelMapper) {
         this.driverInformationRepository = driverInformationRepository;
         this.modelMapper = modelMapper;
@@ -20,7 +26,10 @@ public class DriverInformationImpl implements DriverInformationService {
 
     @Override
     public DriverInformationDto save(DriverInformationDto driverInformationDto) {
-       DriverInformation driverInformation=  modelMapper.map(driverInformationDto,DriverInformation.class);
+
+
+
+        DriverInformation driverInformation=  modelMapper.map(driverInformationDto,DriverInformation.class);
         driverInformation= driverInformationRepository.save(driverInformation);
 
         return modelMapper.map(driverInformation,DriverInformationDto.class);
@@ -35,7 +44,7 @@ public class DriverInformationImpl implements DriverInformationService {
     @Override
     public Boolean delete(DriverInformationDto driverInformationDto) {
         DriverInformation driverInformation=  modelMapper.map(driverInformationDto,DriverInformation.class);
-         driverInformationRepository.delete(driverInformation);
+        driverInformationRepository.delete(driverInformation);
         return Boolean.TRUE;
     }
 }
