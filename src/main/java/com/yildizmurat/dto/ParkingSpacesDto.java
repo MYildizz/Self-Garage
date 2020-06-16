@@ -1,6 +1,6 @@
 package com.yildizmurat.dto;
 
-import com.yildizmurat.Entity.ParkStatus;
+import com.yildizmurat.entity.ParkStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,0 +1,46 @@
+package com.yildizmurat.api;
+
+
+import com.yildizmurat.dto.ParkingSpacesUsagesDto;
+import com.yildizmurat.service.implementation.ParkingSpacesUsagesImpl;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+
+@RestController
+@RequestMapping("/information/parkingSpacesUsagesApi")
+public class ParkingSpacesUsagesApi {
+
+    private final ParkingSpacesUsagesImpl parkingSpacesUsagesImpl;
+
+    public ParkingSpacesUsagesApi(ParkingSpacesUsagesImpl parkingSpacesUsagesImpl) {
+        this.parkingSpacesUsagesImpl = parkingSpacesUsagesImpl;
+    }
+    // GET
+    @GetMapping("/{id}")
+    public ResponseEntity<ParkingSpacesUsagesDto> getById(@PathVariable("id") Long id){
+        ParkingSpacesUsagesDto parkingSpacesUsagesDto = parkingSpacesUsagesImpl.getById(1L);
+        return ResponseEntity.ok(parkingSpacesUsagesDto);
+    }
+    // POST
+    @PostMapping
+    public ResponseEntity<ParkingSpacesUsagesDto> createParkingSpacesUsages(@Valid @RequestBody ParkingSpacesUsagesDto parkingSpacesUsagesDto){
+
+        return ResponseEntity.ok(parkingSpacesUsagesImpl.save(parkingSpacesUsagesDto));
+    }
+
+    // GET
+    @PutMapping("/{id}")
+    public ResponseEntity<ParkingSpacesUsagesDto> updateParkingSpacesUsages(@PathVariable("id") Long id, @Valid @RequestBody ParkingSpacesUsagesDto parkingSpacesUsagesDto){
+        return ResponseEntity.ok(parkingSpacesUsagesImpl.update(id,parkingSpacesUsagesDto));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable(value ="id",required = true) Long id ){
+        Boolean isSuccesful =  parkingSpacesUsagesImpl.delete(id);
+        return ResponseEntity.ok(isSuccesful);
+    }
+
+
+}
