@@ -1,12 +1,76 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Insert title here</title>
+
+    <link href="/login/driverLogin/css/driverLogin.css" rel="stylesheet">
+    <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-driver Login
+
+<nav class="  fixed-top ortala" id="mainNav">
+    <div class="ortala container navbar-brand">
+        <a>Self Garage</a>
+
+    </div>
+</nav>
+
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <img src="/login/driverLogin/img/driverLogo.jpg" class="brand_logo" alt="Logo">
+                </div>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+                <form>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" name="" class="form-control input_user" value="" placeholder="Kullanıcı Id veya Mail">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" name="" class="form-control input_pass" value="" placeholder="Şifre">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customControlInline">
+                            <label class="custom-control-label" for="customControlInline">Beni Hatırla</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="button" name="button" class="btn login_btn">Giriş</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Hesabınız yok mu? <a href="#" class="ml-2">Kayıt</a>
+                </div>
+                <div class="d-flex justify-content-center links">
+                    <a href="#">Şifrenizi mi unuttunuz?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </html>

@@ -39,4 +39,10 @@ public class SelfGarageContoller {
         return "ownerSignUp";
     }
 
+    @RequestMapping(value="/admin", method = RequestMethod.GET)
+    public String adminSignUp(){
+
+        return "adminLogin";
+    }
+
 }
