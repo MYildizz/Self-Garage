@@ -51,6 +51,21 @@ public class ManagerInformationImpl implements ManagerInformationService {
     }
 
     @Override
+    public Boolean userExist(String userId) {
+        return managerInformationRepository.existsManagerInformationByIdName(userId);
+    }
+
+    @Override
+    public Boolean mailExist(String e_mail) {
+        return managerInformationRepository.existsManagerInformationByIdName(e_mail);
+    }
+
+    @Override
+    public Boolean checkPassword(String password) {
+        return managerInformationRepository.existsManagerInformationByPassword(password);
+    }
+
+    @Override
     public Boolean delete(Long id) {
         managerInformationRepository.deleteById(id);
         return Boolean.TRUE;

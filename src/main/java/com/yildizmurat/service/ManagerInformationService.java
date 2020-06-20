@@ -9,4 +9,7 @@ public interface ManagerInformationService {
     ManagerInformationDto getById(Long id);
     Boolean delete(Long id);
     ManagerInformationDto update(Long id, ManagerInformationDto managerInformation);
+    Boolean userExist(String userId);
+    Boolean mailExist(String e_mail);
+    Boolean checkPassword(String password);
 }

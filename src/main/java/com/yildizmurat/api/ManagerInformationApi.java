@@ -30,6 +30,16 @@ public class ManagerInformationApi {
         return ResponseEntity.ok(managerInformationImpl.save(managerInformationDto));
     }
 
+    @RequestMapping(value="/checkManager",method = RequestMethod.POST)
+    public Boolean checkManagerInformation(@Valid @RequestBody ManagerInformationDto managerInformationDto){
+        String name= managerInformationDto.getIdName();
+        String password=managerInformationDto.getPassword();
+
+        if(( managerInformationImpl.userExist(name)|| managerInformationImpl.mailExist(name)) && managerInformationImpl.checkPassword(password) )
+            return true;
+        return false;
+    }
+
     // GET
     @PutMapping("/{id}")
     public ResponseEntity<ManagerInformationDto> updateManagerInformation(@PathVariable("id") Long id, @Valid @RequestBody ManagerInformationDto managerInformationDto){

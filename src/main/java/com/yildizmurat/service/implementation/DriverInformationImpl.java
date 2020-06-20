@@ -54,9 +54,26 @@ public class DriverInformationImpl implements DriverInformationService {
     }
 
 
+
     @Override
     public Boolean delete(Long id) {
              driverInformationRepository.deleteById(id);
         return Boolean.TRUE;
+    }
+
+    @Override
+    public Boolean userExist(String userId) {
+
+        return driverInformationRepository.existsDriverInformationByIdName(userId);
+    }
+
+    @Override
+    public Boolean mailExist(String e_mail) {
+        return driverInformationRepository.existsDriverInformationByMail(e_mail);
+    }
+
+    @Override
+    public Boolean checkPassword(String password) {
+        return driverInformationRepository.existsDriverInformationByPassword(password);
     }
 }

@@ -34,46 +34,46 @@
                 <form>
                     <div class="input-group mb-3">
 
-                        <input type="text" name="" class="form-control input_user" value="" placeholder="İsim">
+                        <input type="text" name="" class="form-control input_user" id="getName" value="" placeholder="İsim">
                     </div>
 
                     <div class="input-group mb-3">
 
-                        <input type="text" name="" class="form-control input_user" value="" placeholder="Soyisim">
+                        <input type="text" name="" class="form-control input_user" id="getSurname" value="" placeholder="Soyisim">
                     </div>
 
                     <div class="input-group mb-3">
 
-                        <input type="text" name="" class="form-control input_user" value="" placeholder="Kullanıcı id">
+                        <input type="text" name="" class="form-control input_user" id="getIdName" value="" placeholder="Kullanıcı id">
                     </div>
 
                     <div class="input-group mb-3">
 
-                        <input type="text" name="" class="form-control input_user" value="" placeholder="Mail Adresi">
+                        <input type="text" name="" class="form-control input_user" id="getMail" value="" placeholder="Mail Adresi">
                     </div>
 
                     <div class="input-group mb-3">
 
-                        <input type="text" name="" class="form-control input_user" value="" placeholder="Telefon">
+                        <input type="text" name="" class="form-control input_user" id="getPhone" value="" placeholder="Telefon">
                     </div>
 
                     <div class="input-group mb-3">
 
-                        <input type="text" name="" class="form-control input_user" value="" placeholder="Plaka">
+                        <input type="text" name="" class="form-control input_user" id="getPlaka" value="" placeholder="Plaka">
                     </div>
 
                     <div class="input-group mb-3">
 
-                        <input type="password" name="" class="form-control input_pass" value="" placeholder="Şifre">
+                        <input type="password" name="" class="form-control input_pass" id="getPassword" value="" placeholder="Şifre">
                     </div>
 
                     <div class="input-group mb-3">
 
-                        <input type="password" name="" class="form-control input_pass" value="" placeholder="Şifre Tekrar">
+                        <input type="password" name="" class="form-control input_pass" id="getPasswordAgain" value="" placeholder="Şifre Tekrar">
                     </div>
 
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="button" name="button" class="btn login_btn">Kayıt</button>
+                        <button type="button" name="button" class="btn login_btn" id="signUp">Kayıt</button>
                     </div>
                 </form>
             </div>
@@ -91,5 +91,6 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/register/driverRegister/js/driverSingup.js"></script>
 
 </html>

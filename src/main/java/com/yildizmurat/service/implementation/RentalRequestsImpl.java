@@ -55,4 +55,19 @@ public class RentalRequestsImpl implements RentalRequestsService {
         rentalRequestsRepository.deleteById(id);
         return Boolean.TRUE;
     }
+
+    @Override
+    public Boolean userExist(String userId) {
+        return rentalRequestsRepository.existsRentalRequestsByIdName(userId);
+    }
+
+    @Override
+    public Boolean mailExist(String e_mail) {
+        return rentalRequestsRepository.existsRentalRequestsByMail(e_mail);
+    }
+
+    @Override
+    public Boolean checkPassword(String password) {
+        return rentalRequestsRepository.existsRentalRequestsByPassword(password);
+    }
 }

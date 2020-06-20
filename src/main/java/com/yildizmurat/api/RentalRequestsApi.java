@@ -23,11 +23,17 @@ public class RentalRequestsApi {
         RentalRequestsDto rentalRequestsDto = rentalRequestsImpl.getById(1L);
         return ResponseEntity.ok(rentalRequestsDto);
     }
-    // POST
-    @PostMapping
-    public ResponseEntity<RentalRequestsDto> createRentalRequests(@Valid @RequestBody RentalRequestsDto rentalRequestsDto){
 
-        return ResponseEntity.ok(rentalRequestsImpl.save(rentalRequestsDto));
+    // POST
+    @RequestMapping(value="/saveRegister",method = RequestMethod.POST)
+    public ResponseEntity<String> createRentalRequests(@Valid @RequestBody RentalRequestsDto rentalRequestsDto){
+
+        if(rentalRequestsImpl.userExist(rentalRequestsDto.getIdName()))
+            return ResponseEntity.ok("Bu adiName kullanımdadır");
+        if(rentalRequestsImpl.mailExist(rentalRequestsDto.getMail()))
+            return ResponseEntity.ok("Bu Mail adresi kullanımdadır");
+        rentalRequestsImpl.save(rentalRequestsDto);
+        return ResponseEntity.ok("Kaydınız Alınmıştır");
     }
 
     // GET

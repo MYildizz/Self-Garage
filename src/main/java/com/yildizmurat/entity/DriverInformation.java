@@ -10,8 +10,6 @@ import javax.persistence.*;
 
 @Table(name="driver_information")
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class DriverInformation extends BaseUserInformation {
@@ -37,4 +35,6 @@ public class DriverInformation extends BaseUserInformation {
     public void setCarPlate(String carPlate) {
         this.carPlate = carPlate;
     }
+
+
 }

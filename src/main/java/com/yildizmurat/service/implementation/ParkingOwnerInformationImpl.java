@@ -55,4 +55,19 @@ public class ParkingOwnerInformationImpl implements ParkingOwnerInformationServi
         parkingOwnerInformationRepository.deleteById(id);
         return Boolean.TRUE;
     }
+
+    @Override
+    public Boolean userExist(String userId) {
+        return parkingOwnerInformationRepository.existsParkingOwnerInformationByIdName(userId);
+    }
+
+    @Override
+    public Boolean mailExist(String e_mail) {
+        return parkingOwnerInformationRepository.existsParkingOwnerInformationByMail(e_mail);
+    }
+
+    @Override
+    public Boolean checkPassword(String password) {
+        return parkingOwnerInformationRepository.existsParkingOwnerInformationByPassword(password);
+    }
 }

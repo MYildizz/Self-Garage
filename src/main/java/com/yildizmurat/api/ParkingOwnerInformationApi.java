@@ -2,6 +2,7 @@ package com.yildizmurat.api;
 
 
 import com.yildizmurat.dto.ParkingOwnerInformationDto;
+import com.yildizmurat.dto.ParkingOwnerInformationDto;
 import com.yildizmurat.service.implementation.ParkingOwnerInformationImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,16 @@ public class ParkingOwnerInformationApi {
     public ResponseEntity<ParkingOwnerInformationDto> createParkingOwnerInformation(@Valid @RequestBody ParkingOwnerInformationDto parkingOwnerInformationDto){
 
         return ResponseEntity.ok(parkingOwnerInformationImpl.save(parkingOwnerInformationDto));
+    }
+
+    @RequestMapping(value="/checkParkingOwner",method = RequestMethod.POST)
+    public Boolean checkParkingOwnerInformation(@Valid @RequestBody ParkingOwnerInformationDto parkingOwnerInformationDto){
+        String name= parkingOwnerInformationDto.getIdName();
+        String password=parkingOwnerInformationDto.getPassword();
+
+        if(( parkingOwnerInformationImpl.userExist(name)|| parkingOwnerInformationImpl.mailExist(name)) && parkingOwnerInformationImpl.checkPassword(password) )
+            return true;
+        return false;
     }
 
     // GET

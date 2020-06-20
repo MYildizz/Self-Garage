@@ -7,8 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
-@Getter
-@Setter
+
 @MappedSuperclass
 public abstract class BaseUserInformation implements Serializable {
 
@@ -21,8 +20,8 @@ public abstract class BaseUserInformation implements Serializable {
     @Column(name="password",length = 20)
     private String password;
     @Column(name="e_mail",length = 20)
-    private String e_mail;
-    @Column(name="phoneNumber",length = 15)
+    private String mail;
+    @Column(name="phone_number",length = 15)
     private String phoneNumber;
 
     public String getName() {
@@ -57,12 +56,12 @@ public abstract class BaseUserInformation implements Serializable {
         this.password = password;
     }
 
-    public String getE_mail() {
-        return e_mail;
+    public String getMail() {
+        return mail;
     }
 
-    public void setE_mail(String e_mail) {
-        this.e_mail = e_mail;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getPhoneNumber() {

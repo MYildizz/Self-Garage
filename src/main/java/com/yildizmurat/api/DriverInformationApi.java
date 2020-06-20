@@ -14,6 +14,7 @@ public class DriverInformationApi {
 
     private final DriverInformationImpl driverInformationImpl;
 
+
     public DriverInformationApi(DriverInformationImpl driverInformationImpl) {
         this.driverInformationImpl = driverInformationImpl;
     }
@@ -23,12 +24,31 @@ public class DriverInformationApi {
         DriverInformationDto driverInformationDto = driverInformationImpl.getById(1L);
         return ResponseEntity.ok(driverInformationDto);
     }
-    // POST
-    @PostMapping
-    public ResponseEntity<DriverInformationDto> createDriverInformation(@Valid @RequestBody DriverInformationDto driverInformationDto){
 
-        return ResponseEntity.ok(driverInformationImpl.save(driverInformationDto));
+
+    // POST
+    @RequestMapping(value="/saveDriver",method = RequestMethod.POST)
+    public ResponseEntity<String> createDriverInformation(@Valid @RequestBody DriverInformationDto driverInformationDto){
+
+        if(driverInformationImpl.userExist(driverInformationDto.getIdName()))
+            return ResponseEntity.ok("UserId zaten kullanımdadır");
+        if(driverInformationImpl.mailExist(driverInformationDto.getE_mail()))
+            return ResponseEntity.ok("Mail adresi zaten kullanımdadır");
+        driverInformationImpl.save(driverInformationDto);
+        return ResponseEntity.ok("Kayıt Başarılı");
     }
+
+    @RequestMapping(value="/checkDriver",method = RequestMethod.POST)
+    public Boolean checkDriverInformation(@Valid @RequestBody DriverInformationDto driverInformationDto){
+        String name= driverInformationDto.getIdName();
+        String password=driverInformationDto.getPassword();
+
+        if(( driverInformationImpl.userExist(name)|| driverInformationImpl.mailExist(name)) && driverInformationImpl.checkPassword(password) )
+            return true;
+        return false;
+    }
+
+
 
     // GET
     @PutMapping("/{id}")
