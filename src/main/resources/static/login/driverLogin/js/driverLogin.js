@@ -1,12 +1,13 @@
 var userId;
 var userPassword;
+var returnedData
 function checkUser(name,password){
     var userCard={
         idName:name,
         password:password
     }
 
-    var data=JSON.stringify(userCard);
+    data=JSON.stringify(userCard);
 
     $.ajax({
         type:"POST",
@@ -14,6 +15,7 @@ function checkUser(name,password){
         url:"information/driverInformationApi/checkDriver",
         data: data,
         success:function (data) {
+            returnedData=data;
             alert(data);
         },error:function (data) {
             alert(data+" Error");
@@ -22,11 +24,15 @@ function checkUser(name,password){
 }
 
 
-    $("#LoginButton").click(function () {
+    $("#LoginButton").click(function (event) {
+
         userId=$("#getId").val();
         userPassword=$("#getPassword").val();
         checkUser(userId,userPassword);
 
+        if(returnedData!=true){
+            event.preventDefault();
+        }
     });
 
 

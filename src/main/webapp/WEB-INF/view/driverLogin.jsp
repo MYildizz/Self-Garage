@@ -51,8 +51,10 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="button" name="button" class="btn login_btn" id="LoginButton" >Giriş</button>
+                        <a href="/driverPage" style="width:100%">
+                            <button  type="button" name="button" class="btn login_btn" id="LoginButton" >Giriş</button></a>
                     </div>
+
                 </form>
             </div>
 

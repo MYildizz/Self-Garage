@@ -45,4 +45,10 @@ public class SelfGarageContoller {
         return "adminLogin";
     }
 
+    @RequestMapping(value="/driverPage", method = RequestMethod.GET)
+    public String driverPage(){
+
+        return "driverPage";
+    }
+
 }
