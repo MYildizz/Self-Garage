@@ -15,6 +15,7 @@ public class DriverInformationApi {
     private final DriverInformationImpl driverInformationImpl;
 
 
+
     public DriverInformationApi(DriverInformationImpl driverInformationImpl) {
         this.driverInformationImpl = driverInformationImpl;
     }
@@ -53,14 +54,15 @@ public class DriverInformationApi {
     // GET
     @PutMapping("/{id}")
     public ResponseEntity<DriverInformationDto> updateDriverInformation(@PathVariable("id") Long id, @Valid @RequestBody DriverInformationDto driverInformationDto){
-       return ResponseEntity.ok(driverInformationImpl.update(id,driverInformationDto));
+        return ResponseEntity.ok(driverInformationImpl.update(id,driverInformationDto));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable(value ="id",required = true) Long id ){
-      Boolean isSuccesful =  driverInformationImpl.delete(id);
+        Boolean isSuccesful =  driverInformationImpl.delete(id);
         return ResponseEntity.ok(isSuccesful);
     }
+
 
 
 }

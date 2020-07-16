@@ -12,3 +12,7 @@ function initMap() {
         title: "Hello World!"
     });
 }
+var lastname = sessionStorage.getItem("userId");
+console.log(lastname);
+
+

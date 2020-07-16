@@ -24,15 +24,22 @@ function checkUser(name,password){
 }
 
 
-    $("#LoginButton").click(function (event) {
+$("#LoginButton").click(function (event) {
 
-        userId=$("#getId").val();
-        userPassword=$("#getPassword").val();
-        checkUser(userId,userPassword);
+    userId=$("#getId").val();
+    userPassword=$("#getPassword").val();
+    checkUser(userId,userPassword);
 
-        if(returnedData!=true){
-            event.preventDefault();
-        }
-    });
+    if(returnedData!=true){
+        event.preventDefault();
+    }
+    sessionStorage.setItem("userId",userId);
+});
+
+
+
+
+
+
 
 

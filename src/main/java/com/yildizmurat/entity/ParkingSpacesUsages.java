@@ -17,12 +17,12 @@ public class ParkingSpacesUsages {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name="nameID",length =20,unique = true)
-    private String nameId;
-    @Column(name="owner_id",length =20)
-    private String ownerId;
-    @Column(name="driver_id",length =20)
-    private String driverId;
+    @Column(name="driver",length =20,unique = true)
+    private String driver;
+    @Column(name="owner",length =20)
+    private String owner;
+    @Column(name="name",length =20)
+    private String name;
 
     @Column(name="entry")
     @Temporal(TemporalType.TIMESTAMP)
@@ -53,28 +53,28 @@ public class ParkingSpacesUsages {
         this.id = id;
     }
 
-    public String getNameId() {
-        return nameId;
+    public String getDriver() {
+        return driver;
     }
 
-    public void setNameId(String nameId) {
-        this.nameId = nameId;
+    public void setDriver(String driver) {
+        this.driver = driver;
     }
 
-    public String getOwnerId() {
-        return ownerId;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public String getDriverId() {
-        return driverId;
+    public String getName() {
+        return name;
     }
 
-    public void setDriverId(String driverId) {
-        this.driverId = driverId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getEntry() {

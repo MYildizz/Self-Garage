@@ -1,0 +1,21 @@
+body{
+    background-color: #383d41;
+
+
+}
+
+.backFont{
+    margin: 2%;
+    padding:2%;
+    height: 700px;
+    background-color: silver;
+    border-style: solid;
+    border-color: #c69500;
+    border-width:7px ;
+}
+
+.baslik{
+    font-style: italic;
+    border: 2px solid black;
+    text-align: center;
+}

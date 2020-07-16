@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication()
-@EntityScan(basePackages = {"com.yildizmurat.entity"})
 public class SelfGarageApplication {
 
 	public static void main(String[] args) {

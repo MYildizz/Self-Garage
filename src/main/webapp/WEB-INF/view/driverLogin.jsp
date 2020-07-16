@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <title>Insert title here</title>
 
     <link href="/login/driverLogin/css/driverLogin.css" rel="stylesheet">
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/information/parkingSpacesUsagesApi")
@@ -41,6 +42,22 @@ public class ParkingSpacesUsagesApi {
         Boolean isSuccesful =  parkingSpacesUsagesImpl.delete(id);
         return ResponseEntity.ok(isSuccesful);
     }
+    @GetMapping("/getParkingSpacesUsagesDriver/{id}")
+    public List<ParkingSpacesUsagesDto> getParkingSpacesUsagesDriver(@PathVariable("id") String id){
+        List<ParkingSpacesUsagesDto> info =parkingSpacesUsagesImpl.getByDriver(id);
+
+        return info;
+    }
+
+    @RequestMapping(value="/getParkingSpacesUsagesOwner",method = RequestMethod.GET)
+    public List<ParkingSpacesUsagesDto> getParkingSpacesUsagesOwner(@Valid @RequestBody String ownerId){
+
+        return parkingSpacesUsagesImpl.getByOwner(ownerId);
+    }
+
+
+
+
 
 
 }
