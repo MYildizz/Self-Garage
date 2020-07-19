@@ -63,4 +63,10 @@ public class SelfGarageContoller {
         return "driverCreditCard";
     }
 
+    @RequestMapping(value="/driverSettings", method = RequestMethod.GET)
+    public String driverSettings(){
+
+        return "driverSettings";
+    }
+
 }

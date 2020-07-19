@@ -59,7 +59,7 @@
         </div>
         </a>
 
-         <a href="/driverPage">
+         <a href="/driverSettings">
         <div class="btn">
             <span class="noselect">Ayarlar</span>
             <div class="circle"></div>
