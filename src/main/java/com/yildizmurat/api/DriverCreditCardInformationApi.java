@@ -24,8 +24,6 @@ public class DriverCreditCardInformationApi {
     @GetMapping("/getParkingSpacesUsagesDriver/{id}")
     public List<DriverCreditCardInformationDto> getParkingSpacesUsagesDriver(@PathVariable("id") String id){
         List<DriverCreditCardInformationDto> info =driverCreditCardInformationImpl.getDriverCreditCardInformation(id);
-        System.out.println("api "+id);
-        System.out.println(info.get(0).getCvc());
         return info;
     }
 

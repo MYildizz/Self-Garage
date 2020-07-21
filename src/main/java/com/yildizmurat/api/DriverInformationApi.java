@@ -2,11 +2,13 @@ package com.yildizmurat.api;
 
 
 import com.yildizmurat.dto.DriverInformationDto;
+import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 import com.yildizmurat.service.implementation.DriverInformationImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/information/driverInformationApi")
@@ -61,6 +63,12 @@ public class DriverInformationApi {
     public ResponseEntity<Boolean> delete(@PathVariable(value ="id",required = true) Long id ){
         Boolean isSuccesful =  driverInformationImpl.delete(id);
         return ResponseEntity.ok(isSuccesful);
+    }
+
+    @GetMapping("/getDriverInfo/{id}")
+    public DriverInformationDto getDriverInfo(@PathVariable("id") String id){
+        DriverInformationDto info =driverInformationImpl.getByIdName(id);
+        return info;
     }
 
 

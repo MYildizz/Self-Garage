@@ -53,18 +53,18 @@
         </a>
 
         <a href="/driverCreditCard">
-        <div class="btn" >
-            <span class="noselect">Ödeme Bilgileri</span>
-            <div class="circle"></div>
-        </div>
+            <div class="btn" >
+                <span class="noselect">Ödeme Bilgileri</span>
+                <div class="circle"></div>
+            </div>
         </a>
 
-         <a href="/driverSettings">
-        <div class="btn">
-            <span class="noselect">Ayarlar</span>
-            <div class="circle"></div>
-        </div>
-         </a>
+        <a href="/driverSettings">
+            <div class="btn">
+                <span class="noselect">Ayarlar</span>
+                <div class="circle"></div>
+            </div>
+        </a>
     </div>
 
 

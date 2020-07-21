@@ -1,12 +1,17 @@
 package com.yildizmurat.service.implementation;
 
+import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 import com.yildizmurat.entity.DriverInformation;
 
+import com.yildizmurat.entity.ParkingSpacesUsages;
 import com.yildizmurat.repository.DriverInformationRepository;
 import com.yildizmurat.service.DriverInformationService;
 import com.yildizmurat.dto.DriverInformationDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 
@@ -75,5 +80,17 @@ public class DriverInformationImpl implements DriverInformationService {
     @Override
     public Boolean checkPassword(String password) {
         return driverInformationRepository.existsDriverInformationByPassword(password);
+    }
+
+    @Override
+    public DriverInformationDto getByIdName(String IdName) {
+
+        DriverInformation driverInformation=driverInformationRepository.getByIdName(IdName);
+
+        if(driverInformation==null)
+            return null;
+        else
+            return modelMapper.map(driverInformation, DriverInformationDto.class);
+
     }
 }

@@ -11,13 +11,54 @@ function closeNav() {
 function profile(){
     $("#cardInformation").hide();
     $("#driverUsages").hide();
+    $("#reportError").hide();
+    $("#exit").hide();
     $("#profile").show();
+
+    var name;
+    var surname;
+    var idName;
+    var mail;
+    var phoneNumber;
+    var carPlate;
+
+    var driverName=sessionStorage.getItem("userId")
+
+    var userInfo={
+        name:null,
+        surname:null,
+        idName:null,
+        mail:null,
+        phoneNumber:null,
+        carPlate:null,
+    }
+    data=JSON.stringify(userInfo);
+
+    $.ajax({
+        type:"GET",
+        contentType: 'application/json; charset=UTF-8',
+        url:"/information/driverInformationApi/getDriverInfo/"+driverName,
+        success:function (data) {
+
+            $("#nameSurname").text((data.name+" "+data.surname));
+            $("#idName").text((data.idName+" "));
+            $("#mail").text((data.mail+" "));
+            $("#phoneNumber").text((data.phoneNumber+" "));
+            $("#carPlate").text((data.carPlate+" "));
+
+        },error:function (data) {
+            alert(data+" Error");
+        }
+    })
+
 }
 
 function parkingUsages(){
 
     $("#cardInformation").hide();
     $("#profile").hide();
+    $("#reportError").hide();
+    $("#exit").hide();
     $("#driverUsages").show();
 
     var userId;
@@ -78,6 +119,8 @@ function parkingUsages(){
 function cardInformation(){
     $("#driverUsages").hide();
     $("#profile").hide();
+    $("#reportError").hide();
+    $("#exit").hide();
     $("#cardInformation").show();
 
     var name;
@@ -126,10 +169,22 @@ function cardInformation(){
 }
 
 function reportError(){
-    
+    $("#driverUsages").hide();
+    $("#profile").hide();
+    $("#cardInformation").hide();
+    $("#exit").hide();
+    $("#reportError").show();
 }
 
 function exit() {
+    $("#driverUsages").hide();
+    $("#profile").hide();
+    $("#cardInformation").hide();
+    $("#reportError").hide();
+    $("#exit").show();
+
+    sessionStorage.removeItem("idName");
+    alert("Çıkış Yapılıyor");
 
 }
 
