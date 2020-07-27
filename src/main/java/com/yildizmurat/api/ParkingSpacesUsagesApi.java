@@ -49,15 +49,10 @@ public class ParkingSpacesUsagesApi {
         return info;
     }
 
-    @RequestMapping(value="/getParkingSpacesUsagesOwner",method = RequestMethod.GET)
-    public List<ParkingSpacesUsagesDto> getParkingSpacesUsagesOwner(@Valid @RequestBody String ownerId){
+    @GetMapping("/getParkingSpacesUsagesOwner/{ownerId}")
+    public List<ParkingSpacesUsagesDto> getParkingSpacesUsagesOwner(@PathVariable("ownerId") String ownerId){
 
         return parkingSpacesUsagesImpl.getByOwner(ownerId);
     }
-
-
-
-
-
 
 }

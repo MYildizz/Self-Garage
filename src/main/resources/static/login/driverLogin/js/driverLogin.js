@@ -1,6 +1,6 @@
 var userId;
 var userPassword;
-var returnedData
+var returnedData;
 function checkUser(name,password){
     var userCard={
         idName:name,
@@ -33,6 +33,7 @@ $("#LoginButton").click(function (event) {
     if(returnedData!=true){
         event.preventDefault();
     }
+
     sessionStorage.setItem("userId",userId);
 });
 

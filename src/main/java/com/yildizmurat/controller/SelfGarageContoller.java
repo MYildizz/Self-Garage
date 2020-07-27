@@ -69,4 +69,10 @@ public class SelfGarageContoller {
         return "driverSettings";
     }
 
+    @RequestMapping(value="/ownerPage", method = RequestMethod.GET)
+    public String ownerPage(){
+
+        return "ownerPage";
+    }
+
 }
