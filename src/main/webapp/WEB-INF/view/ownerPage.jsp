@@ -3,20 +3,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Markers</title>
-    <title>Simple Markers</title>
+    <title>Park Alanları</title>
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
     <link href="/promotion/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.structure.css" rel="stylesheet" type="text/css">
+    <link href="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/ownerPage/css/ownerPage.css" />
-
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="/promotion/vendor/jquery/jquery.min.js"></script>
+    <script src="/promotion/vendor/jquery/jquery.js"></script>
+    <script src="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://rawgit.com/tempusdominus/bootstrap-4/master/build/js/tempusdominus-bootstrap-4.js"></script>
+    <link href="https://rawgit.com/tempusdominus/bootstrap-4/master/build/css/tempusdominus-bootstrap-4.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+
 </head>
 <body>
 
@@ -52,10 +62,10 @@
     <div id="parkPage" class="shadow-lg p-3 mb-5 bg-white rounded backFont">
 
         <div class="verticalLine" id="verticalLine">
-            <a id="Timer"><button id="setTime" type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">Tarih Ayarla</button></a>
+            <a id="Timer"><button id="setTime" type="button" class="btn " data-toggle="modal" data-target="#exampleModalCenter">Tarih Ayarla</button></a>
             <a><h id="pLogo">P</h></a>
-            <a id="parkButtonClose"><button id="closeButton" type="button" class="btn btn-secondary btn-lg">Kullanıma Kapat</button></a>
-            <a id="parkButtonOpen"><button id="openButton" type="button" class="btn btn-secondary btn-lg">Kullanıma Aç</button></a>
+            <a id="parkButtonClose"><button id="closeButton" type="button" class="btn btn-outline-warning">Kullanıma Kapat</button></a>
+            <a id="parkButtonOpen"><button id="openButton" type="button" class="btn btn-outline-warning">&nbsp Kullanıma Aç &nbsp  </button></a>
 
         </div>
 
@@ -65,17 +75,39 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Lütfen Belirlediğiniz Tarih Aralıklarınızı Giriniz</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            ...
+                        <div class="modal-body" >
+                            <div class="container">
+                                <div class='col-md-5' style="width: 90%">
+                                    <div class="form-group">
+                                        <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7"/>
+                                            <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='col-md-5' style="width: 90%">
+                                    <div class="form-group">
+                                        <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8"/>
+                                            <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                            <button type="button" class="btn btn-primary">Kaydet</button>
                         </div>
                     </div>
                 </div>
