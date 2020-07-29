@@ -7,7 +7,8 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-
+var ownerName=sessionStorage.getItem("owner");
+var parkStatus;
 function parkingUsages(){
 
     $("#cardInformation").hide();
@@ -69,16 +70,158 @@ function parkingUsages(){
 
 }
 
+function getParkAreas(Id){
+
+    var nameId;
+    var ownerId;
+    var latitude;
+    var longitude;
+    var parkStatus;
+    var district;
+    var province;
+    var address;
+
+    var parkArea={
+        nameId:null,
+        ownerId:ownerId,
+        latitude:null,
+        longitude:null,
+        parkStatus:null,
+        district:null,
+        province:null,
+        address:null
+    }
+
+    data=JSON.stringify(parkArea);
+
+    $.ajax({
+        type:"GET",
+        contentType: 'application/json; charset=UTF-8',
+        url:"/information/parkingSpacesApi/getAllByOwnerId/"+Id,
+        success:function (data) {
+            if(data[0].parkStatus=="CLOSED"){
+                $("#parkButtonClose").hide();
+                $("#parkButtonOpen").show();
+                $("#verticalLine").css("background-color","#6c757d");
+            }
+            else if(data[0].parkStatus=="OPEN"){
+                $("#parkButtonOpen").hide();
+                $("#parkButtonClose").show();
+                $("#verticalLine").css("background-color","#007bff");
+            }
+            else if(data[0].parkStatus=="BUSY"){
+                $("#parkButtonOpen").hide();
+                $("#parkButtonClose").show();
+                $("#verticalLine").css("background-color","red");
+            }
+
+
+
+
+
+        },error:function (data) {
+            alert(data+" Error");
+        }
+    })
+}
+
+
+function getOwnerInfo(ownerName){
+
+    var name;
+    var surname;
+    var idName;
+    var mail;
+    var phoneNumber;
+    var ibanNumber;
+
+
+    var userInfo={
+        name:null,
+        surname:null,
+        idName:null,
+        mail:null,
+        phoneNumber:null,
+        ibanNumber:null,
+    }
+    data=JSON.stringify(userInfo);
+
+    $.ajax({
+        type:"GET",
+        contentType: 'application/json; charset=UTF-8',
+        url:"/information/parkingOwnerInformationApi/getOwnerInfo/"+ownerName,
+        success:function (data) {
+
+            $("#nameSurname").text((data.name+" "+data.surname));
+            $("#idName").text((data.idName+" "));
+            $("#mail").text((data.mail+" "));
+            $("#phoneNumber").text((data.phoneNumber+" "));
+            $("#carPlate").text((data.ibanNumber+" "));
+
+        },error:function (data) {
+            alert(data+" Error");
+        }
+    })
+}
+
+function parkInfo(){
+    $("#profile").hide();
+    $("#parkInfo").show();
+
+    parkingUsages();
+    getParkAreas(ownerName);
+
+
+
+}
+
+function profile(){
+
+    $("#parkInfo").hide();
+    $("#profile").show();
+
+    getOwnerInfo(ownerName);
+
+}
+
+
+function changeParkStatus(parkId,parkStatus){
+
+    data=JSON.stringify(parkStatus);
+
+    $.ajax({
+        type:"PUT",
+        contentType: 'application/json; charset=UTF-8',
+        url:"/information/parkingSpacesApi/updateByParkId/"+parkId,
+        data: data,
+        success:function (data) {
+
+        },error:function (data) {
+            alert(data+" Error");
+        }
+    })
+}
+
+
+
+
 $("#closeButton").click(function (event) {
     $("#parkButtonClose").hide();
     $("#parkButtonOpen").show();
     $("#verticalLine").css("background-color","#6c757d");
+
+    changeParkStatus("park1","CLOSED");
+
 });
 
 $("#openButton").click(function (event) {
     $("#parkButtonOpen").hide();
     $("#parkButtonClose").show();
     $("#verticalLine").css("background-color","#007bff");
+
+    changeParkStatus("park1","OPEN");
+
+
 });
 
 $(function () {
@@ -94,4 +237,4 @@ $(function () {
     });
 });
 
-window.onload = parkingUsages();
+window.onload = parkInfo();

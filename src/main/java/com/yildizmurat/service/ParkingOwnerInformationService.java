@@ -2,6 +2,7 @@ package com.yildizmurat.service;
 
 import com.yildizmurat.dto.DriverInformationDto;
 import com.yildizmurat.dto.ParkingOwnerInformationDto;
+import com.yildizmurat.entity.ParkingOwnerInformation;
 
 public interface ParkingOwnerInformationService {
 
@@ -12,4 +13,5 @@ public interface ParkingOwnerInformationService {
     Boolean userExist(String userId);
     Boolean mailExist(String e_mail);
     Boolean checkPassword(String password);
+    ParkingOwnerInformationDto getByIdName(String IdName);
 }

@@ -16,6 +16,7 @@ public class ParkingOwnerInformationDto {
     private String mail;
     private String phoneNumber;
     private String password;
+    private String ibanNumber;
 
     public Long getId() {
         return id;
@@ -71,5 +72,21 @@ public class ParkingOwnerInformationDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getIbanNumber() {
+        return ibanNumber;
+    }
+
+    public void setIbanNumber(String ibanNumber) {
+        this.ibanNumber = ibanNumber;
     }
 }

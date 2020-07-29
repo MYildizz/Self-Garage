@@ -1,6 +1,9 @@
 package com.yildizmurat.service.implementation;
 
 import com.yildizmurat.dto.ParkingSpacesDto;
+import com.yildizmurat.dto.ParkingSpacesDto;
+import com.yildizmurat.entity.ParkStatus;
+import com.yildizmurat.entity.ParkingSpaces;
 import com.yildizmurat.entity.ParkingSpaces;
 import com.yildizmurat.entity.ParkingSpaces;
 import com.yildizmurat.repository.ParkingSpacesRepository;
@@ -8,6 +11,9 @@ import com.yildizmurat.service.ParkingSpacesService;
 import com.yildizmurat.dto.ParkingSpacesDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class ParkingSpacesImpl implements ParkingSpacesService {
@@ -49,10 +55,42 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
 
     }
 
-
     @Override
     public Boolean delete(Long id) {
         parkingSpacesRepository.deleteById(id);
         return Boolean.TRUE;
+    }
+
+    @Override
+    public Boolean updateByParkId(String parkId, ParkStatus parkStatus) {
+
+        ParkingSpaces parkingSpaces = parkingSpacesRepository.getByIdName(parkId);
+
+        if (parkingSpaces == null)
+            throw new IllegalArgumentException("Park area not exists " + parkId);
+
+        parkingSpaces.setParkStatus(parkStatus);
+        parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
+
+        ParkingSpaces checkState= parkingSpacesRepository.getByIdName(parkId);
+        System.out.println(checkState.getParkStatus());
+
+
+        if(checkState.getParkStatus()==parkStatus)
+            return true;
+        return false;
+
+    }
+
+    @Override
+    public List<ParkingSpacesDto> getAllByIdOwner(String IdOwner) {
+
+        List<ParkingSpaces> parkingSpaces=parkingSpacesRepository.getAllByIdOwner(IdOwner);
+        System.out.println("service : "+IdOwner);
+        System.out.println("service : "+parkingSpaces.get(0).getLatitude());
+        if(parkingSpaces.isEmpty())
+            return null;
+        else
+            return Arrays.asList(modelMapper.map(parkingSpaces, ParkingSpacesDto[].class));
     }
 }

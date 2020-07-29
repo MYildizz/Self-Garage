@@ -1,6 +1,7 @@
 package com.yildizmurat.api;
 
 
+import com.yildizmurat.dto.DriverInformationDto;
 import com.yildizmurat.dto.ParkingOwnerInformationDto;
 import com.yildizmurat.dto.ParkingOwnerInformationDto;
 import com.yildizmurat.service.implementation.ParkingOwnerInformationImpl;
@@ -51,6 +52,13 @@ public class ParkingOwnerInformationApi {
     public ResponseEntity<Boolean> delete(@PathVariable(value ="id",required = true) Long id ){
         Boolean isSuccesful =  parkingOwnerInformationImpl.delete(id);
         return ResponseEntity.ok(isSuccesful);
+    }
+
+    @GetMapping("/getOwnerInfo/{id}")
+    public ParkingOwnerInformationDto getOwnerInfo(@PathVariable("id") String id){
+        ParkingOwnerInformationDto info =parkingOwnerInformationImpl.getByIdName(id);
+        System.out.println("api katmanı :" +info.getIdName());
+        return info;
     }
 
 

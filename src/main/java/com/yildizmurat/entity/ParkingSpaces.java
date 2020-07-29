@@ -16,9 +16,9 @@ public class ParkingSpaces {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name="nameID",length =20,unique = true)
-    private String nameId;
+    private String idName;
     @Column(name="owner_id",length =20)
-    private String ownerId;
+    private String idOwner;
     @Column(name="latitude",length =50)
     private String latitude;
     @Column(name="longitude",length =50)
@@ -41,20 +41,20 @@ public class ParkingSpaces {
         this.id = id;
     }
 
-    public String getNameId() {
-        return nameId;
+    public String getIdName() {
+        return idName;
     }
 
-    public void setNameId(String nameId) {
-        this.nameId = nameId;
+    public void setIdName(String idName) {
+        this.idName = idName;
     }
 
-    public String getOwnerId() {
-        return ownerId;
+    public String getIdOwner() {
+        return idOwner;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    public void setIdOwner(String idOwner) {
+        this.idOwner = idOwner;
     }
 
     public String getLatitude() {

@@ -76,10 +76,6 @@
     </div>
 
 
-
-
-
-
     <div id="driverUsages" class="shadow-lg p-3 mb-5 bg-white rounded backFont">
 
         <div> <h5 class="baslik"> Önceki Kullanımlarınız </h5></div>

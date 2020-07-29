@@ -4,6 +4,12 @@ import com.yildizmurat.entity.ParkingSpaces;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ParkingSpacesRepository extends JpaRepository<ParkingSpaces,Long> {
+
+    ParkingSpaces getByIdName(String IdName);
+    List<ParkingSpaces> getAllByIdOwner(String IdOwner);
+
 }

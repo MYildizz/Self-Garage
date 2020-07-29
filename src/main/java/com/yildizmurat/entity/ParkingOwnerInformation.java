@@ -16,6 +16,9 @@ public class ParkingOwnerInformation extends BaseUserInformation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name="ibanNumber",length = 50,unique = true)
+    private String ibanNumber;
+
     public Long getId() {
         return id;
     }

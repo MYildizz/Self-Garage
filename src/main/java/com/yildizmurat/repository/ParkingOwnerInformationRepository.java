@@ -1,5 +1,6 @@
 package com.yildizmurat.repository;
 
+import com.yildizmurat.entity.DriverInformation;
 import com.yildizmurat.entity.ParkingOwnerInformation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -10,4 +11,7 @@ public interface ParkingOwnerInformationRepository extends JpaRepository<Parking
     Boolean  existsParkingOwnerInformationByIdName(String idName);
     Boolean existsParkingOwnerInformationByMail(String email);
     Boolean existsParkingOwnerInformationByPassword(String password);
+
+    ParkingOwnerInformation getByIdName(String IdName);
+
 }

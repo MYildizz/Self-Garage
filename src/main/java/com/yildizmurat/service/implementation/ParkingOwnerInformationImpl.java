@@ -1,6 +1,8 @@
 package com.yildizmurat.service.implementation;
 
+import com.yildizmurat.dto.DriverInformationDto;
 import com.yildizmurat.dto.ParkingOwnerInformationDto;
+import com.yildizmurat.entity.DriverInformation;
 import com.yildizmurat.entity.ParkingOwnerInformation;
 import com.yildizmurat.entity.ParkingOwnerInformation;
 import com.yildizmurat.repository.ParkingOwnerInformationRepository;
@@ -69,5 +71,19 @@ public class ParkingOwnerInformationImpl implements ParkingOwnerInformationServi
     @Override
     public Boolean checkPassword(String password) {
         return parkingOwnerInformationRepository.existsParkingOwnerInformationByPassword(password);
+    }
+
+    @Override
+    public ParkingOwnerInformationDto getByIdName(String IdName) {
+
+        ParkingOwnerInformation parkingOwnerInformation=parkingOwnerInformationRepository.getByIdName(IdName);
+
+        System.out.println(parkingOwnerInformation.getIdName());
+
+
+        if(parkingOwnerInformation==null)
+            return null;
+        else
+            return modelMapper.map(parkingOwnerInformation, ParkingOwnerInformationDto.class);
     }
 }
