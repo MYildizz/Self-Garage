@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Markers</title>
+    <title>Driver Page</title>
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="/promotion/css/agency.min.css" rel="stylesheet">
     <link href="/promotion/css/agency.css" rel="stylesheet">

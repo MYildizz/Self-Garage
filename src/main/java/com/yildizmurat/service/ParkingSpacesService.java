@@ -17,4 +17,5 @@ public interface ParkingSpacesService {
     Boolean delete(Long id);
     Boolean updateByParkId(String parkId, ParkStatus parkStatus);
     List<ParkingSpacesDto> getAllByIdOwner(String IdOwner);
+    List<ParkingSpacesDto> getAllByParkStatusOpen();
 }

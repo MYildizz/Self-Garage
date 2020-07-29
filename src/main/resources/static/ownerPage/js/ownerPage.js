@@ -107,7 +107,7 @@ function getParkAreas(Id){
             else if(data[0].parkStatus=="OPEN"){
                 $("#parkButtonOpen").hide();
                 $("#parkButtonClose").show();
-                $("#verticalLine").css("background-color","#007bff");
+                $("#verticalLine").css("background-color","#1e7e34");
             }
             else if(data[0].parkStatus=="BUSY"){
                 $("#parkButtonOpen").hide();
@@ -217,7 +217,7 @@ $("#closeButton").click(function (event) {
 $("#openButton").click(function (event) {
     $("#parkButtonOpen").hide();
     $("#parkButtonClose").show();
-    $("#verticalLine").css("background-color","#007bff");
+    $("#verticalLine").css("background-color","#1e7e34");
 
     changeParkStatus("park1","OPEN");
 

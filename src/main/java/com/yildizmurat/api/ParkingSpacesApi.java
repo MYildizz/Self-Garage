@@ -60,6 +60,17 @@ public class ParkingSpacesApi {
         return parkingSpacesDto;
     }
 
+    @GetMapping("getAllByParkStatusOpen")
+    public List<ParkingSpacesDto> getAllByParkStatusOpen(){
+        List<ParkingSpacesDto> parkingSpacesDto = parkingSpacesImpl.getAllByParkStatusOpen();
+        System.out.println(parkingSpacesDto);
+        if(parkingSpacesDto==null)
+            return null;
+
+        return parkingSpacesDto;
+    }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable(value ="id",required = true) Long id ){
