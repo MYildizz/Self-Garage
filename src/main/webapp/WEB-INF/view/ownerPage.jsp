@@ -109,7 +109,7 @@
                             <div class="modal-footer">
 
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
-                                <button type="button" class="btn btn-primary">Kaydet</button>
+                                <button type="button" class="btn btn-primary" id="saveTime">Kaydet</button>
                             </div>
                         </div>
                     </div>

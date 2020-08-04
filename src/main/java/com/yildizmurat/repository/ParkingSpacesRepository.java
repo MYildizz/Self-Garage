@@ -14,4 +14,5 @@ public interface ParkingSpacesRepository extends JpaRepository<ParkingSpaces,Lon
     List<ParkingSpaces> getAllByIdOwner(String IdOwner);
     List<ParkingSpaces> getAllByParkStatus(ParkStatus ParkStatus);
 
+
 }

@@ -237,4 +237,67 @@ $(function () {
     });
 });
 
+
+$("#saveTime").click(function (event){
+    var firstDate=$('#datetimepicker7').find("input").val();
+    var secondDate=$('#datetimepicker8').find("input").val();
+
+    var firstMonth= firstDate.substring(0, 2);
+    var firstDay= firstDate.substring(3, 5);
+    var firstYear= firstDate.substring(6, 10);
+    var firstHour=firstDate.substring(11, 13);
+    var firstMinute=firstDate.substring(13, 16);
+
+    firstHour.split(":").pop();
+    firstMinute.split(":").pop();
+    firstMinute.split(" ").pop();
+
+
+    if(firstDate.includes("PM")){
+        firstHour=parseInt(firstHour,10)+12;
+
+    }
+
+    if(firstMinute.includes(":")){
+        firstMinute= firstMinute.substring(1,3);
+    }
+    else{
+        firstMinute= firstMinute.substring(0,2);
+    }
+
+    var firstDate= firstYear+"-"+firstMonth+"-"+firstDay+" "+firstHour+":"+firstMinute+":00";
+
+    alert(firstDate);
+
+    var secondMonth= secondDate.substring(0, 2);
+    var secondDay= secondDate.substring(3, 5);
+    var secondYear= secondDate.substring(6, 10);
+    var secondHour=secondDate.substring(11, 13);
+    var secondMinute=secondDate.substring(13, 16);
+
+    secondHour.split(":").pop();
+    secondMinute.split(":").pop();
+    secondMinute.split(" ").pop();
+
+
+    if(secondDate.includes("PM")){
+        secondHour=parseInt(secondHour,10)+12;
+
+    }
+
+    if(secondMinute.includes(":")){
+        secondMinute= secondMinute.substring(1,3);
+    }
+    else{
+        secondMinute= secondMinute.substring(0,2);
+    }
+
+    var secondDate= secondYear+"-"+secondMonth+"-"+secondDay+" "+secondHour+":"+secondMinute+":00";
+
+    alert(secondDate);
+
+
+
+});
+
 window.onload = parkInfo();
