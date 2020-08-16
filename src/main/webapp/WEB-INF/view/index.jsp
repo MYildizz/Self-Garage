@@ -199,23 +199,6 @@
             <img class="mx-auto rounded-circle" src="/promotion/img/team/1.jpg" alt="">
             <h4>Murat Yıldız</h4>
             <p class="text-muted">Yazılım Geiştirici</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
         <div class="col-sm-4">
@@ -223,47 +206,37 @@
             <img class="mx-auto rounded-circle" src="/promotion/img/team/2.jpg" alt="">
             <h4>Büşra Çaldıran</h4>
             <p class="text-muted">Tasarımcı</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="/promotion/img/team/3.jpg" alt="">
+            <h4>Abdulkadir Yaldız</h4>
+            <p class="text-muted">Mekanikci</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="/promotion/img/team/2.jpg" alt="">
+            <h4> Yunus Emre Mavi</h4>
+            <p class="text-muted">Elektronikci</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="/promotion/img/team/2.jpg" alt="">
+            <h4>Abdurrahman Kocağa </h4>
+            <p class="text-muted">İş Geliştirici</p>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="/promotion/img/team/3.jpg" alt="">
-            <h4>Abdulkadir Yaldız</h4>
+            <h4>Beyza Öztürk </h4>
             <p class="text-muted">İş Geliştirici</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>

@@ -9,6 +9,9 @@ function closeNav() {
 
 var ownerName=sessionStorage.getItem("owner");
 var parkStatus;
+var parkCloseList=[];
+var parkOpenList=[];
+var parkSize;
 function parkingUsages(){
 
     $("#cardInformation").hide();
@@ -99,25 +102,33 @@ function getParkAreas(Id){
         contentType: 'application/json; charset=UTF-8',
         url:"/information/parkingSpacesApi/getAllByOwnerId/"+Id,
         success:function (data) {
-            if(data[0].parkStatus=="CLOSED"){
-                $("#parkButtonClose").hide();
-                $("#parkButtonOpen").show();
-                $("#verticalLine").css("background-color","#6c757d");
+            var sizeTemp=data.length;
+            parkSize=sizeTemp;
+            sessionStorage.setItem("size",sizeTemp);
+
+            var i;
+            for(i=0;i<sizeTemp;i++){
+                var parkButtonClose="#parkButtonClose"+i;
+                var parkButtonOpen="#parkButtonOpen"+i;
+                var verticalLine="#verticalLine"+i;
+
+
+                if(data[i].parkStatus=="CLOSED"){
+                    $(parkButtonClose).hide();
+                    $(parkButtonOpen).show();
+                    $(verticalLine).css("background-color","#6c757d");
+                }
+                else if(data[i].parkStatus=="OPEN"){
+                    $(parkButtonOpen).hide();
+                    $(parkButtonClose).show();
+                    $(verticalLine).css("background-color","#1e7e34");
+                }
+                else if(data[i].parkStatus=="BUSY"){
+                    $(parkButtonOpen).hide();
+                    $(parkButtonClose).show();
+                    $(verticalLine).css("background-color","red");
+                }
             }
-            else if(data[0].parkStatus=="OPEN"){
-                $("#parkButtonOpen").hide();
-                $("#parkButtonClose").show();
-                $("#verticalLine").css("background-color","#1e7e34");
-            }
-            else if(data[0].parkStatus=="BUSY"){
-                $("#parkButtonOpen").hide();
-                $("#parkButtonClose").show();
-                $("#verticalLine").css("background-color","red");
-            }
-
-
-
-
 
         },error:function (data) {
             alert(data+" Error");
@@ -168,8 +179,9 @@ function parkInfo(){
     $("#profile").hide();
     $("#parkInfo").show();
 
-    parkingUsages();
     getParkAreas(ownerName);
+    parkingUsages();
+
 
 
 
@@ -202,27 +214,31 @@ function changeParkStatus(parkId,parkStatus){
     })
 }
 
+function closeButtons(buttonId){
+    var tempNumber=parseInt(buttonId.charAt(11))+1;
+    var parkId="park"+tempNumber;
+    var parkButtonClose="#park"+buttonId;
+    var parkButtonOpen="#parkButtonOpen"+buttonId.charAt(11);
+    var verticalLine="#verticalLine"+buttonId.charAt(11);
+    $(parkButtonClose).hide();
+    $(parkButtonOpen).show();
+    $(verticalLine).css("background-color","#6c757d");
+    changeParkStatus(parkId,"CLOSED");
+
+}
 
 
-
-$("#closeButton").click(function (event) {
-    $("#parkButtonClose").hide();
-    $("#parkButtonOpen").show();
-    $("#verticalLine").css("background-color","#6c757d");
-
-    changeParkStatus("park1","CLOSED");
-
-});
-
-$("#openButton").click(function (event) {
-    $("#parkButtonOpen").hide();
-    $("#parkButtonClose").show();
-    $("#verticalLine").css("background-color","#1e7e34");
-
-    changeParkStatus("park1","OPEN");
-
-
-});
+function openButtons(buttonId){
+    var tempNumber=parseInt(buttonId.charAt(10))+1;
+    var parkId="park"+tempNumber;
+    var parkButtonClose="#parkButtonClose"+buttonId.charAt(10);
+    var parkButtonOpen="#park"+buttonId;
+    var verticalLine="#verticalLine"+buttonId.charAt(10);
+    $(parkButtonOpen).hide();
+    $(parkButtonClose).show();
+    $(verticalLine).css("background-color","#1e7e34");
+    changeParkStatus(parkId,"OPEN");
+}
 
 $(function () {
     $('#datetimepicker7').datetimepicker();
@@ -236,6 +252,8 @@ $(function () {
         $('#datetimepicker7').datetimepicker('maxDate', e.date);
     });
 });
+
+
 
 
 $("#saveTime").click(function (event){

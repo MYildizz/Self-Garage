@@ -129,15 +129,21 @@
     border-left: 4px solid black;
     border-right: 4px solid black;
     background-color: #1e7e34;
-    height: 100%;
-    width: 15%;
-    left: 40%;
     position: relative;
+    width: 15%;
+    left: 33%;
+    margin-right: 5%;
+    height: 100%;
     top: 0;
     padding-top: 0px;
+    float: left;
+}
+#parkSpaces{
+    position: relative;
+    height: 100%;
 }
 
-#pLogo{
+.pLogo{
     position: relative;
     top:20%;
     font-size: 60px;
@@ -146,7 +152,7 @@
     color: #c69500;
 }
 
-#parkButtonClose{
+.parkButtonClose{
     position: relative;
     top:50%;
     height: 10%;
@@ -154,12 +160,12 @@
     left: 20%;
 }
 
-#closeButton{
+.closeButton{
 
     font-size: 80%;
 }
 
-#parkButtonOpen{
+.parkButtonOpen{
     position: relative;
     top:50%;
     height: 10%;
@@ -167,12 +173,12 @@
     left: 20%;
 }
 
-#openButton{
+.openButton{
     font-size: 80%;
 }
 
 
-#Timer{
+.Timer{
     position: relative;
     background-color:#c69500;
     height: 10%;
@@ -182,7 +188,7 @@
     border-color: #c69500;
 }
 
-#setTime{
+.setTime{
     background-color: #c69500;
     font-size: 70%;
 }

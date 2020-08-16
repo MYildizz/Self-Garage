@@ -30,22 +30,32 @@ function initMap() {
         url:"/information/parkingSpacesApi/getAllByParkStatusOpen",
         success:function (data) {
 
-           long=  data[0].longitude;
-          lat=data[0].latitude;
 
 
-            var map = new google.maps.Map(document.getElementById("map"), {
+            if(data.length!=0){
+                long=  data[0].longitude;
+                lat=data[0].latitude;
+
+                var map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 15,
                 center: new google.maps.LatLng(lat, long)
-            });
+                });
 
-            var i;
+                var i;
 
-            for(i=0;i<data.length;i++){
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
-                    map: map,
-                    title: "Hello World!"
+
+                for(i=0;i<data.length;i++){
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
+                        map: map,
+                        title: "Hello World!"
+                    });
+                }
+            }
+            else{
+                var map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 8,
+                    center: new google.maps.LatLng(39.925054,32.8369439)
                 });
             }
 

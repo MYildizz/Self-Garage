@@ -63,13 +63,18 @@
         <div> <h5 class="baslik"> Park Alanlarınız </h5></div>
         <div id="parkPage" class="shadow-lg p-3 mb-5 bg-white rounded backFont">
 
-            <div class="verticalLine" id="verticalLine">
-                <a id="Timer"><button id="setTime" type="button" class="btn " data-toggle="modal" data-target="#exampleModalCenter">Tarih Ayarla</button></a>
-                <a><h id="pLogo">P</h></a>
-                <a id="parkButtonClose"><button id="closeButton" type="button" class="btn btn-outline-warning">Kullanıma Kapat</button></a>
-                <a id="parkButtonOpen"><button id="openButton" type="button" class="btn btn-outline-warning">&nbsp Kullanıma Aç &nbsp  </button></a>
+            <div id="parkSpaces">
+
 
             </div>
+            <!--
+                <div class="verticalLine" id="verticalLine">
+                    <a id="Timer"><button id="setTime" type="button" class="btn " data-toggle="modal" data-target="#exampleModalCenter">Tarih Ayarla</button></a>
+                    <a><h id="pLogo">P</h></a>
+                    <a id="parkButtonClose"><button id="closeButton" type="button" class="btn btn-outline-warning">Kullanıma Kapat</button></a>
+                    <a id="parkButtonOpen"><button id="openButton" type="button" class="btn btn-outline-warning">&nbsp Kullanıma Aç &nbsp  </button></a>
+                </div>
+-->
 
             <div>
                 <!-- Modal -->
@@ -181,8 +186,25 @@
 
 </div>
 
+<script>
 
+    var size=sessionStorage.getItem("size");
+    var i;
+    var parkArea="";
+for(i=0;i<size;i++){
+    var number=i;
+    parkArea+= '<div class="verticalLine" id="verticalLine'+i+ '">'
+    parkArea+=' <a class="Timer" id="Timer'+i+ '"><button id="setTime'+i+ '" type="button" class="btn setTime" data-toggle="modal" data-target="#exampleModalCenter">Tarih Ayarla</button></a>'
+    parkArea+=' <a><h class="pLogo" id="pLogo'+i+ '">P</h></a>'
+    parkArea+=' <a class="parkButtonClose" id="parkButtonClose'+i+ '"><button id="ButtonClose'+i+ '" type="button" class="btn btn-outline-warning closeButton " onclick="closeButtons(this.id)" >Kullanıma Kapat</button></a>'
+    parkArea+=' <a class="parkButtonOpen" id="parkButtonOpen'+i+ '"><button id="ButtonOpen'+i+ '" type="button" class="btn btn-outline-warning openButton" onclick="openButtons(this.id)">&nbsp Kullanıma Aç &nbsp  </button></a>'
+    parkArea+=' </div>'
+    parkArea+="";
 
+}
+    document.getElementById("parkSpaces").innerHTML = parkArea;
+
+</script>
 <script src="/promotion/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/ownerPage/js/ownerPage.js"></script>
 </body>
