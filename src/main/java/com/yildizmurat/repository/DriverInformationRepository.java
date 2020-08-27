@@ -15,5 +15,4 @@ public interface DriverInformationRepository extends JpaRepository<DriverInforma
   Boolean existsDriverInformationByPassword(String password);
   DriverInformation getByIdName(String IdName);
 
-
 }

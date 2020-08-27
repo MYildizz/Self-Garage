@@ -146,7 +146,6 @@ function getOwnerInfo(ownerName){
     var phoneNumber;
     var ibanNumber;
 
-
     var userInfo={
         name:null,
         surname:null,

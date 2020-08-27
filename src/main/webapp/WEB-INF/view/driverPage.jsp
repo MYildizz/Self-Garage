@@ -15,9 +15,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ1OVeG7pkOgFgNe7h_WiLRLlA4RazZ28&callback=initMap&libraries=&v=weekly"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ1OVeG7pkOgFgNe7h_WiLRLlA4RazZ28&callback=initMap&libraries=&v=weekly&sensor=false&libraries=geometry"
             defer
     ></script>
+
     <link rel="stylesheet" type="text/css" href="/driverPage/css/driverPage.css" />
 
     <script src="/driverPage/js/driverPage.js"></script>
@@ -40,24 +41,11 @@
 <div class="buttons">
 
     <div class="btn parkArea" >
-        <span class="noselect">En Yakın Park Yeri</span>
+        <span class="noselect" onclick="showNearLocation(null,null,null)">En Yakın Park Yeri</span>
         <div class="circle"></div>
     </div>
 
     <div class="others" style="clear: both">
-        <a href="/driverUsages">
-            <div  class="btn " >
-                <span class="noselect">Önceki Kullanımlarınız</span>
-                <div class="circle"></div>
-            </div>
-        </a>
-
-        <a href="/driverCreditCard">
-            <div class="btn" >
-                <span class="noselect">Ödeme Bilgileri</span>
-                <div class="circle"></div>
-            </div>
-        </a>
 
         <a href="/driverSettings">
             <div class="btn">
@@ -81,6 +69,7 @@
         </div>
     </div>
 </footer>
+
 
 
 </body>
