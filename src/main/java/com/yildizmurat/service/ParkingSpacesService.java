@@ -18,4 +18,5 @@ public interface ParkingSpacesService {
     Boolean updateByParkId(String parkId, ParkStatus parkStatus);
     List<ParkingSpacesDto> getAllByIdOwner(String IdOwner);
     List<ParkingSpacesDto> getAllByParkStatusOpen();
+    Boolean updateParkStatus(String nameId,String ownerId,ParkStatus parkStatus);
 }

@@ -104,4 +104,23 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
         else
             return Arrays.asList(modelMapper.map(parkingSpacesOpen, ParkingSpacesDto[].class));
     }
+
+    @Override
+    public Boolean updateParkStatus(String nameId,String ownerId,ParkStatus parkStatus) {
+        ParkingSpaces parkingSpaces = parkingSpacesRepository.getByIdNameAndIdOwner(nameId,ownerId);
+
+        if (parkingSpaces == null)
+            throw new IllegalArgumentException("Park area not exists " + nameId);
+
+        parkingSpaces.setParkStatus(parkStatus);
+        parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
+
+        ParkingSpaces checkState= parkingSpacesRepository.getByIdName(nameId);
+        System.out.println(checkState.getParkStatus());
+
+
+        if(checkState.getParkStatus()==parkStatus)
+            return true;
+        return false;
+    }
 }

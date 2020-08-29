@@ -13,6 +13,8 @@ import java.util.Date;
 public class ParkingSpacesUsagesDto {
 
     private String name;
+    private String driver;
+    private String owner;
     private Date entry;
     private Date departure;
     private Date totalTime;
@@ -22,12 +24,30 @@ public class ParkingSpacesUsagesDto {
     private String address;
 
 
+
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public Date getEntry() {
@@ -85,4 +105,6 @@ public class ParkingSpacesUsagesDto {
     public void setAddress(String address) {
         this.address = address;
     }
+
+
 }

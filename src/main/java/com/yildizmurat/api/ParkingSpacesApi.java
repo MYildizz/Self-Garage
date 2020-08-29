@@ -1,6 +1,7 @@
 package com.yildizmurat.api;
 
 
+import com.yildizmurat.dto.DriverInformationDto;
 import com.yildizmurat.dto.ParkingSpacesDto;
 import com.yildizmurat.entity.ParkStatus;
 import com.yildizmurat.service.implementation.ParkingSpacesImpl;
@@ -68,6 +69,17 @@ public class ParkingSpacesApi {
             return null;
 
         return parkingSpacesDto;
+    }
+
+    @RequestMapping(value="/changeParkStatus",method = RequestMethod.POST)
+    public Boolean checkDriverInformation(@Valid @RequestBody ParkingSpacesDto parkingSpacesDto){
+        String nameId= parkingSpacesDto.getNameId();
+        String ownerId=parkingSpacesDto.getOwnerId();
+        ParkStatus parkStatus=parkingSpacesDto.getParkStatus();
+        if(nameId==null && ownerId==null )
+            return false;
+
+        return parkingSpacesImpl.updateParkStatus(nameId,ownerId,parkStatus);
     }
 
 

@@ -13,6 +13,6 @@ public interface ParkingSpacesRepository extends JpaRepository<ParkingSpaces,Lon
     ParkingSpaces getByIdName(String IdName);
     List<ParkingSpaces> getAllByIdOwner(String IdOwner);
     List<ParkingSpaces> getAllByParkStatus(ParkStatus ParkStatus);
-
+    ParkingSpaces getByIdNameAndIdOwner(String IdName,String IdOwner);
 
 }

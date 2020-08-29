@@ -1,12 +1,17 @@
 package com.yildizmurat.api;
 
 
+import com.yildizmurat.dto.ParkingSpacesDto;
 import com.yildizmurat.dto.ParkingSpacesUsagesDto;
+import com.yildizmurat.entity.ParkStatus;
 import com.yildizmurat.service.implementation.ParkingSpacesUsagesImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -14,6 +19,7 @@ import java.util.List;
 public class ParkingSpacesUsagesApi {
 
     private final ParkingSpacesUsagesImpl parkingSpacesUsagesImpl;
+    DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public ParkingSpacesUsagesApi(ParkingSpacesUsagesImpl parkingSpacesUsagesImpl) {
         this.parkingSpacesUsagesImpl = parkingSpacesUsagesImpl;
@@ -53,6 +59,17 @@ public class ParkingSpacesUsagesApi {
     public List<ParkingSpacesUsagesDto> getParkingSpacesUsagesOwner(@PathVariable("ownerId") String ownerId){
 
         return parkingSpacesUsagesImpl.getByOwner(ownerId);
+    }
+
+    @RequestMapping(value="/addUsages",method = RequestMethod.POST)
+    public ParkingSpacesUsagesDto addParkingUsages(@Valid @RequestBody ParkingSpacesUsagesDto parkingSpacesUsagesDto){
+
+        Date date = new Date();
+
+        parkingSpacesUsagesDto.setEntry(date);
+
+
+        return parkingSpacesUsagesImpl.save(parkingSpacesUsagesDto);
     }
 
 }

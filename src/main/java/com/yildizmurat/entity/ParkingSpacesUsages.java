@@ -17,7 +17,7 @@ public class ParkingSpacesUsages {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name="driver",length =20,unique = true)
+    @Column(name="driver",length =20)
     private String driver;
     @Column(name="owner",length =20)
     private String owner;
