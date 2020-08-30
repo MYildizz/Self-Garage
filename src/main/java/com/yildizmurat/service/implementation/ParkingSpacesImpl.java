@@ -106,6 +106,17 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
     }
 
     @Override
+    public List<ParkingSpacesDto> getAllByParkStatusBusy() {
+
+        List<ParkingSpaces> parkingSpacesOpen=parkingSpacesRepository.getAllByParkStatus(ParkStatus.BUSY);
+
+        if(parkingSpacesOpen.isEmpty())
+            return null;
+        else
+            return Arrays.asList(modelMapper.map(parkingSpacesOpen, ParkingSpacesDto[].class));
+    }
+
+    @Override
     public Boolean updateParkStatus(String nameId,String ownerId,ParkStatus parkStatus) {
         ParkingSpaces parkingSpaces = parkingSpacesRepository.getByIdNameAndIdOwner(nameId,ownerId);
 

@@ -72,4 +72,12 @@ public class ParkingSpacesUsagesApi {
         return parkingSpacesUsagesImpl.save(parkingSpacesUsagesDto);
     }
 
+    @GetMapping("/getActiveParking/{id}")
+    public ParkingSpacesUsagesDto getActiveParking(@PathVariable("id") String id){
+
+        ParkingSpacesUsagesDto info =parkingSpacesUsagesImpl.getByDriverAndUsageStatus(id);
+
+        return info;
+    }
+
 }

@@ -5,6 +5,7 @@ import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 import com.yildizmurat.entity.DriverCreditCardInformation;
 import com.yildizmurat.entity.ParkingSpacesUsages;
 import com.yildizmurat.entity.ParkingSpacesUsages;
+import com.yildizmurat.repository.ParkingSpacesRepository;
 import com.yildizmurat.repository.ParkingSpacesUsagesRepository;
 import com.yildizmurat.service.ParkingSpacesUsagesService;
 import com.yildizmurat.dto.ParkingSpacesUsagesDto;
@@ -76,7 +77,16 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
             return Arrays.asList(modelMapper.map(parkingSpacesUsages,ParkingSpacesUsagesDto[].class));
     }
 
+    @Override
+    public ParkingSpacesUsagesDto getByDriverAndUsageStatus(String Driver) {
 
+        ParkingSpacesUsages parkingSpacesUsages = parkingSpacesUsagesRepository.getByDriverAndDeparture(Driver,null);
+
+        if(parkingSpacesUsages==null)
+            return null;
+
+        return modelMapper.map(parkingSpacesUsages,ParkingSpacesUsagesDto.class);
+    }
 
 
     @Override

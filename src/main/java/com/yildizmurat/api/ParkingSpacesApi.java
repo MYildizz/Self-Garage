@@ -71,6 +71,16 @@ public class ParkingSpacesApi {
         return parkingSpacesDto;
     }
 
+    @GetMapping("getAllByParkStatusBusy")
+    public List<ParkingSpacesDto> getAllByParkStatusBusy(){
+        List<ParkingSpacesDto> parkingSpacesDto = parkingSpacesImpl.getAllByParkStatusBusy();
+        System.out.println(parkingSpacesDto);
+        if(parkingSpacesDto==null)
+            return null;
+
+        return parkingSpacesDto;
+    }
+
     @RequestMapping(value="/changeParkStatus",method = RequestMethod.POST)
     public Boolean checkDriverInformation(@Valid @RequestBody ParkingSpacesDto parkingSpacesDto){
         String nameId= parkingSpacesDto.getNameId();

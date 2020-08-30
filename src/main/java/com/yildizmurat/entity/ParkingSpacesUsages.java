@@ -45,6 +45,11 @@ public class ParkingSpacesUsages {
     @Column(name="address")
     private String address;
 
+    @Column(name="status")
+    @Enumerated(EnumType.STRING)
+    private UsageStatus usageStatus;
+
+
     public Long getId() {
         return id;
     }
@@ -131,5 +136,13 @@ public class ParkingSpacesUsages {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public UsageStatus getUsageStatus() {
+        return usageStatus;
+    }
+
+    public void setUsageStatus(UsageStatus usageStatus) {
+        this.usageStatus = usageStatus;
     }
 }

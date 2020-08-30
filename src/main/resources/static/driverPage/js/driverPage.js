@@ -1,17 +1,16 @@
 var longitude;
 var latitude;
-var marker;
-var map;
+let markers= [];
+let map;
 var nearDistanceLongitude;
 var nearDistanceLatitude;
 var directionsService;
-
-
+var marker=[];
+let parkData=[];
 
 function initMap() {
 
-    document.getElementById("rezerveParkArea").style.display="none";
-    document.getElementById("iptalEt").style.display="none";
+
 
     var nameId;
     var latitude;
@@ -49,7 +48,7 @@ function initMap() {
                      map = new google.maps.Map(document.getElementById("map"), {
                         zoom: 15,
                         center: new google.maps.LatLng(pos.lat, pos.lng),
-                        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+                     //   icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
                     });
 
 
@@ -69,7 +68,7 @@ function initMap() {
                         position: new google.maps.LatLng(pos.lat, pos.lng),
                         map: map,
                         title: "Buradasınız",
-                        icon: 'http://www.robotwoods.com/dev/misc/bluecircle.png',
+                    //    icon: 'http://www.robotwoods.com/dev/misc/bluecircle.png',
                         scale: 100
                     });
                     var distance= google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(data[0].latitude, data[0].longitude));
@@ -84,7 +83,7 @@ function initMap() {
                     if(data.length!=0){
                         var i;
                         for(i=0;i<data.length;i++){
-                            marker = new google.maps.Marker({
+                               marker = new google.maps.Marker({
                                 position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
                                 map: map,
                                 title: "Hello World!",
@@ -106,7 +105,11 @@ function initMap() {
                             google.maps.event.addListener(marker, 'click', function() {
 
                                 showNearLocation(this.getPosition().lat(),this.getPosition().lng(),directionsDisplay);
+                                document.getElementById("showNearLocationButton").style.display="none";
+                                document.getElementById("rezerveParkArea").style.display="";
                             });
+
+                            markers.push(marker);
 
                         }
 
@@ -117,7 +120,7 @@ function initMap() {
                         sessionStorage.setItem("province",province);
                         sessionStorage.setItem("nearDistanceLatitude",nearDistanceLatitude);
                         sessionStorage.setItem("nearDistanceLongitude",nearDistanceLongitude);
-
+                        sessionStorage.setItem("distance",distance);
 
                     }
 
@@ -135,14 +138,21 @@ function initMap() {
         }
     })
 
+
+
 }
 
 
-function showNearLocation(lat,long,directionsRenderer){
+function showNearLocation(lat,long,directionsRenderer,flag){
 
     if(directionsRenderer==null)
     {
         directionsRenderer= new google.maps.DirectionsRenderer();
+
+    }
+    if (flag==1){
+        document.getElementById("showNearLocationButton").style.display="none";
+        document.getElementById("rezerveParkArea").style.display="";
     }
 
     if (navigator.geolocation) {
@@ -189,8 +199,7 @@ function showNearLocation(lat,long,directionsRenderer){
         })
     }
 
-    document.getElementById("showNearLocationButton").style.display="none";
-    document.getElementById("rezerveParkArea").style.display="";
+
 
 }
 
@@ -203,6 +212,9 @@ function rezerveLocation(){
 
     document.getElementById("rezerveParkArea").style.display="none";
     document.getElementById("iptalEt").style.display="";
+
+    deleteMarker();
+
 }
 
 
@@ -229,6 +241,17 @@ function changePark(status){
 
 function addParkingSpacesUsages(){
 
+    var distance= sessionStorage.getItem("distance");
+    var parkStatus;
+    if(distance <=20)
+    {
+        parkStatus="USAGE";
+    }
+    else
+    {
+        parkStatus="REZERVE";
+    }
+    alert(distance)
     var parkingSpacesUsages={
         name: sessionStorage.getItem("parkId"),
         owner:sessionStorage.getItem("ownerId"),
@@ -236,6 +259,7 @@ function addParkingSpacesUsages(){
         district: sessionStorage.getItem("district"),
         province: sessionStorage.getItem("province"),
         address: sessionStorage.getItem("address"),
+        usageStatus: parkStatus
     }
 
     data=JSON.stringify(parkingSpacesUsages);
@@ -246,18 +270,141 @@ function addParkingSpacesUsages(){
         url:"information/parkingSpacesUsagesApi/addUsages",
         data: data,
         success:function (data) {
-            alert(data);
+          //  alert(data + "aa");
         },error:function (data) {
-            alert(data+" Error");
+            alert(data+"ufak  Error");
         }
     })
 
 
 }
+setTimeout(checkActiveParking, 300);s
+function checkActiveParking(){
+
+
+
+    var name;
+    var driver;
+    var owner;
+    var entry;
+    var departure;
+    var totalTime;
+    var price;
+    var district;
+    var province;
+    var address;
+    var usageStatus;
+
+    var id=sessionStorage.getItem("userId")
+
+    var activePark ={
+        name:null,
+        driver:null,
+        owner:null,
+        entry:null,
+        departure:null,
+        totalTime:null,
+        price:null,
+        district:null,
+        province:null,
+        address:null,
+        usageStatus:null
+    }
+    data=JSON.stringify(activePark);
+
+    $.ajax({
+        type:"GET",
+        contentType: 'application/json; charset=UTF-8',
+        url:"/information/parkingSpacesUsagesApi/getActiveParking/"+id,
+        success:function (data) {
+
+            if(data.usageStatus=="REZERVE")
+            {
+                document.getElementById("showNearLocationButton").style.display="none";
+                document.getElementById("rezerveParkArea").style.display="none";
+                document.getElementById("iptalEt").style.display="";
+
+                deleteMarker();
+
+            }
+            else if(data.usageStatus=="USAGE")
+            {
+                document.getElementById("showNearLocationButton").style.display="none";
+                document.getElementById("rezerveParkArea").style.display="none";
+                document.getElementById("iptalEt").style.display="";
+
+                deleteMarker();
+
+            }
+            else{
+                document.getElementById("rezerveParkArea").style.display="none";
+                document.getElementById("iptalEt").style.display="none";
+                document.getElementById("showNearLocationButton").style.display="";
+            }
+
+            if(data.usageStatus!="FINISH"){
+                var nameId;
+                var latitude;
+                var longitude;
+                var parkStatus;
+                var district;
+                var province;
+                var address;
+
+                var parkArea={
+                    nameId:null,
+                    latitude:null,
+                    longitude:null,
+                    parkStatus:null,
+                    district:null,
+                    province:null,
+                    address:null
+                }
+
+                parkData=JSON.stringify(parkArea);
+
+                $.ajax({
+                    type:"GET",
+                    contentType: 'application/json; charset=UTF-8',
+                    url:"/information/parkingSpacesApi/getAllByParkStatusBusy",
+                    success:function (parkData) {
+                        var i;
+
+                        for(i=0;i<parkData.length;i++){
+                            if(parkData[i].nameId==data.name){
+                                showNearLocation(parkData[i].latitude,parkData[i].longitude,null,0);
+                                break;
+                            }
+                        }
+
+                    },error:function (data) {
+                        alert(data+" Error");
+                    }
+                })
+
+            }
+
+
+        },error:function (data) {
+            alert(data+" Error");
+        }
+    });
 
 
 
 
+}
+
+function deleteMarker(){
+    for (let i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers=[];
+}
+
+
+
+//window.onload = checkActiveParking();
 
 var lastname = sessionStorage.getItem("userId");
 

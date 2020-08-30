@@ -1,5 +1,6 @@
 package com.yildizmurat.dto;
 
+import com.yildizmurat.entity.UsageStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,7 @@ public class ParkingSpacesUsagesDto {
     private String district;
     private String province;
     private String address;
-
+    private UsageStatus usageStatus;
 
 
 
@@ -106,5 +107,11 @@ public class ParkingSpacesUsagesDto {
         this.address = address;
     }
 
+    public UsageStatus getUsageStatus() {
+        return usageStatus;
+    }
 
+    public void setUsageStatus(UsageStatus usageStatus) {
+        this.usageStatus = usageStatus;
+    }
 }

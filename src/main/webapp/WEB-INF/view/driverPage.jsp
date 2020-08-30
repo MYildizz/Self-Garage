@@ -43,17 +43,17 @@
 
 <div class="buttons">
 
-    <div class="btn parkArea" id="showNearLocationButton" onclick="showNearLocation(null,null,null)">
+    <div class="btn parkArea" id="showNearLocationButton" onclick="showNearLocation(null,null,null,1)" style="display: none">
         <span class="noselect" >En Yakın Park Yeri</span>
         <div class="circle"></div>
     </div>
 
-    <div class="btn" id="rezerveParkArea"  data-toggle="modal" data-target="#exampleModal">
+    <div class="btn" id="rezerveParkArea"  data-toggle="modal" data-target="#exampleModal" style="display: none">
         <span class="noselect" >Park Yerini Rezerve Et</span>
         <div class="circle"></div>
     </div>
 
-    <div class="btn" id="iptalEt"  data-toggle="modal" data-target="#exampleModal">
+    <div class="btn" id="iptalEt"  data-toggle="modal" data-target="#exampleModal" style="display: none">
         <span class="noselect" >İptal Et</span>
         <div class="circle"></div>
     </div>
@@ -84,7 +84,8 @@
             </div>
             <div class="modal-body">
                 - REZERVASYON SÜRESİNCE DAKİKASI 0.50 TL 'DEN ÜCRET TAHSİL EDİLECEKTİR. <br>
-                - 10 DAKİKA İÇİNDE PARK ALANINA VARMAMANIZ DURUMUNDA İŞLEM SONLANDIRILACAKTIR.
+                - 10 DAKİKA İÇİNDE PARK ALANINA VARMAMANIZ DURUMUNDA İŞLEM SONLANDIRILACAKTIR. <br>
+                - PARK YERINE VARDIĞINIZDA DUBANIN AÇILABILMESİ İÇİN UYGULAMANIN AÇIK OLMASI GEREKİR.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal Et</button>

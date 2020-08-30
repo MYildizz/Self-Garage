@@ -143,11 +143,9 @@
                     <th scope="col">Tutar</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="getParkingInfo">
 
-                <tr id="getParkingInfo">
 
-                </tr>
 
 
                 </tbody>

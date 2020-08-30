@@ -92,7 +92,9 @@ function parkingUsages(){
 
             var myTable="";
             var i;
+
             for(i=0;i<data.length;i++){
+                myTable +=" <tr> "
                 myTable += "<th scope=\"row\">" +i + "</th>";
                 myTable += "<td>" + data[i].name + "</td>";
                 myTable += "<td>" + data[i].province + "</td>";
@@ -102,6 +104,7 @@ function parkingUsages(){
                 myTable += "<td>" + data[i].departure + "</td>";
                 myTable += "<td>" + data[i].totalTime + "</td>";
                 myTable += "<td>" + data[i].price + "</td>";
+                myTable +=" </tr> "
             }
             myTable += "";
             document.getElementById("getParkingInfo").innerHTML = myTable;
