@@ -16,9 +16,9 @@ public class ParkingSpacesUsagesDto {
     private String name;
     private String driver;
     private String owner;
-    private Date entry;
-    private Date departure;
-    private Date totalTime;
+    private String entry;
+    private String departure;
+    private String totalTime;
     private Double price;
     private String district;
     private String province;
@@ -51,27 +51,27 @@ public class ParkingSpacesUsagesDto {
         this.owner = owner;
     }
 
-    public Date getEntry() {
+    public String getEntry() {
         return entry;
     }
 
-    public void setEntry(Date entry) {
+    public void setEntry(String entry) {
         this.entry = entry;
     }
 
-    public Date getDeparture() {
+    public String getDeparture() {
         return departure;
     }
 
-    public void setDeparture(Date departure) {
+    public void setDeparture(String departure) {
         this.departure = departure;
     }
 
-    public Date getTotalTime() {
+    public String getTotalTime() {
         return totalTime;
     }
 
-    public void setTotalTime(Date totalTime) {
+    public void setTotalTime(String totalTime) {
         this.totalTime = totalTime;
     }
 

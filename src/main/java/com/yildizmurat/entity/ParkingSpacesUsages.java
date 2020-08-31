@@ -25,16 +25,13 @@ public class ParkingSpacesUsages {
     private String name;
 
     @Column(name="entry")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date entry;
+    private String entry;
 
     @Column(name="departure")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date departure;
+    private String departure;
 
     @Column(name="total_time")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date totalTime;
+    private String totalTime;
 
     @Column(name="price")
     private Double price;
@@ -82,27 +79,27 @@ public class ParkingSpacesUsages {
         this.name = name;
     }
 
-    public Date getEntry() {
+    public String getEntry() {
         return entry;
     }
 
-    public void setEntry(Date entry) {
+    public void setEntry(String entry) {
         this.entry = entry;
     }
 
-    public Date getDeparture() {
+    public String getDeparture() {
         return departure;
     }
 
-    public void setDeparture(Date departure) {
+    public void setDeparture(String departure) {
         this.departure = departure;
     }
 
-    public Date getTotalTime() {
+    public String getTotalTime() {
         return totalTime;
     }
 
-    public void setTotalTime(Date totalTime) {
+    public void setTotalTime(String totalTime) {
         this.totalTime = totalTime;
     }
 

@@ -204,7 +204,7 @@ function showNearLocation(lat,long,directionsRenderer,flag){
 }
 
 function rezerveLocation(){
-    alert("hello");
+
     var status="BUSY";
 
     changePark(status);
@@ -213,6 +213,24 @@ function rezerveLocation(){
     document.getElementById("rezerveParkArea").style.display="none";
     document.getElementById("iptalEt").style.display="";
 
+    var currentdate = new Date();
+    var datetime =currentdate.getFullYear()  + "/"
+        + (currentdate.getMonth()+1)  + "/"
+        + currentdate.getDate() + " "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
+//    currentdate=Date.parse(datetime);
+    var  b=new Date(datetime);
+    sessionStorage.setItem("data.entry",b);
+    displayTime(null);
+    setInterval("displayTime(null)", 100000);
+
+    var lat=sessionStorage.getItem("nearDistanceLatitude");
+    var lot=sessionStorage.getItem("nearDistanceLongitude");
+
+   // window.location="https://www.google.com/maps/dir//"+lat+","+lot+"/@"+lat+","+lot+","+"20.74z/data=!4m2!4m1!3e0";
+    window.open("https://www.google.com/maps/dir//"+lat+","+lot+"/@"+lat+","+lot+","+"20.74z/data=!4m2!4m1!3e0",'_blank');
     deleteMarker();
 
 }
@@ -278,7 +296,7 @@ function addParkingSpacesUsages(){
 
 
 }
-setTimeout(checkActiveParking, 300);s
+setTimeout(checkActiveParking, 300);
 function checkActiveParking(){
 
 
@@ -323,7 +341,9 @@ function checkActiveParking(){
                 document.getElementById("showNearLocationButton").style.display="none";
                 document.getElementById("rezerveParkArea").style.display="none";
                 document.getElementById("iptalEt").style.display="";
-
+                sessionStorage.setItem("data.entry",data.entry)
+                 displayTime(null);
+                setInterval("displayTime(null)", 100000);
                 deleteMarker();
 
             }
@@ -395,12 +415,83 @@ function checkActiveParking(){
 
 }
 
+
+function displayTime(beginDate){
+    if(beginDate==null){
+        beginDate=sessionStorage.getItem("data.entry");
+    }
+    var minute=diff_dates(beginDate);
+    var price =minute*0.5;
+    var text="";
+
+    if(minute < 60){
+        if(minute <10){
+            text="<p> LÜTFEN PARK ALANINA DOĞRU İLERLEYİNİZ <br>";
+            text+= "GEÇEN SÜRE : "+ "00:0"+minute+" DAKİKA ";
+            text+="- UCRET : "+price +" TL </p>";
+        }
+        else{
+            text="<p> LÜTFEN PARK ALANINA DOĞRU İLERLEYİNİZ <br>";
+            text+= "GEÇEN SÜRE : "+ "00:"+minute+" DAKİKA ";
+            text+="- UCRET : "+price +" TL </p>";
+        }
+    }
+    else{
+        if(minute<10){
+            var hours = minute/60;
+            var minute= minute%60;
+            text="<p> LÜTFEN PARK ALANINA DOĞRU İLERLEYİNİZ <br>";
+            text+= "GEÇEN SÜRE : "+ "00:0"+minute+" DAKİKA ";
+            text+="- UCRET : "+price+" TL </p>";
+        }
+        else{
+            var hours = minute/60;
+            var minute= minute%60;
+            text="<p> LÜTFEN PARK ALANINA DOĞRU İLERLEYİNİZ <br>";
+            text+= "GEÇEN SÜRE : "+ "00:"+minute+" DAKİKA ";
+            text+="- UCRET : "+price+" TL </p>";
+        }
+    }
+
+    document.getElementById("roadCounter").innerHTML = text;
+//    $("#roadCounter").text(text);
+
+    document.getElementById("roadCounter").style.display="";
+
+
+
+
+}
+
+function diff_dates(beginDate)
+{
+
+    var currentdate = new Date();
+    var datetime =currentdate.getFullYear()  + "/"
+        + (currentdate.getMonth()+1)  + "/"
+        + currentdate.getDate() + " "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
+//    currentdate=Date.parse(datetime);
+
+  var   a=new Date(beginDate);
+  var  b=new Date(datetime);
+
+    var diff =(b.getTime() - a.getTime()) / 1000;
+    diff /= 60;
+    return Math.abs(Math.round(diff));
+}
+
 function deleteMarker(){
     for (let i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
     markers=[];
 }
+
+
+
 
 
 

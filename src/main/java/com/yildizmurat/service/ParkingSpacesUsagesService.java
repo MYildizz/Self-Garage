@@ -5,11 +5,12 @@ import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 import com.yildizmurat.entity.ParkingSpacesUsages;
 import com.yildizmurat.entity.UsageStatus;
 
+import java.text.ParseException;
 import java.util.List;
 
 public interface ParkingSpacesUsagesService {
 
-    ParkingSpacesUsagesDto save(ParkingSpacesUsagesDto parkingSpacesUsages);
+    ParkingSpacesUsagesDto save(ParkingSpacesUsagesDto parkingSpacesUsages) throws ParseException;
     ParkingSpacesUsagesDto getById(Long id);
     ParkingSpacesUsagesDto update(Long id,  ParkingSpacesUsagesDto parkingSpacesUsagesDto);
     List<ParkingSpacesUsagesDto> getByDriver(String driverId);

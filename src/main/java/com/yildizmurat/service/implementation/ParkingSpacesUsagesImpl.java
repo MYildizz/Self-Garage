@@ -13,8 +13,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Service
 public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
@@ -29,8 +36,15 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
     }
 
     @Override
-    public ParkingSpacesUsagesDto save(ParkingSpacesUsagesDto parkingSpacesUsagesDto) {
+    public ParkingSpacesUsagesDto save(ParkingSpacesUsagesDto parkingSpacesUsagesDto) throws ParseException {
         ParkingSpacesUsages parkingSpacesUsages=  modelMapper.map(parkingSpacesUsagesDto,ParkingSpacesUsages.class);
+
+
+        DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+
+        parkingSpacesUsages.setEntry(dateTime.format(now));
+
         parkingSpacesUsages= parkingSpacesUsagesRepository.save(parkingSpacesUsages);
 
         return modelMapper.map(parkingSpacesUsages,ParkingSpacesUsagesDto.class);
@@ -81,6 +95,9 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
     public ParkingSpacesUsagesDto getByDriverAndUsageStatus(String Driver) {
 
         ParkingSpacesUsages parkingSpacesUsages = parkingSpacesUsagesRepository.getByDriverAndDeparture(Driver,null);
+
+
+
 
         if(parkingSpacesUsages==null)
             return null;

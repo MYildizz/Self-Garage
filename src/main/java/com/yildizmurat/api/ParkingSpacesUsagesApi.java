@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -34,7 +35,12 @@ public class ParkingSpacesUsagesApi {
     @PostMapping
     public ResponseEntity<ParkingSpacesUsagesDto> createParkingSpacesUsages(@Valid @RequestBody ParkingSpacesUsagesDto parkingSpacesUsagesDto){
 
-        return ResponseEntity.ok(parkingSpacesUsagesImpl.save(parkingSpacesUsagesDto));
+        try {
+            return ResponseEntity.ok(parkingSpacesUsagesImpl.save(parkingSpacesUsagesDto));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     // GET
@@ -64,12 +70,13 @@ public class ParkingSpacesUsagesApi {
     @RequestMapping(value="/addUsages",method = RequestMethod.POST)
     public ParkingSpacesUsagesDto addParkingUsages(@Valid @RequestBody ParkingSpacesUsagesDto parkingSpacesUsagesDto){
 
-        Date date = new Date();
 
-        parkingSpacesUsagesDto.setEntry(date);
-
-
-        return parkingSpacesUsagesImpl.save(parkingSpacesUsagesDto);
+        try {
+            return parkingSpacesUsagesImpl.save(parkingSpacesUsagesDto);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @GetMapping("/getActiveParking/{id}")

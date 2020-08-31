@@ -158,6 +158,22 @@ body{
     margin-left: 25%;
 }
 
+.content {
+    position: absolute; /* Position the background text */
+    /* At the bottom. Use top:0 to append it to the top */
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 60%; /* Full width */
+    padding: 1px; /* Some padding */
+    margin-top: -85px;
+    z-index: 2;
+    text-align: center;
+    margin-left: 20%;
+    font-size: large;
+    text-shadow: 2px 0 0 #721c24;
+}
+
 @font-face {
     font-family: 'Cookie';
     font-style: normal;

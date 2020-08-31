@@ -37,7 +37,12 @@
         </div>
     </nav>
 
-    <div id="map"></div>
+    <div id="map">
+    </div>
+
+</div>
+
+<div class="content" id="roadCounter" style="display: none">
 
 </div>
 
