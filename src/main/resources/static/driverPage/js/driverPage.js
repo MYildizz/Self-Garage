@@ -7,6 +7,7 @@ var nearDistanceLatitude;
 var directionsService;
 var marker=[];
 let parkData=[];
+var diff;
 
 function initMap() {
 
@@ -235,14 +236,12 @@ function rezerveLocation(){
 
 }
 
-
 function changePark(status){
     var changeParkStatus={
         nameId: sessionStorage.getItem("parkId"),
         ownerId:sessionStorage.getItem("ownerId"),
         parkStatus: status
     }
-
     data=JSON.stringify(changeParkStatus);
     $.ajax({
         type:"POST",
@@ -250,7 +249,7 @@ function changePark(status){
         url:"information/parkingSpacesApi/changeParkStatus",
         data: data,
         success:function (data) {
-           // alert(data);
+            //  alert(data);
         },error:function (data) {
             alert(data+" Error");
         }
@@ -269,7 +268,6 @@ function addParkingSpacesUsages(){
     {
         parkStatus="REZERVE";
     }
-    alert(distance)
     var parkingSpacesUsages={
         name: sessionStorage.getItem("parkId"),
         owner:sessionStorage.getItem("ownerId"),
@@ -296,7 +294,7 @@ function addParkingSpacesUsages(){
 
 
 }
-setTimeout(checkActiveParking, 300);
+setTimeout(checkActiveParking, 400);
 function checkActiveParking(){
 
 
@@ -415,6 +413,84 @@ function checkActiveParking(){
 
 }
 
+function cancel(){
+    var parkStatus="FINISH";
+    changePark("OPEN");
+    updateParkingStatus(parkStatus);
+
+    var minute=diff;
+    var price =minute*0.5;
+    var text="";
+
+    if(minute < 60){
+        if(minute <10){
+            text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
+            text+= "GEÇEN SÜRE : "+ "00:0"+minute+" DAKİKA ";
+            text+="- UCRET : "+price +" TL </p>";
+        }
+        else{
+            text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
+            text+= "GEÇEN SÜRE : "+ "00:"+minute+" DAKİKA ";
+            text+="- UCRET : "+price +" TL </p>";
+        }
+    }
+    else{
+        if(minute<10){
+            var hours = minute/60;
+            var minute= minute%60;
+            text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
+            text+= "GEÇEN SÜRE : "+ "00:0"+minute+" DAKİKA ";
+            text+="- UCRET : "+price+" TL </p>";
+        }
+        else{
+            var hours = minute/60;
+            var minute= minute%60;
+            text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
+            text+= "GEÇEN SÜRE : "+ "00:"+minute+" DAKİKA ";
+            text+="- UCRET : "+price+" TL </p>";
+        }
+    }
+
+    document.getElementById("finishModalText").innerHTML = text;
+
+    setTimeout(reloadPage, 5000);
+
+
+}
+
+function reloadPage(){
+    location.reload();
+}
+
+function updateParkingStatus(parkStatus){
+
+
+
+    var parkingSpacesUsages={
+        name: sessionStorage.getItem("parkId"),
+        owner:sessionStorage.getItem("ownerId"),
+        driver: sessionStorage.getItem("userId"),
+        district: sessionStorage.getItem("district"),
+        province: sessionStorage.getItem("province"),
+        address: sessionStorage.getItem("address"),
+        usageStatus: parkStatus
+    }
+
+    data=JSON.stringify(parkingSpacesUsages);
+
+    $.ajax({
+        type:"POST",
+        contentType: 'application/json; charset=UTF-8',
+        url:"information/parkingSpacesUsagesApi/finishParking",
+        data: data,
+        success:function (data) {
+            //  alert(data + "aa");
+        },error:function (data) {
+            alert(data+"ufak  Error");
+        }
+    })
+}
+
 
 function displayTime(beginDate){
     if(beginDate==null){
@@ -478,7 +554,7 @@ function diff_dates(beginDate)
   var   a=new Date(beginDate);
   var  b=new Date(datetime);
 
-    var diff =(b.getTime() - a.getTime()) / 1000;
+    diff =(b.getTime() - a.getTime()) / 1000;
     diff /= 60;
     return Math.abs(Math.round(diff));
 }

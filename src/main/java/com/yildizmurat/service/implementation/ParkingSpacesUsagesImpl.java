@@ -5,6 +5,7 @@ import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 import com.yildizmurat.entity.DriverCreditCardInformation;
 import com.yildizmurat.entity.ParkingSpacesUsages;
 import com.yildizmurat.entity.ParkingSpacesUsages;
+import com.yildizmurat.entity.UsageStatus;
 import com.yildizmurat.repository.ParkingSpacesRepository;
 import com.yildizmurat.repository.ParkingSpacesUsagesRepository;
 import com.yildizmurat.service.ParkingSpacesUsagesService;
@@ -28,7 +29,7 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
 
     private final ParkingSpacesUsagesRepository parkingSpacesUsagesRepository;
     private final ModelMapper modelMapper;
-
+    public ScheduledTasks scheduledTasks= new ScheduledTasks();
 
     public ParkingSpacesUsagesImpl(ParkingSpacesUsagesRepository parkingSpacesUsagesRepository, ModelMapper modelMapper) {
         this.parkingSpacesUsagesRepository = parkingSpacesUsagesRepository;
@@ -103,6 +104,43 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
             return null;
 
         return modelMapper.map(parkingSpacesUsages,ParkingSpacesUsagesDto.class);
+    }
+
+    @Override
+    public Boolean updateByDriverAndUsageStatus(String Driver, UsageStatus usageStatus) {
+
+        String currentStringTime;
+        String beginStringTime;
+        String timeDifference;
+
+        if(Driver==null || usageStatus==null){
+            throw new IllegalArgumentException("Empty information ");
+        }
+        else{
+
+            try{
+                ParkingSpacesUsages parkingSpacesUsages = parkingSpacesUsagesRepository.getByDriverAndDeparture(Driver,null);
+                beginStringTime=parkingSpacesUsages.getEntry();
+                currentStringTime=scheduledTasks.getTime();
+                LocalDateTime beginTime=scheduledTasks.convertStringToLocalDateTime(beginStringTime);
+                LocalDateTime currentTime=scheduledTasks.convertStringToLocalDateTime(currentStringTime);
+                timeDifference=scheduledTasks.calculateTimeDifference(beginTime,currentTime);
+
+
+                parkingSpacesUsages.setUsageStatus(usageStatus);
+                parkingSpacesUsages.setDeparture(currentStringTime);
+                parkingSpacesUsages.setTotalTime(timeDifference);
+                parkingSpacesUsages.setPrice(scheduledTasks.calculatePrice(timeDifference));
+
+                parkingSpacesUsagesRepository.save(parkingSpacesUsages);
+            }catch (Exception e){
+                System.out.println("Error from update : "+e);
+                return false;
+            }
+
+        }
+
+        return true;
     }
 
 

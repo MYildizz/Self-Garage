@@ -15,4 +15,5 @@ public interface ParkingSpacesUsagesRepository extends JpaRepository<ParkingSpac
     List<ParkingSpacesUsages> getAllByDriver(String Driver);
     List<ParkingSpacesUsages> getAllByOwner(String Owner);
     ParkingSpacesUsages getByDriverAndDeparture(String Driver, String Departure);
+    ParkingSpacesUsages getByDriverAndUsageStatus(String Driver,UsageStatus usageStatus);
 }

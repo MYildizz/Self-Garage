@@ -58,7 +58,7 @@
         <div class="circle"></div>
     </div>
 
-    <div class="btn" id="iptalEt"  data-toggle="modal" data-target="#exampleModal" style="display: none">
+    <div class="btn" id="iptalEt"  style="display: none" data-toggle="modal" data-target="#finishModal" onclick="cancel()" >
         <span class="noselect" >İptal Et</span>
         <div class="circle"></div>
     </div>
@@ -96,6 +96,23 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal Et</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="rezerveLocation()">Onayla</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="finishModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="finishLabel">PARK REZERVASYON İŞLEMİ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="finishModalText">
+
+            </div>
+
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ package com.yildizmurat.api;
 import com.yildizmurat.dto.ParkingSpacesDto;
 import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 import com.yildizmurat.entity.ParkStatus;
+import com.yildizmurat.entity.UsageStatus;
 import com.yildizmurat.service.implementation.ParkingSpacesUsagesImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -85,6 +86,20 @@ public class ParkingSpacesUsagesApi {
         ParkingSpacesUsagesDto info =parkingSpacesUsagesImpl.getByDriverAndUsageStatus(id);
 
         return info;
+    }
+
+    @RequestMapping(value="/finishParking",method = RequestMethod.POST)
+    public Boolean finishParking(@Valid @RequestBody ParkingSpacesUsagesDto parkingSpacesUsagesDto){
+
+        String driver= parkingSpacesUsagesDto.getDriver();
+        UsageStatus status=parkingSpacesUsagesDto.getUsageStatus();
+
+        try {
+            return parkingSpacesUsagesImpl.updateByDriverAndUsageStatus(driver,status);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

@@ -127,7 +127,7 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
         parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
 
         ParkingSpaces checkState= parkingSpacesRepository.getByIdName(nameId);
-        System.out.println(checkState.getParkStatus());
+        System.out.println("aaa" +checkState.getParkStatus()+ " "+checkState.getIdName());
 
 
         if(checkState.getParkStatus()==parkStatus)

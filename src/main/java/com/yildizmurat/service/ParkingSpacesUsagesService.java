@@ -16,6 +16,7 @@ public interface ParkingSpacesUsagesService {
     List<ParkingSpacesUsagesDto> getByDriver(String driverId);
     List<ParkingSpacesUsagesDto> getByOwner(String ownerId);
     ParkingSpacesUsagesDto getByDriverAndUsageStatus(String Driver);
+    Boolean updateByDriverAndUsageStatus(String Driver,UsageStatus usageStatus);
     Boolean delete(Long id);
 
 }
