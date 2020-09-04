@@ -8,6 +8,7 @@ var directionsService;
 var marker=[];
 let parkData=[];
 var diff;
+var distanceInterval;
 
 function initMap() {
 
@@ -52,7 +53,7 @@ function initMap() {
                      //   icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
                     });
 
-
+                    /*
                     const cityCircle = new google.maps.Circle({
                         strokeColor: "#34495E",
                         strokeOpacity: 1,
@@ -64,14 +65,16 @@ function initMap() {
                         radius: 420
 
                     });
-
+                    */
                     var marker2 = new google.maps.Marker({
                         position: new google.maps.LatLng(pos.lat, pos.lng),
                         map: map,
                         title: "Buradasınız",
-                    //    icon: 'http://www.robotwoods.com/dev/misc/bluecircle.png',
-                        scale: 100
+                        icon: '/driverPage/img/bluecircle.png',
+                        scale: 200
                     });
+
+
                     var distance= google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(data[0].latitude, data[0].longitude));
                     var directionsDisplay = new google.maps.DirectionsRenderer();
                     var parkId=data[0].nameId;
@@ -88,6 +91,7 @@ function initMap() {
                                 position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
                                 map: map,
                                 title: "Hello World!",
+                                icon: '/driverPage/img/test4.png',
                             });
 
                             var temp=google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(data[i].latitude, data[i].longitude));
@@ -233,7 +237,8 @@ function rezerveLocation(){
    // window.location="https://www.google.com/maps/dir//"+lat+","+lot+"/@"+lat+","+lot+","+"20.74z/data=!4m2!4m1!3e0";
     window.open("https://www.google.com/maps/dir//"+lat+","+lot+"/@"+lat+","+lot+","+"20.74z/data=!4m2!4m1!3e0",'_blank');
     deleteMarker();
-
+    distanceInterval=setInterval("checkDistance()", 200);
+    document.getElementById("roadCounter").style.display="";
 }
 
 function changePark(status){
@@ -294,6 +299,7 @@ function addParkingSpacesUsages(){
 
 
 }
+
 setTimeout(checkActiveParking, 400);
 function checkActiveParking(){
 
@@ -340,8 +346,8 @@ function checkActiveParking(){
                 document.getElementById("rezerveParkArea").style.display="none";
                 document.getElementById("iptalEt").style.display="";
                 sessionStorage.setItem("data.entry",data.entry)
-                 displayTime(null);
-                setInterval("displayTime(null)", 100000);
+
+                distanceInterval=setInterval("checkDistance()", 200);
                 deleteMarker();
 
             }
@@ -351,6 +357,9 @@ function checkActiveParking(){
                 document.getElementById("rezerveParkArea").style.display="none";
                 document.getElementById("iptalEt").style.display="";
 
+                displayTime(null);
+                setInterval("displayTime(null)", 100000);
+                setInterval("checkDistance()", 200);
                 deleteMarker();
 
             }
@@ -464,8 +473,6 @@ function reloadPage(){
 
 function updateParkingStatus(parkStatus){
 
-
-
     var parkingSpacesUsages={
         name: sessionStorage.getItem("parkId"),
         owner:sessionStorage.getItem("ownerId"),
@@ -492,6 +499,40 @@ function updateParkingStatus(parkStatus){
 }
 
 
+
+function parkUsageState() {
+
+}
+function checkDistance() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+           var parkLat=  sessionStorage.getItem("nearDistanceLatitude");
+            var parkLot= sessionStorage.getItem("nearDistanceLongitude");
+
+            var distance= google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(parkLat, parkLot));
+
+            if(distance <= 2000000000000){
+                document.getElementById("map").style.display="none";
+                document.getElementById("roadCounter").style.display="none";
+                document.getElementById("iptalEt").style.display="none";
+                document.getElementById("parkedButton").style.display="";
+                document.getElementById("baslik").innerHTML = "";
+                document.getElementById("mapAndNavBar").style.backgroundImage = "url('/driverPage/img/2.jpg')";
+                document.getElementById("activePark").style.display="";
+                clearInterval(distanceInterval);
+                updateParkingStatus("USAGE");
+            }
+
+        })
+    }
+}
+
+
 function displayTime(beginDate){
     if(beginDate==null){
         beginDate=sessionStorage.getItem("data.entry");
@@ -499,17 +540,19 @@ function displayTime(beginDate){
     var minute=diff_dates(beginDate);
     var price =minute*0.5;
     var text="";
-
+    var time="";
     if(minute < 60){
         if(minute <10){
             text="<p> LÜTFEN PARK ALANINA DOĞRU İLERLEYİNİZ <br>";
             text+= "GEÇEN SÜRE : "+ "00:0"+minute+" DAKİKA ";
             text+="- UCRET : "+price +" TL </p>";
+            time+="00:0"+minute+" DAKİKA ";
         }
         else{
             text="<p> LÜTFEN PARK ALANINA DOĞRU İLERLEYİNİZ <br>";
             text+= "GEÇEN SÜRE : "+ "00:"+minute+" DAKİKA ";
             text+="- UCRET : "+price +" TL </p>";
+            time+="00:"+minute+" DAKİKA ";
         }
     }
     else{
@@ -517,27 +560,31 @@ function displayTime(beginDate){
             var hours = minute/60;
             var minute= minute%60;
             text="<p> LÜTFEN PARK ALANINA DOĞRU İLERLEYİNİZ <br>";
-            text+= "GEÇEN SÜRE : "+ "00:0"+minute+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+hours+":0"+minute+" DAKİKA ";
             text+="- UCRET : "+price+" TL </p>";
+            time+=hours+":0"+minute+" DAKİKA ";
         }
         else{
             var hours = minute/60;
             var minute= minute%60;
             text="<p> LÜTFEN PARK ALANINA DOĞRU İLERLEYİNİZ <br>";
-            text+= "GEÇEN SÜRE : "+ "00:"+minute+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+hours+":"+minute+" DAKİKA ";
             text+="- UCRET : "+price+" TL </p>";
+            time+=hours+":"+minute+" DAKİKA ";
         }
     }
 
     document.getElementById("roadCounter").innerHTML = text;
-//    $("#roadCounter").text(text);
+    document.getElementById("activeTime").innerHTML = time;
+    document.getElementById("activePrice").innerHTML = price+" TL";
 
-    document.getElementById("roadCounter").style.display="";
 
 
 
 
 }
+
+
 
 function diff_dates(beginDate)
 {

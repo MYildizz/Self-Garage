@@ -120,19 +120,27 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
 
             try{
                 ParkingSpacesUsages parkingSpacesUsages = parkingSpacesUsagesRepository.getByDriverAndDeparture(Driver,null);
-                beginStringTime=parkingSpacesUsages.getEntry();
-                currentStringTime=scheduledTasks.getTime();
-                LocalDateTime beginTime=scheduledTasks.convertStringToLocalDateTime(beginStringTime);
-                LocalDateTime currentTime=scheduledTasks.convertStringToLocalDateTime(currentStringTime);
-                timeDifference=scheduledTasks.calculateTimeDifference(beginTime,currentTime);
+
+                if(usageStatus==UsageStatus.USAGE){
+                    parkingSpacesUsages.setUsageStatus(usageStatus);
+                }
+                else{
+                    beginStringTime=parkingSpacesUsages.getEntry();
+                    currentStringTime=scheduledTasks.getTime();
+                    LocalDateTime beginTime=scheduledTasks.convertStringToLocalDateTime(beginStringTime);
+                    LocalDateTime currentTime=scheduledTasks.convertStringToLocalDateTime(currentStringTime);
+                    timeDifference=scheduledTasks.calculateTimeDifference(beginTime,currentTime);
 
 
-                parkingSpacesUsages.setUsageStatus(usageStatus);
-                parkingSpacesUsages.setDeparture(currentStringTime);
-                parkingSpacesUsages.setTotalTime(timeDifference);
-                parkingSpacesUsages.setPrice(scheduledTasks.calculatePrice(timeDifference));
+                    parkingSpacesUsages.setUsageStatus(usageStatus);
+                    parkingSpacesUsages.setDeparture(currentStringTime);
+                    parkingSpacesUsages.setTotalTime(timeDifference);
+                    parkingSpacesUsages.setPrice(scheduledTasks.calculatePrice(timeDifference));
+                }
 
                 parkingSpacesUsagesRepository.save(parkingSpacesUsages);
+
+
             }catch (Exception e){
                 System.out.println("Error from update : "+e);
                 return false;

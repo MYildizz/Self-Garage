@@ -21,7 +21,6 @@
     ></script>
 
     <link rel="stylesheet" type="text/css" href="/driverPage/css/driverPage.css" />
-
     <script src="/driverPage/js/driverPage.js"></script>
     <script src="/promotion/vendor/jquery/jquery.js"></script>
     <script src="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
@@ -29,15 +28,30 @@
 </head>
 <body>
 
-<div class="mapAndNavBar">
+<div class="mapAndNavBar" id="mapAndNavBar">
     <nav class="  fixed-top ortala" id="mainNav" style="position: relative;bottom: 50px">
         <div class="ortala container navbar-brand">
-            <a>Self Garage</a>
+            <a id="baslik">Self Garage</a>
 
         </div>
     </nav>
 
-    <div id="map">
+    <div id="map" >
+    </div>
+
+    <div id="activePark" style="display: none">
+         <div>
+            TOPLAM SÜRE
+             <div class="rectangle"  id="activeTime">
+             </div>
+        </div>
+
+        <div style="margin-top: 5%">
+            <span> TOPLAM TUTAR </span>
+            <div class="rectangle" style="height: 70px" id="activePrice">
+            </div>
+
+        </div>
     </div>
 
 </div>
@@ -60,6 +74,11 @@
 
     <div class="btn" id="iptalEt"  style="display: none" data-toggle="modal" data-target="#finishModal" onclick="cancel()" >
         <span class="noselect" >İptal Et</span>
+        <div class="circle"></div>
+    </div>
+
+    <div class="btn parkArea" id="parkedButton" style="display: none">
+        <span class="noselect" > Aracınız Bize Emanet ! </span>
         <div class="circle"></div>
     </div>
 
@@ -122,14 +141,42 @@
 
 <footer class="footer">
     <div class="container">
-        <div class="row align-items-center" >
-            <div class="col-md-4" >
+        <div class="row align-items-center">
+            <div class="col-md-4">
                 <span class="copyright">SelfGarage &copy; 2019</span>
             </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li class="list-inline-item">
+                        <a href="#">SelfGarage Tüm Hakları Saklıdır</a>
+                    </li>
 
+                </ul>
+            </div>
         </div>
     </div>
 </footer>
+
+
 
 <script src="/promotion/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
