@@ -10,6 +10,7 @@ let parkData=[];
 var diff;
 var distanceInterval;
 
+
 function initMap() {
 
 
@@ -133,13 +134,13 @@ function initMap() {
             }
 
             else {
-                alert("konumunuz alınamamıştır lütfen konumuzunu paylaşmak için izin veriniz!");
+               // alert("konumunuz alınamamıştır lütfen konumuzunu paylaşmak için izin veriniz!");
             }
 
 
 
         },error:function (data) {
-            alert(data+" Error");
+           // alert(data+" Error");
         }
     })
 
@@ -228,6 +229,11 @@ function rezerveLocation(){
 //    currentdate=Date.parse(datetime);
     var  b=new Date(datetime);
     sessionStorage.setItem("data.entry",b);
+
+    obj.dataEntry=b;
+    var jsonString = JSON.stringify(obj);
+    document.cookie = jsonString;
+
     displayTime(null);
     setInterval("displayTime(null)", 100000);
 
@@ -239,6 +245,8 @@ function rezerveLocation(){
     deleteMarker();
     distanceInterval=setInterval("checkDistance()", 200);
     document.getElementById("roadCounter").style.display="";
+
+
 }
 
 function changePark(status){
@@ -256,7 +264,7 @@ function changePark(status){
         success:function (data) {
             //  alert(data);
         },error:function (data) {
-            alert(data+" Error");
+          //  alert(data+" Error");
         }
     })
 }
@@ -276,7 +284,7 @@ function addParkingSpacesUsages(){
     var parkingSpacesUsages={
         name: sessionStorage.getItem("parkId"),
         owner:sessionStorage.getItem("ownerId"),
-        driver: sessionStorage.getItem("userId"),
+        driver: obj.userId,
         district: sessionStorage.getItem("district"),
         province: sessionStorage.getItem("province"),
         address: sessionStorage.getItem("address"),
@@ -293,7 +301,7 @@ function addParkingSpacesUsages(){
         success:function (data) {
           //  alert(data + "aa");
         },error:function (data) {
-            alert(data+"ufak  Error");
+          //  alert(data+"ufak  Error");
         }
     })
 
@@ -317,7 +325,7 @@ function checkActiveParking(){
     var address;
     var usageStatus;
 
-    var id=sessionStorage.getItem("userId")
+    var id=obj.userId
 
     var activePark ={
         name:null,
@@ -345,8 +353,11 @@ function checkActiveParking(){
                 document.getElementById("showNearLocationButton").style.display="none";
                 document.getElementById("rezerveParkArea").style.display="none";
                 document.getElementById("iptalEt").style.display="";
+                document.getElementById("roadCounter").style.display="";
                 sessionStorage.setItem("data.entry",data.entry)
 
+                displayTime(null);
+                setInterval("displayTime(null)", 100000);
                 distanceInterval=setInterval("checkDistance()", 200);
                 deleteMarker();
 
@@ -405,7 +416,7 @@ function checkActiveParking(){
                         }
 
                     },error:function (data) {
-                        alert(data+" Error");
+                      //  alert(data+" Error");
                     }
                 })
 
@@ -413,7 +424,7 @@ function checkActiveParking(){
 
 
         },error:function (data) {
-            alert(data+" Error");
+          //  alert(data+" Error");
         }
     });
 
@@ -476,7 +487,7 @@ function updateParkingStatus(parkStatus){
     var parkingSpacesUsages={
         name: sessionStorage.getItem("parkId"),
         owner:sessionStorage.getItem("ownerId"),
-        driver: sessionStorage.getItem("userId"),
+        driver: obj.userId,
         district: sessionStorage.getItem("district"),
         province: sessionStorage.getItem("province"),
         address: sessionStorage.getItem("address"),
@@ -493,7 +504,7 @@ function updateParkingStatus(parkStatus){
         success:function (data) {
             //  alert(data + "aa");
         },error:function (data) {
-            alert(data+"ufak  Error");
+         //   alert(data+"ufak  Error");
         }
     })
 }
@@ -516,7 +527,7 @@ function checkDistance() {
 
             var distance= google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(parkLat, parkLot));
 
-            if(distance <= 2000000000000){
+            if(distance <= 2000000000){
                 document.getElementById("map").style.display="none";
                 document.getElementById("roadCounter").style.display="none";
                 document.getElementById("iptalEt").style.display="none";
@@ -526,19 +537,33 @@ function checkDistance() {
                 document.getElementById("activePark").style.display="";
                 clearInterval(distanceInterval);
                 updateParkingStatus("USAGE");
+                writeData();
+                setTimeout(getFirebaseSignal, 5000);
             }
-
+           // document.getElementById("roadCounter").style.display="";
         })
     }
 }
 
 
+
+function getFirebaseSignal(){
+   readData();
+
+}
+
+function openDubaFirebase(){
+
+}
+
+
 function displayTime(beginDate){
     if(beginDate==null){
-        beginDate=sessionStorage.getItem("data.entry");
+      //  beginDate=sessionStorage.getItem("data.entry");
+        beginDate=obj.dataEntry;
     }
     var minute=diff_dates(beginDate);
-    var price =minute*0.5;
+    var price =minute*0.2;
     var text="";
     var time="";
     if(minute < 60){
@@ -618,9 +643,22 @@ function deleteMarker(){
 
 
 
-//window.onload = checkActiveParking();
+/*
+if(sessionStorage.getItem("userId")!=null)
+{
+    obj.userId=sessionStorage.getItem("userId");
+    var jsonString = JSON.stringify(obj);
+    document.cookie = jsonString;
+}
 
+*/
+
+
+
+var obj = JSON.parse(document.cookie)
+console.log("aa "+obj.userId);
+console.log("bb "+obj.dataEntry);
 var lastname = sessionStorage.getItem("userId");
 
 
-
+//window.onload = checkActiveParking();

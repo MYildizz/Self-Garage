@@ -24,6 +24,7 @@
     <script src="/driverPage/js/driverPage.js"></script>
     <script src="/promotion/vendor/jquery/jquery.js"></script>
     <script src="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
 
 </head>
 <body>
@@ -59,6 +60,7 @@
 <div class="content" id="roadCounter" style="display: none">
 
 </div>
+
 
 <div class="buttons">
 
@@ -107,7 +109,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                - REZERVASYON SÜRESİNCE DAKİKASI 0.50 TL 'DEN ÜCRET TAHSİL EDİLECEKTİR. <br>
+                - REZERVASYON SÜRESİNCE DAKİKASI 0.20 TL 'DEN ÜCRET TAHSİL EDİLECEKTİR. <br>
                 - 10 DAKİKA İÇİNDE PARK ALANINA VARMAMANIZ DURUMUNDA İŞLEM SONLANDIRILACAKTIR. <br>
                 - PARK YERINE VARDIĞINIZDA DUBANIN AÇILABILMESİ İÇİN UYGULAMANIN AÇIK OLMASI GEREKİR.
             </div>
@@ -177,6 +179,39 @@
 </footer>
 
 
+<script>
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyD2-gpjSfAS2QXXO1Ho0X5yWQHvmCdAUUs",
+        authDomain: "self-garage.firebaseapp.com",
+        databaseURL: "https://self-garage.firebaseio.com",
+        projectId: "self-garage",
+        storageBucket: "self-garage.appspot.com",
+        messagingSenderId: "383027804024",
+        appId: "1:383027804024:web:7bd2a6f363799d8d133a8d"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    function writeData() {
+        firebase.database().ref("/").update({
+            deger:"1"
+        });
+    }
+
+    function readData(){
+        firebase.database().ref('/').on('value',(snap)=>{
+
+            if(snap.val().deger==0){
+             cancel();
+            }
+
+
+
+        });
+    }
+
+</script>
 
 <script src="/promotion/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

@@ -1,15 +1,14 @@
 package com.yildizmurat.service.implementation;
 
 import com.yildizmurat.dto.ParkingSpacesDto;
-import com.yildizmurat.dto.ParkingSpacesDto;
 import com.yildizmurat.entity.ParkStatus;
 import com.yildizmurat.entity.ParkingSpaces;
-import com.yildizmurat.entity.ParkingSpaces;
-import com.yildizmurat.entity.ParkingSpaces;
+import com.yildizmurat.entity.UsageStatus;
 import com.yildizmurat.repository.ParkingSpacesRepository;
 import com.yildizmurat.service.ParkingSpacesService;
-import com.yildizmurat.dto.ParkingSpacesDto;
+import com.yildizmurat.service.firebase.FirebaseInitialize;
 import org.modelmapper.ModelMapper;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -20,7 +19,10 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
 
     private final ParkingSpacesRepository parkingSpacesRepository;
     private final ModelMapper modelMapper;
+    FirebaseInitialize firebase=new FirebaseInitialize();
+    private int flag=0;
 
+    String nameId,ownerId;
 
     public ParkingSpacesImpl(ParkingSpacesRepository parkingSpacesRepository, ModelMapper modelMapper) {
         this.parkingSpacesRepository = parkingSpacesRepository;
@@ -76,6 +78,7 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
         System.out.println(checkState.getParkStatus());
 
 
+
         if(checkState.getParkStatus()==parkStatus)
             return true;
         return false;
@@ -126,6 +129,12 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
         parkingSpaces.setParkStatus(parkStatus);
         parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
 
+        if(parkStatus==ParkStatus.BUSY){
+            this.nameId=nameId;
+            this.ownerId=ownerId;
+            flag=1;
+            checkSignal();
+        }
         ParkingSpaces checkState= parkingSpacesRepository.getByIdName(nameId);
         System.out.println("aaa" +checkState.getParkStatus()+ " "+checkState.getIdName());
 
@@ -134,4 +143,19 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
             return true;
         return false;
     }
+
+    @Scheduled(cron="*/5 * * * * *", zone="Europe/Istanbul")
+    private void checkSignal(){
+        if(flag==1){
+            firebase.getSignal();
+            if(firebase.isCheckSignal()==true) {
+                System.out.println("bbb");
+                updateParkStatus(nameId,ownerId,ParkStatus.OPEN);
+                flag=0;
+            }
+        }
+    }
+
 }
+
+

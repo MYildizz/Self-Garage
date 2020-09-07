@@ -1,35 +1,33 @@
 package com.yildizmurat.service.implementation;
 
-import com.yildizmurat.dto.DriverCreditCardInformationDto;
 import com.yildizmurat.dto.ParkingSpacesUsagesDto;
-import com.yildizmurat.entity.DriverCreditCardInformation;
-import com.yildizmurat.entity.ParkingSpacesUsages;
 import com.yildizmurat.entity.ParkingSpacesUsages;
 import com.yildizmurat.entity.UsageStatus;
-import com.yildizmurat.repository.ParkingSpacesRepository;
 import com.yildizmurat.repository.ParkingSpacesUsagesRepository;
 import com.yildizmurat.service.ParkingSpacesUsagesService;
-import com.yildizmurat.dto.ParkingSpacesUsagesDto;
+import com.yildizmurat.service.firebase.FirebaseInitialize;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Page;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
+@EnableScheduling
 @Service
 public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
+
 
     private final ParkingSpacesUsagesRepository parkingSpacesUsagesRepository;
     private final ModelMapper modelMapper;
     public ScheduledTasks scheduledTasks= new ScheduledTasks();
+    FirebaseInitialize firebase=new FirebaseInitialize();
+    private int flag=0;
+    private String Driver;
 
     public ParkingSpacesUsagesImpl(ParkingSpacesUsagesRepository parkingSpacesUsagesRepository, ModelMapper modelMapper) {
         this.parkingSpacesUsagesRepository = parkingSpacesUsagesRepository;
@@ -46,7 +44,10 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
 
         parkingSpacesUsages.setEntry(dateTime.format(now));
 
+
         parkingSpacesUsages= parkingSpacesUsagesRepository.save(parkingSpacesUsages);
+
+
 
         return modelMapper.map(parkingSpacesUsages,ParkingSpacesUsagesDto.class);
     }
@@ -66,6 +67,8 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
             throw new IllegalArgumentException("Project Code not Exist " + id);
         ParkingSpacesUsages parkingSpacesUsages = modelMapper.map(parkingSpacesUsagesDto,ParkingSpacesUsages.class);
         parkingSpacesUsages= parkingSpacesUsagesRepository.save(parkingSpacesUsages);
+
+
 
         return modelMapper.map(parkingSpacesUsages,ParkingSpacesUsagesDto.class);
 
@@ -99,7 +102,6 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
 
 
 
-
         if(parkingSpacesUsages==null)
             return null;
 
@@ -123,6 +125,11 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
 
                 if(usageStatus==UsageStatus.USAGE){
                     parkingSpacesUsages.setUsageStatus(usageStatus);
+
+                    flag=1;
+                    this.Driver=Driver;
+                    checkSignal();
+
                 }
                 else{
                     beginStringTime=parkingSpacesUsages.getEntry();
@@ -157,4 +164,20 @@ public class ParkingSpacesUsagesImpl implements ParkingSpacesUsagesService {
         parkingSpacesUsagesRepository.deleteById(id);
         return Boolean.TRUE;
     }
+
+
+    @Scheduled(cron="*/5 * * * * *", zone="Europe/Istanbul")
+    private void checkSignal(){
+        if(flag==1){
+            firebase.setFlag(1);
+            firebase.getSignal();
+            if(firebase.isCheckSignal()==true) {
+                System.out.println("aaaaa");
+                updateByDriverAndUsageStatus(Driver,UsageStatus.FINISH);
+                flag=0;
+            }
+        }
+    }
 }
+
+

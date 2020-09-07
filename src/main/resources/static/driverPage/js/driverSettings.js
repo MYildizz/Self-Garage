@@ -1,3 +1,6 @@
+var obj = JSON.parse(document.cookie);
+
+
 /* Set the width of the side navigation to 250px */
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -22,7 +25,7 @@ function profile(){
     var phoneNumber;
     var carPlate;
 
-    var driverName=sessionStorage.getItem("userId")
+    var driverName=obj.userId
 
     var userInfo={
         name:null,
@@ -71,7 +74,7 @@ function parkingUsages(){
     var address;
     var name;
 
-    var driverName=sessionStorage.getItem("userId")
+    var driverName=obj.userId
     var userInfo={
         name:null,
         entry:null,
@@ -133,7 +136,7 @@ function cardInformation(){
     var cvc;
     var id_name;
 
-    var id=sessionStorage.getItem("userId")
+    var id=obj.userId
 
     var userInfo ={
         name:null,

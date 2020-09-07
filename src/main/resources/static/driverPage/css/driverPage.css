@@ -27,7 +27,7 @@ body {
 
 .ortala{
     text-align: center;
-    margin-left: 12%;
+    margin-left: 10%;
 
 }
 
@@ -106,7 +106,7 @@ body{
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin-left: 22%;
+    margin-left: 18%;
 
 }
 
@@ -135,14 +135,14 @@ body{
     border-bottom: 2px solid #eee;
 }
 .parkArea{
-    margin-left: 35%;
+    margin-left: 32%;
     height: 100px;
     width: 500px;
     font-size: 25px;
 }
 
 #rezerveParkArea{
-    margin-left: 35%;
+    margin-left: 32%;
     height: 100px;
     width: 500px;
     font-size: 25px;
@@ -151,7 +151,7 @@ body{
 }
 
 #iptalEt{
-    margin-left: 37%;
+    margin-left: 35%;
     height: 75px;
     width: 400px;
     font-size: 25px;
