@@ -4,9 +4,11 @@ package com.yildizmurat.api;
 import com.yildizmurat.dto.DriverInformationDto;
 import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 import com.yildizmurat.service.implementation.DriverInformationImpl;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -42,12 +44,16 @@ public class DriverInformationApi {
     }
 
     @RequestMapping(value="/checkDriver",method = RequestMethod.POST)
-    public Boolean checkDriverInformation(@Valid @RequestBody DriverInformationDto driverInformationDto){
+    public Boolean checkDriverInformation(@Valid @RequestBody DriverInformationDto driverInformationDto, HttpServletRequest request){
         String name= driverInformationDto.getIdName();
         String password=driverInformationDto.getPassword();
 
+
         if(( driverInformationImpl.userExist(name)|| driverInformationImpl.mailExist(name)) && driverInformationImpl.checkPassword(password) )
+        {
+            request.getSession().setAttribute("driverId",name);
             return true;
+        }
         return false;
     }
 

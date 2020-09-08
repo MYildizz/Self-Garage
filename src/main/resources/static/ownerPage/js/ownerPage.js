@@ -1,3 +1,12 @@
+var obj = JSON.parse(document.cookie)
+
+console.log("aa "+obj.ownerId);
+
+if(obj.ownerId==null){
+    window.location.href = "/ownerLogin";
+}
+
+
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
 }
@@ -7,7 +16,7 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-var ownerName=sessionStorage.getItem("owner");
+var ownerName=obj.ownerId;
 var parkStatus;
 var parkCloseList=[];
 var parkOpenList=[];
@@ -31,7 +40,7 @@ function parkingUsages(){
     var address;
     var name;
 
-    var ownerName=sessionStorage.getItem("owner")
+    var ownerName=obj.ownerId
     var userInfo={
         name:null,
         entry:null,

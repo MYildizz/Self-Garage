@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <a href="/ownerPage" style="width:100%">
+                        <a style="width:100%">
                             <button type="button" name="button" class="btn login_btn" id="LoginButton">Giriş</button> </a>
                     </div>
                 </form>

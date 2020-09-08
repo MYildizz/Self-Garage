@@ -16,9 +16,16 @@ function checkUser(name,password){
         data: data,
         success:function (data) {
             returnedData=data;
-            alert(data);
+
+            if(returnedData==false) {
+                alert("Yanlış kullanıcı adı veya şifre girdiniz, lütfen tekrar deneyiniz.");
+            }
+            else{
+                window.location.href = "/driverPage";
+            }
+
         },error:function (data) {
-            alert(data+" Error");
+            console.log(data+" Error From driverLogin");
         }
     })
 }
@@ -30,11 +37,6 @@ $("#LoginButton").click(function (event) {
     userPassword=$("#getPassword").val();
     checkUser(userId,userPassword);
 
-    if(returnedData!=true){
-        event.preventDefault();
-    }
-
-    deleteCookies();
     var obj = {}
     obj.userId=userId
     var jsonString = JSON.stringify(obj)
@@ -43,16 +45,8 @@ $("#LoginButton").click(function (event) {
     sessionStorage.setItem("userId",userId);
 });
 
-function deleteCookies() {
-    var allCookies = document.cookie.split(';');
 
-    // The "expire" attribute of every cookie is
-    // Set to "Thu, 01 Jan 1970 00:00:00 GMT"
-    for (var i = 0; i < allCookies.length; i++)
-        document.cookie = allCookies[i] + "=;expires="
-            + new Date(0).toUTCString();
 
-}
 
 
 

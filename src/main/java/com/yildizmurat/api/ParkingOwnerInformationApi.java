@@ -8,6 +8,7 @@ import com.yildizmurat.service.implementation.ParkingOwnerInformationImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @RestController
@@ -33,12 +34,16 @@ public class ParkingOwnerInformationApi {
     }
 
     @RequestMapping(value="/checkParkingOwner",method = RequestMethod.POST)
-    public Boolean checkParkingOwnerInformation(@Valid @RequestBody ParkingOwnerInformationDto parkingOwnerInformationDto){
+    public Boolean checkParkingOwnerInformation(@Valid @RequestBody ParkingOwnerInformationDto parkingOwnerInformationDto, HttpServletRequest request){
         String name= parkingOwnerInformationDto.getIdName();
         String password=parkingOwnerInformationDto.getPassword();
 
         if(( parkingOwnerInformationImpl.userExist(name)|| parkingOwnerInformationImpl.mailExist(name)) && parkingOwnerInformationImpl.checkPassword(password) )
+        {
+            request.getSession().setAttribute("ownerId",name);
             return true;
+
+        }
         return false;
     }
 

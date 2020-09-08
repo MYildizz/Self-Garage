@@ -16,7 +16,13 @@ function checkUser(name,password){
         data: data,
         success:function (data) {
             returnedData=data;
-            alert(data);
+            if(returnedData==false) {
+                alert("Yanlış kullanıcı adı veya şifre girdiniz, lütfen tekrar deneyiniz.");
+            }
+            else{
+                window.location.href = "/ownerPage";
+            }
+
         },error:function (data) {
             alert(data+" Error");
         }
@@ -28,10 +34,12 @@ $("#LoginButton").click(function (event) {
     userPassword=$("#getPassword").val();
     checkUser(userId,userPassword);
 
-    if(returnedData!=true){
-        event.preventDefault();
-    }
-    var owner=userId;
-    sessionStorage.setItem("owner",owner);
+    var obj = {};
+    obj.ownerId=userId;
+    var jsonString = JSON.stringify(obj)
+    document.cookie = jsonString
+
+ //   sessionStorage.setItem("owner",owner);
 });
+
 

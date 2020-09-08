@@ -1,13 +1,17 @@
 package com.yildizmurat.controller;
 
 
+import com.yildizmurat.service.implementation.DriverInformationImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class SelfGarageContoller {
-
 
     @RequestMapping(value="/", method = RequestMethod.GET)
     public String index(){
@@ -46,7 +50,9 @@ public class SelfGarageContoller {
     }
 
     @RequestMapping(value="/driverPage", method = RequestMethod.GET)
-    public String driverPage(){
+    public String driverPage(Model model, HttpServletRequest req ){
+
+        model.addAttribute("driverId",req.getSession().getAttribute("driverId"));
 
         return "driverPage";
     }
@@ -70,8 +76,9 @@ public class SelfGarageContoller {
     }
 
     @RequestMapping(value="/ownerPage", method = RequestMethod.GET)
-    public String ownerPage(){
+    public String ownerPage(Model model, HttpServletRequest req ){
 
+        model.addAttribute("ownerId",req.getSession().getAttribute("ownerId"));
         return "ownerPage";
     }
 

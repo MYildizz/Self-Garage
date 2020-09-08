@@ -638,26 +638,15 @@ function deleteMarker(){
     markers=[];
 }
 
-
-
-
-
-
-/*
-if(sessionStorage.getItem("userId")!=null)
-{
-    obj.userId=sessionStorage.getItem("userId");
-    var jsonString = JSON.stringify(obj);
-    document.cookie = jsonString;
-}
-
-*/
-
-
-
 var obj = JSON.parse(document.cookie)
+
 console.log("aa "+obj.userId);
 console.log("bb "+obj.dataEntry);
+console.log("bb "+obj.ownerId);
+if(obj.userId==null){
+    window.location.href = "/driverLogin";
+}
+
 var lastname = sessionStorage.getItem("userId");
 
 
