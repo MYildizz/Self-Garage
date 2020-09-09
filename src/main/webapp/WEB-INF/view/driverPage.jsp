@@ -26,6 +26,8 @@
     <script src="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
 
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
 </head>
 <body>
 
@@ -49,13 +51,14 @@
 
         <div style="margin-top: 5%">
             <span> TOPLAM TUTAR </span>
-            <div class="rectangle" style="height: 70px" id="activePrice">
+            <div class="rectangle" id="activePrice">
             </div>
 
         </div>
     </div>
 
 </div>
+
 
 <div class="content" id="roadCounter" style="display: none">
 

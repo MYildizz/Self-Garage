@@ -179,6 +179,10 @@ body{
     text-shadow: 2px 0 0 #721c24;
 }
 
+#activePrice{
+    height: 70px;
+}
+
 @font-face {
     font-family: 'Cookie';
     font-style: normal;
@@ -231,78 +235,1110 @@ tr:nth-child(even) {
     flex: 0 0 120px;
     color: #d6d8db;
     text-shadow: 0 0 3px black, 0 0 5px #c69500;
-}
-
-
-@media (min-width: 992px) {
-    #mainNav {
-        padding-top: 2%;
-        padding-bottom: 25px;
-        transition: padding-top 0.3s, padding-bottom 0.3s;
-        border: none;
-        background-color: transparent;
-        display: contents;
-    }
-    #mainNav .navbar-brand {
-        font-size: 1.75em;
-        transition: all 0.3s;
-    }
-    #mainNav .navbar-nav .nav-item .nav-link {
-        padding: 1.1em 1em !important;
-    }
-    #mainNav.navbar-shrink {
-        padding-top: 2%;
-        padding-bottom: 0;
-        background-color: #212529;
-    }
-    #mainNav.navbar-shrink .navbar-brand {
-        font-size: 1.25em;
-    }
 
 
 }
 
-@media(max-width: 900px) {
+@media screen and(min-width:1500px) {
+    .ortala{
+        text-align: center;
+        margin-left: 5%;
 
-    #mainNav {
-        padding-top: 2%;
-        padding-bottom: 25px;
-        transition: padding-top 0.3s, padding-bottom 0.3s;
-        border: none;
-        background-color: transparent;
-        display: contents;
     }
-    #mainNav .navbar-brand {
-        font-size: 1.75em;
-        transition: all 0.3s;
-    }
-    #mainNav .navbar-nav .nav-item .nav-link {
-        padding: 1.1em 1em !important;
-    }
-    #mainNav.navbar-shrink {
-        padding-top: 2%;
-        padding-bottom: 0;
-        background-color: #212529;
-    }
-    #mainNav.navbar-shrink .navbar-brand {
-        font-size: 1.25em;
+    .parkArea{
+        margin-left: 27%;
+        height: 100px;
+        width: 500px;
+        font-size: 25px;
     }
 
-}
+    .buttons{
+        background-color: #5a6268;
+        position: relative;
+        height: 33%;
+        border-width: 5px;
+        border-color: #c69500;
+        border-style: double;
+        border-collapse: separate;
+        border-spacing: 10px;
 
+    }
 
+    .btn {
+        height: 70px;
+        width: 420px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 23%;
 
-@media(max-width: 600px) {
-
-    .btn{
-        margin-left: 0px;
     }
 
     .parkArea{
-        margin-left: 12%;
+        margin-left: 60%;
+        height: 200px;
+        width: 1000px;
+        font-size: 25px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 60%;
+        height: 200px;
+        width: 1000px;
+        font-size: 25px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 50%;
+        height: 200px;
+        width: 1000px;
+        font-size: 25px;
+    }
+
+    .content {
+        width: 60%; /* Full width */
+        padding: 1px; /* Some padding */
+        margin-top: -85px;
+        margin-left: 20%;
+    }
+
+    #activePark{
+        font-size: 15px;
+        margin-left: 35%;
+        margin-top: 25%;
+        width: 350px;
+    }
+
+}
+
+
+@media  screen and  (min-width: 992px) {
+    #mainNav {
+        padding-top: 2%;
+        padding-bottom: 25px;
+        transition: padding-top 0.3s, padding-bottom 0.3s;
+        border: none;
+        background-color: transparent;
+        display: contents;
+    }
+    #mainNav .navbar-brand {
+        font-size: 1.75em;
+        transition: all 0.3s;
+    }
+    #mainNav .navbar-nav .nav-item .nav-link {
+        padding: 1.1em 1em !important;
+    }
+    #mainNav.navbar-shrink {
+        padding-top: 2%;
+        padding-bottom: 0;
+        background-color: #212529;
+    }
+    #mainNav.navbar-shrink .navbar-brand {
+        font-size: 1.25em;
+    }
+
+
+}
+
+
+
+@media screen and(max-width:1285px) {
+    .ortala{
+        text-align: center;
+        margin-left: 5%;
+
+    }
+    .parkArea{
+        margin-left: 27%;
+        height: 100px;
+        width: 500px;
+        font-size: 25px;
+    }
+
+    .buttons{
+        background-color: #5a6268;
+        position: relative;
+        height: 33%;
+        border-width: 5px;
+        border-color: #c69500;
+        border-style: double;
+        border-collapse: separate;
+        border-spacing: 10px;
+
+    }
+
+    .btn {
+        height: 50px;
+        width: 300px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 18%;
+
+    }
+
+    .btn .circle {
+        width: 5px;
+        height: 5px;
+        top: 0;
+        left: 50%;
+    }
+
+    .btn:hover .circle {
+        height: 50px;
+        width: 150px;
+        left: 0;
+    }
+    .parkArea{
+        margin-left: 32%;
+        height: 100px;
+        width: 500px;
+        font-size: 25px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 32%;
+        height: 100px;
+        width: 500px;
+        font-size: 25px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 35%;
         height: 75px;
+        width: 400px;
+        font-size: 25px;
+    }
+
+    .content {
+        width: 60%; /* Full width */
+        padding: 1px; /* Some padding */
+        margin-top: -85px;
+        margin-left: 20%;
+    }
+
+    #activePark{
+        font-size: 15px;
+        margin-left: 35%;
+        margin-top: 25%;
+        width: 350px;
+    }
+
+}
+
+
+@media screen and (max-width: 1120px) {
+    .ortala{
+        text-align: center;
+        margin-left: 3%;
+
+    }
+    .parkArea{
+        margin-left: 23%;
+        height: 100px;
+        width: 500px;
+        font-size: 25px;
+    }
+
+    .buttons{
+        background-color: #5a6268;
+        position: relative;
+        height: 33%;
+        border-width: 5px;
+        border-color: #c69500;
+        border-style: double;
+        border-collapse: separate;
+        border-spacing: 10px;
+
+    }
+
+    .btn {
+        height: 50px;
+        width: 300px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 14%;
+
+    }
+
+    .btn .circle {
+        width: 5px;
+        height: 5px;
+        top: 0;
+        left: 50%;
+    }
+
+    .btn:hover .circle {
+        height: 50px;
+        width: 150px;
+        left: 0;
+    }
+    .parkArea{
+        margin-left: 25%;
+        height: 100px;
+        width: 500px;
+        font-size: 25px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 25%;
+        height: 100px;
+        width: 500px;
+        font-size: 25px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 30%;
+        height: 75px;
+        width: 400px;
+        font-size: 25px;
+    }
+
+    .content {
+        width: 60%; /* Full width */
+        padding: 1px; /* Some padding */
+        margin-top: -85px;
+        margin-left: 20%;
+    }
+
+    #activePark{
+        font-size: 15px;
+        margin-left: 30%;
+        margin-top: 20%;
+        width: 350px;
+    }
+
+}
+
+@media screen and (max-width: 840px) {
+    .ortala{
+        text-align: center;
+        margin-left: 3%;
+
+    }
+    .buttons{
+        background-color: #5a6268;
+        position: relative;
+        height: 33%;
+        border-width: 5px;
+        border-color: #c69500;
+        border-style: double;
+        border-collapse: separate;
+        border-spacing: 10px;
+
+    }
+
+    .btn {
+        height: 50px;
+        width: 300px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 9%;
+
+    }
+
+    .btn .circle {
+        width: 5px;
+        height: 5px;
+        top: 0;
+        left: 50%;
+    }
+
+    .btn:hover .circle {
+        height: 50px;
+        width: 150px;
+        left: 0;
+    }
+    .parkArea{
+        margin-left: 23%;
+        height: 80px;
+        width: 400px;
+        font-size: 25px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 22%;
+        height: 80px;
+        width: 400px;
+        font-size: 25px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 27%;
+        height: 75px;
+        width: 400px;
+        font-size: 25px;
+    }
+
+    .content {
+        width: 60%; /* Full width */
+        padding: 1px; /* Some padding */
+        margin-top: -85px;
+        margin-left: 20%;
+    }
+
+    #activePark{
+        font-size: 15px;
+        margin-left: 30%;
+        margin-top: 18%;
+        width: 280px;
+    }
+
+    .rectangle{
+        width: 280px;
+        height: 85px;
+        border-width: 4px;
+    }
+    #activePrice{
+        height: 65px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+
+    }
+    .buttons{
+        background-color: #5a6268;
+        position: relative;
+        height: 33%;
+        border-width: 5px;
+        border-color: #c69500;
+        border-style: double;
+        border-collapse: separate;
+        border-spacing: 10px;
+
+    }
+
+    .btn {
+        height: 35px;
+        width: 200px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 6%;
+        font-size:12px ;
+    }
+
+    .parkArea{
+        margin-left: 23%;
+        height: 60px;
+        width: 300px;
+        font-size: 15px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 23%;
+        height: 72px;
+        width: 350px;
+        font-size: 15px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 18%;
+        height: 72px;
         width: 350px;
         font-size: 20px;
     }
 
+    .others{
+        margin-left: 25%;
+    }
+
+    .others{
+        margin-left: 27%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0.5px; /* Some padding */
+        margin-top: -85px;
+        margin-left:0%;
+        font-size: large;
+    }
+
+    #activePark{
+        font-size: 15px;
+        margin-left: 27%;
+        margin-top: 25%;
+        width: 280px;
+    }
+
+    .rectangle{
+        width: 280px;
+        height: 85px;
+        border-width: 3px;
+    }
+    #activePrice{
+        height: 65px;
+    }
 }
+
+@media screen and (max-width: 600px) {
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
+
+    }
+    .buttons{
+        background-color: #5a6268;
+        position: relative;
+        height: 33%;
+        border-width: 5px;
+        border-color: #c69500;
+        border-style: double;
+        border-collapse: separate;
+        border-spacing: 10px;
+
+    }
+
+    .btn {
+        height: 35px;
+        width: 200px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 6%;
+        font-size:12px ;
+    }
+
+    .parkArea{
+        margin-left: 23%;
+        height: 60px;
+        width: 300px;
+        font-size: 15px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 21%;
+        height: 60px;
+        width: 300px;
+        font-size: 15px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 22%;
+        height: 60px;
+        width: 300px;
+        font-size: 15px;
+    }
+
+    .others{
+        margin-left: 25%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -75px;
+        margin-left:0%;
+        font-size: medium;
+    }
+
+    #activePark{
+        font-size: 12px;
+        margin-left: 27%;
+        margin-top: 33%;
+        width: 220px;
+    }
+
+    .rectangle{
+        width: 220px;
+        height: 65px;
+        border-width: 3px;
+    }
+    #activePrice{
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
+
+    }
+
+    .btn {
+        height: 35px;
+        width: 200px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 3%;
+
+    }
+
+    .parkArea{
+        margin-left: 12%;
+        height: 60px;
+        width: 300px;
+        font-size: 15px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 12%;
+        height: 60px;
+        width: 300px;
+        font-size: 15px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 12%;
+        height: 60px;
+        width: 300px;
+        font-size: 15px;
+    }
+
+    .others{
+        margin-left: 19%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -65px;
+        margin-left:0%;
+        font-size: small;
+    }
+
+    #activePark{
+        font-size: 12px;
+        margin-left: 22%;
+        margin-top: 38%;
+        width: 220px;
+    }
+
+    .rectangle{
+        width: 220px;
+        height: 65px;
+        border-width: 3px;
+    }
+    #activePrice{
+        height: 45px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+
+    .buttons{
+        height: 30%;
+        padding-bottom: 1%;
+        padding-top: 5%;
+    }
+    #map{
+        height: 85%;
+    }
+
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
+
+    }
+
+    .btn {
+        height: 40px;
+        width: 200px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 3%;
+        font-size:11px ;
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+
+    .parkArea{
+        margin-left: 11%;
+        margin-right: 11%;
+        height: 60px;
+        width: 300px;
+        font-size: 16px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 11%;
+        height: 60px;
+        width: 300px;
+        font-size: 16px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 11%;
+        height: 60px;
+        width: 300px;
+        font-size: 16px;
+    }
+
+    .others{
+        margin-left: 19%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -65px;
+        margin-left:0%;
+        font-size: small;
+    }
+
+    #activePark{
+        font-size: 12px;
+        margin-left: 22%;
+        margin-top: 39%;
+        width: 190px;
+    }
+
+    .rectangle{
+        width: 190px;
+        height: 60px;
+        border-width: 3px;
+    }
+    #activePrice{
+        height: 40px;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+       margin-right: 0%;
+    }
+
+    .btn {
+        height: 30px;
+        width: 150px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 3%;
+        font-size:9px ;
+    }
+
+    .parkArea{
+        margin-left: 11%;
+        height: 55px;
+        width: 250px;
+        font-size: 12px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 11%;
+        height: 55px;
+        width: 250px;
+        font-size: 12px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 11%;
+        height: 55px;
+        width: 250px;
+        font-size: 15px;
+    }
+
+    .others{
+        margin-left: 21%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -65px;
+        margin-left:0%;
+        font-size: small;
+    }
+
+    #activePark{
+        font-size: 12px;
+        margin-left: 20%;
+        margin-top: 39%;
+        width: 190px;
+    }
+
+    .rectangle{
+        width: 190px;
+        height: 60px;
+        border-width: 3px;
+    }
+    #activePrice{
+        height: 40px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .btn {
+        height: 30px;
+        width: 150px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 3%;
+        font-size:9px ;
+    }
+
+    .parkArea{
+        margin-left: 9%;
+        height: 55px;
+        width: 250px;
+        font-size: 12px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 9%;
+        height: 55px;
+        width: 250px;
+        font-size: 12px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 9%;
+        height: 55px;
+        width: 250px;
+        font-size: 15px;
+    }
+
+    .others{
+        margin-left: 21%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -75px;
+        margin-left:0%;
+        font-size: small;
+    }
+
+    #activePark{
+        font-size: 12px;
+        margin-left: 20%;
+        margin-top: 52%;
+        width: 190px;
+    }
+
+    .rectangle{
+        width: 190px;
+        height: 60px;
+        border-width: 2px;
+    }
+    #activePrice{
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .btn {
+        height: 30px;
+        width: 150px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 3%;
+        font-size:9px ;
+    }
+
+    .parkArea{
+        margin-left: 5%;
+        height: 55px;
+        width: 250px;
+        font-size: 12px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 5%;
+        height: 55px;
+        width: 250px;
+        font-size: 12px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 5%;
+        height: 55px;
+        width: 250px;
+        font-size: 15px;
+    }
+
+    .others{
+        margin-left: 19%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -70px;
+        margin-left:0%;
+        font-size: small;
+    }
+
+    #activePark{
+        font-size: 12px;
+        margin-left: 20%;
+        margin-top: 52%;
+        width: 190px;
+    }
+
+    .rectangle{
+        width: 190px;
+        height: 60px;
+        border-width: 2px;
+    }
+    #activePrice{
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .btn {
+        height: 30px;
+        width: 130px;
+        float: left;
+        margin: 1%;
+        min-width: 150px;
+        margin-left: 3%;
+        font-size:9px ;
+    }
+
+    .parkArea{
+        margin-left: 9%;
+        height: 55px;
+        width: 200px;
+        font-size: 12px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 9%;
+        height: 55px;
+        width: 200px;
+        font-size: 12px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 9%;
+        height: 55px;
+        width: 200px;
+        font-size: 15px;
+    }
+
+    .others{
+        margin-left: 16%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -70px;
+        margin-left:0%;
+        font-size: small;
+    }
+
+    #activePark{
+        font-size: 12px;
+        margin-left: 10%;
+        margin-top: 64%;
+        width: 190px;
+    }
+
+    .rectangle{
+        width: 190px;
+        height: 60px;
+        border-width: 2px;
+    }
+    #activePrice{
+        height: 40px;
+    }
+
+}
+
+
+@media screen and (max-width: 250px) {
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .btn {
+        height: 20px;
+        width: 100px;
+        float: left;
+        margin: 1%;
+        min-width: 1px;
+        margin-left: 3%;
+        font-size:9px ;
+    }
+
+    .parkArea{
+        margin-left: 14%;
+        height: 40px;
+        width: 155px;
+        font-size: 12px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 14%;
+        height: 40px;
+        width: 155px;
+        font-size: 12px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 14%;
+        height: 40px;
+        width: 155px;
+        font-size: 15px;
+    }
+
+    .others{
+        margin-left: 20%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -45px;
+        margin-left:0%;
+        font-size: 8px;
+    }
+
+    #activePark{
+        font-size: 12px;
+        margin-left: 5%;
+        margin-top: 55%;
+        width: 190px;
+    }
+
+    .rectangle{
+        width: 190px;
+        height: 60px;
+        border-width: 1px;
+    }
+    #activePrice{
+        height: 40px;
+    }
+
+
+}
+
+@media screen and (max-width: 220px) {
+    .ortala{
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .btn {
+        height: 20px;
+        width: 100px;
+        float: left;
+        margin: 1%;
+        min-width: 1px;
+        margin-left: 3%;
+        font-size:9px ;
+    }
+
+    .parkArea{
+        margin-left: 10%;
+        height: 40px;
+        width: 155px;
+        font-size: 12px;
+    }
+
+    #rezerveParkArea{
+        margin-left: 10%;
+        height: 40px;
+        width: 155px;
+        font-size: 12px;
+        color: black;
+    }
+
+    #iptalEt{
+        margin-left: 10%;
+        height: 40px;
+        width: 155px;
+        font-size: 15px;
+    }
+
+    .others{
+        margin-left: 16%;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -95px;
+        margin-left:0%;
+        font-size: small;
+    }
+
+    .content {
+        width: 100%; /* Full width */
+        padding: 0px; /* Some padding */
+        margin-top: -45px;
+        margin-left:0%;
+        font-size: 8px;
+    }
+
+    #activePark{
+        font-size: 12px;
+        margin-left: 3%;
+        margin-top: 60%;
+        width: 190px;
+    }
+
+    .rectangle{
+        width: 190px;
+        height: 60px;
+        border-width: 1px;
+    }
+    #activePrice{
+        height: 40px;
+    }
+
+}
+
+
+
+
+

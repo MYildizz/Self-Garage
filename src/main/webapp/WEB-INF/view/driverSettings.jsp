@@ -6,7 +6,8 @@
     <title>Simple Markers</title>
     <title>Simple Markers</title>
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
+    <link href="/promotion/css/agency.min.css" rel="stylesheet">
+    <link href="/promotion/css/agency.css" rel="stylesheet">
     <link href="/promotion/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -14,7 +15,8 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/driverPage/css/driverSettings.css" />
-
+    <script src="/promotion/vendor/jquery/jquery.js"></script>
+    <script src="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="/promotion/vendor/jquery/jquery.min.js"></script>
 </head>
@@ -51,7 +53,7 @@
 <div id="main">
 
     <div id="profile" class="shadow-lg p-3 mb-5 bg-white rounded backFont">
-        <div class="container" style="margin-top: 40px">
+        <div class="container" id="container2">
             <div> <h5 class="baslik"> Kişisel Bilgileriniz </h5></div>
             <div class="jumbotron">
                 <div class="row">
@@ -145,6 +147,42 @@
 
     </div>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <span class="copyright">SelfGarage &copy; 2019</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">SelfGarage Tüm Hakları Saklıdır</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </div>
 

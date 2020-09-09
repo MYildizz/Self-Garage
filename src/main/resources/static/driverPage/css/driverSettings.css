@@ -1,3 +1,9 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+}
 
 .ortala{
     text-align: center;
@@ -100,11 +106,26 @@
 .backFont{
     margin: 0.5%;
     padding:0.5%;
-    height: 700px;
+    height: 100%;
     background-color: silver;
     border-style: solid;
     border-color: #c69500;
     border-width:7px ;
+    margin-bottom: 0px;
+    height: 80vh;
+}
+
+.container{
+    margin-top: 40px;
+
+}
+
+#container2{
+    height: 60vh;
+}
+
+.jumbotron{
+    height: 60vh;
 }
 
 .baslik{
@@ -115,5 +136,6 @@
 
 .details{
     margin-left: 5%;
+    height: 100%;
 }
 

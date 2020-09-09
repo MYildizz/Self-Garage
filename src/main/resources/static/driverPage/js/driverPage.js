@@ -51,6 +51,7 @@ function initMap() {
                      map = new google.maps.Map(document.getElementById("map"), {
                         zoom: 15,
                         center: new google.maps.LatLng(pos.lat, pos.lng),
+                        disableDefaultUI: true
                      //   icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
                     });
 
@@ -527,7 +528,7 @@ function checkDistance() {
 
             var distance= google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(parkLat, parkLot));
 
-            if(distance <= 2000000000){
+            if(distance <= 200000000){
                 document.getElementById("map").style.display="none";
                 document.getElementById("roadCounter").style.display="none";
                 document.getElementById("iptalEt").style.display="none";
