@@ -19,18 +19,21 @@
     <script src="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="/promotion/vendor/jquery/jquery.min.js"></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 <body>
 
 <div class="mapAndNavBar">
 
-    <nav class="  fixed-top ortala" id="mainNav" style="position: relative;bottom: 50px">
+    <nav class="  fixed-top ortala" id="mainNav" style="position: relative; ">
 
+     <div style="float: left">
         <button class="solToggler navbar-toggler navbar-toggler-left" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+             <i class="fas fa-bars"></i>
+         </button>
+    </div>
 
-        <div class="ortala container navbar-brand">
+        <div style="float: none" class="ortala container navbar-brand">
             <a>Self Garage</a>
 
         </div>
@@ -44,7 +47,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#" onclick="profile()">Profil Bilgileriniz</a>
     <a href="#" onclick="parkingUsages()">Önceki Kullanımlarınız</a>
-    <a href="#" onclick="cardInformation()">Kart Kullanımlarınız</a>
+    <a href="#" onclick="cardInformation()">Ödeme Bilgileriniz</a>
     <a href="#" onclick="reportError()">Hata Bildir !</a>
     <a href="/" onclick="exit()">ÇIKIŞ </a>
 </div>
@@ -57,10 +60,10 @@
             <div> <h5 class="baslik"> Kişisel Bilgileriniz </h5></div>
             <div class="jumbotron">
                 <div class="row">
-                    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4" id="imageCard">
                         <img src="https://www.svgimages.com/svg-image/s5/man-passportsize-silhouette-icon-256x256.png" alt="stack photo" class="img">
                     </div>
-                    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+                    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" id="nameId">
                         <div class="container" style="border-bottom:1px solid black">
                             <h2 id="nameSurname">-</h2>
                         </div>
@@ -82,17 +85,16 @@
 
         <div> <h5 class="baslik"> Önceki Kullanımlarınız </h5></div>
 
-        <table class="table">
+    <div style="overflow-y:scroll; height:auto; max-height: 400px; overflow: auto;">
+        <table class="table" >
             <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Park Id</th>
-                <th scope="col">İl</th>
-                <th scope="col">İlçe</th>
-                <th scope="col">Adres</th>
-                <th scope="col">Griş Saati</th>
+                <th scope="col">Id</th>
+                <th scope="col">İl/ilçe</th>
+                <th scope="col">Giriş Saati</th>
                 <th scope="col">Çıkış Saati</th>
-                <th scope="col">Toplam Süre</th>
+                <th scope="col">Süre</th>
                 <th scope="col">Tutar</th>
             </tr>
             </thead>
@@ -105,15 +107,13 @@
 
             </tbody>
         </table>
-
-
     </div>
-
+    </div>
 
     <div id="cardInformation" class="shadow-lg p-3 mb-5 bg-white rounded backFont">
 
         <div> <h5 class="baslik"> Kart Bilgileriniz </h5></div>
-
+        <div style="overflow-y:scroll; height:auto; max-height: 400px; overflow: auto;">
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -133,6 +133,7 @@
             </tr>
             </tbody>
         </table>
+        </div>
     </div>
 
     <div id="reportError" class="shadow-lg p-3 mb-5 bg-white rounded backFont">
@@ -140,56 +141,61 @@
         <div> <h5 class="baslik"> Bize Hata Bildirin </h5></div>
 
         <div class="form-group">
-            <label style="position: center" for="exampleFormControlTextarea1">Hata Bildiriminizi Yazınız</label>
+            <label style="position: center" for="exampleFormControlTextarea1">Uygulamamız demo aşamasında olduğu için bir çok hata bulundurabilir. Gördüğünüz problemleri belirtiniz seviniriz.</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-            <button style="margin-top: 2%" type="button" class="btn btn-secondary btn-lg btn-block">Gönder</button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block">Gönder</button>
         </div>
 
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-4">
-                    <span class="copyright">SelfGarage &copy; 2019</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li class="list-inline-item">
-                            <a href="#">SelfGarage Tüm Hakları Saklıdır</a>
-                        </li>
 
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 </div>
 
 
+<div>
+    <footer class="footer">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <span class="copyright">SelfGarage &copy; 2019</span>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-inline social-buttons">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-inline quicklinks">
+                                <li class="list-inline-item">
+                                    <a href="#">SelfGarage Tüm Hakları Saklıdır</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+</div>
+
 
 <script src="/promotion/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/driverPage/js/driverSettings.js"></script>
+
 </body>
 
 </html>

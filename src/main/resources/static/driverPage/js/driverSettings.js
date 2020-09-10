@@ -100,13 +100,11 @@ function parkingUsages(){
                 myTable +=" <tr> "
                 myTable += "<th scope=\"row\">" +i + "</th>";
                 myTable += "<td>" + data[i].name + "</td>";
-                myTable += "<td>" + data[i].province + "</td>";
-                myTable += "<td>" + data[i].district + "</td>";
-                myTable += "<td>" + data[i].address + "</td>";
+                myTable += "<td>" + data[i].province + "/ "+ data[i].district +"</td>";
                 myTable += "<td>" + data[i].entry + "</td>";
                 myTable += "<td>" + data[i].departure + "</td>";
-                myTable += "<td>" + data[i].totalTime + "</td>";
-                myTable += "<td>" + data[i].price + "</td>";
+                myTable += "<td>" + data[i].totalTime + " Dk "+ "</td>";
+                myTable += "<td>" + data[i].price + " Tl "+"</td>";
                 myTable +=" </tr> "
             }
             myTable += "";
@@ -154,15 +152,22 @@ function cardInformation(){
         url:"/DriverCreditCardInformation/getParkingSpacesUsagesDriver/"+id,
         success:function (data) {
 
+            var cardNo=data[0].cardNo;
+            cardNo=cardNo.substring(6,10);
+
+            if(data.length==0){
+                alert("demo aşamasında ödeme bilgileri bulunmamaktadır.");
+            }
+
             var myTable="";
             var i;
             for(i=0;i<data.length;i++){
                 myTable += "<th scope=\"row\">" +i + "</th>";
                 myTable += "<td>" + data[i].name + "</td>";
                 myTable += "<td>" + data[i].surname + "</td>";
-                myTable += "<td>" + data[i].cardNo + "</td>";
-                myTable += "<td>" + data[i].aa_yy + "</td>";
-                myTable += "<td>" + data[i].cvc + "</td>";
+                myTable += "<td>" + "********"+cardNo + "</td>";
+                myTable += "<td>" + "**/**" + "</td>";
+                myTable += "<td>" + "***" + "</td>";
             }
             myTable += "";
             document.getElementById("getCardInfo").innerHTML = myTable;
