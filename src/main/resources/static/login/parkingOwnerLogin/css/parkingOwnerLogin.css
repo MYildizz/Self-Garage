@@ -140,3 +140,129 @@ html {
         font-size: 1.25em;
     }
 }
+
+
+@media screen and (max-width: 960px) {
+    .user_card{
+        margin-top:20%;
+    }
+
+    .brand_logo_container{
+        height: 170px;
+        width: 170px;
+        top:-55px;
+    }
+
+    .brand_logo {
+        height: 150px;
+        width: 150px;
+    }
+
+
+}
+
+@media screen and (max-width: 530px) {
+    .user_card{
+        margin-top:30%;
+    }
+
+    .brand_logo_container{
+        height: 150px;
+        width: 150px;
+        top:-55px;
+    }
+
+    .brand_logo {
+        height: 130px;
+        width: 130px;
+    }
+
+    form{
+        font-size: 15px; !important;
+    }
+
+    .mt-4{
+        font-size: 15px; !important;
+    }
+
+    .form_container .form-control {
+        font-size: 15px; !important;
+    }
+
+    .form_container .btn {
+        font-size: 15px; !important;
+    }
+
+
+
+}
+
+@media screen and (max-width: 350px) {
+    .user_card{
+        margin-top:30%;
+        height: 350px;
+    }
+
+    .brand_logo_container{
+        height: 130px;
+        width: 130px;
+        top:-35px;
+    }
+
+    .brand_logo {
+        height: 110px;
+        width: 110px;
+    }
+
+    form{
+        font-size: 13px; !important;
+    }
+
+    .mt-4{
+        font-size: 13px; !important;
+    }
+
+    .form_container .form-control {
+        font-size: 13px; !important;
+    }
+
+    .form_container .btn {
+        font-size: 13px; !important;
+    }
+
+
+}
+
+@media screen and (max-width: 270px) {
+    .user_card{
+        margin-top:40%;
+        height: 350px;
+    }
+
+    .brand_logo_container{
+        height: 110px;
+        width: 110px;
+        top:-20px;
+    }
+
+    .brand_logo {
+        height: 90px;
+        width: 90px;
+    }
+
+    form{
+        font-size: 12px; !important;
+    }
+    .mt-4{
+        font-size: 12px; !important;
+    }
+
+    .form_container .form-control {
+        font-size: 12px; !important;
+    }
+
+    .form_container .btn {
+        font-size: 12px; !important;
+    }
+
+}

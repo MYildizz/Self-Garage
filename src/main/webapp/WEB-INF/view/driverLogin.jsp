@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Insert title here</title>
+    <title>Self Garage Sürücü Giriş</title>
 
     <link href="/login/driverLogin/css/driverLogin.css" rel="stylesheet">
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -61,10 +61,10 @@
 
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
-                    Hesabınız yok mu? <a href="#" class="ml-2">Kayıt</a>
+                    Hesabınız yok mu? <a href="/driverSignUp" class="ml-2">Kayıt</a>
                 </div>
                 <div class="d-flex justify-content-center links">
-                    <a href="#">Şifrenizi mi unuttunuz?</a>
+                  <!--  <a href="#">Şifrenizi mi unuttunuz?</a> -->
                 </div>
             </div>
         </div>

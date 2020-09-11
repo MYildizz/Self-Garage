@@ -12,6 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 <body>
 
@@ -61,10 +62,10 @@
 
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
-                    Hesabınız yok mu? <a href="#" class="ml-2">Kayıt</a>
+                    Hesabınız yok mu? <a href="/ownerSignUp" class="ml-2">Kayıt</a>
                 </div>
                 <div class="d-flex justify-content-center links">
-                    <a href="#">Şifrenizi mi unuttunuz?</a>
+                <!--    <a href="#">Şifrenizi mi unuttunuz?</a> -->
                 </div>
             </div>
         </div>

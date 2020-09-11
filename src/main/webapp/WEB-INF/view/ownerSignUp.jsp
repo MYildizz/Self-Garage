@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Insert title here</title>
+    <title>Park Kayıt</title>
 
     <link href="/register/parkingOwnerRegister/css/parkingOwnerSignUp.css" rel="stylesheet">
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -12,6 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 <body>
 
@@ -93,7 +94,7 @@
 
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
-                    Zaten bir hesabınız var mı? <a href="#" class="ml-2">Giriş</a>
+                    Zaten bir hesabınız var mı? <a href="/ownerLogin" class="ml-2">Giriş</a>
                 </div>
             </div>
         </div>
