@@ -7,7 +7,6 @@
 <head>
 
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -26,6 +25,8 @@
   <!-- Custom styles for this template -->
   <link href="/promotion/css/agency.min.css" rel="stylesheet">
 	  <link href="/promotion/css/agency.css" rel="stylesheet">
+
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 
 <body id="page-top">
@@ -77,22 +78,11 @@
     	<img src="/promotion/img/service/self-garage.jpeg" class="img-fluid center" alt="Responsive image">
     	
     	<p id="production_text" class="text-center p-3 mb-2 bg-light text-dark">
-    	Self Garage projemiz ile, kişisel park alanlarını gelir modeli haline getirerek, park alanı sahiplerini,
-		otoparklarını kullanmadıkları zaman, kullanıma açarak, park yeri arayan diğer araç şoförlerine ulaştırmayı
-		amaçlıyoruz.
-		 Projemiz mekanik, elektronik, ve yazılım olmak üzere 3 ayrı platformdan ulaşmaktadır. Mekanik aksam
-		otomatik olarak açılıp kapanabilen bir dubadan oluşmaktadır, elektronik aksam ise üzerinde aracın olup
-		olmadığını kontrol eden ve belirli kriterlere göre dubanın açılıp kapanmasını sağlayan sensörler ile birlikte
-		kablosuz iletişim sağlayan devrelerden oluşuyor. Yazılım kısmı ise web ve Android platformlardan
-		oluşmaktadır. Bu uygulamalar üzerinden otopark sahipleri kullanmadıkları zamanları seçiyor, araç sahipleri
-		ise uygulamaya üye olarak kullanabilecekleri en yakın park yerlerini haritalar üzerinden görmesini ve ona en
-		uygun noktayı işaretleyerek kolayca ulaşabilmesini sağlıyoruz. Park kullanımını bitirdikten sonra kullanım
-		süresini sensörlerimiz vasıtasıyla ölçüyor ve otomatik olarak kredi kartından çekmeyi amaçlıyoruz. Böylece
-		araç sahipleri için zaman tasarufu, yakıt tasarufu, güvenli ve kolay park imkanının yanı sıra, park yeri ararken
-		yaşanan stresi bitirme imkanı sağlıyoruz. Park alanı sahiplerine de kullanılan miktar kadar belirli bir ücret
-		ödüyor ve ek gelir elde etmesini sağlıyoruz. Böylece projemiz ile her iki taraf kazançlı çıkmış oluyor,
-		uygulamayı kullanmayan vatandaşlar için bile şehirdeki trafik yoğunluğu azaltıyor ve temiz bir çevreye katkı
-		sağlamış oluyoruz.</p>
+          Günümüzde yoğun trafik birçok şehirde başlıca problemlerden biri haline gelmiştir. Bu trafiğin büyük bir bölümünü ise park yeri arayan araçlar oluşturmaktadır. Park yeri aramak belirli bölgelerde çok zor hale gelmiş, otoparklar yetersiz kalmış ve yasadışı değnekçiler, otopark mafyaları ortaya çıkmıştır .
+          Bunun sonucunda araç sahipleri park yeri ararken büyük stres yaşamakta, trafik cezaları yemekte, zaman kaybetmekte ve yakıtının bir kısmını israf etmektedir. Araç sahipleri bu problemleri yaşarken kişisel otopark sahipleri ise kendi alanlarının kullanılmaması için belli bir bariyer koymakta ve diğer araçların bu alanlara girişini engellemektedir. Bu sebeple, bu alanlar boş kalırken, belli alanlara düzensiz park edilip, trafiğin kitlenmesinde büyük rol oynayan ve çevrenin egzoz dumanıyla kirletildiği kötü manzaralarla karşılaşmaktayız.
+          Self Garage projemiz ile, kişisel park alanlarını gelir modeli haline getirerek, park alanı sahiplerine otoparklarını kullanmadıkları zaman, kullanıma açtırıp, park yeri arayan diğer araç şoförlerine bu alanları kolay bir şekilde ulaştırmayı amaçlıyoruz. Böylece araç sahipleri için park yeri ararken yaşanan stresi bitirme imkanı sağlıyoruz. Trafikteki araç yoğunluğunu da bu çözüm ile gidermiş oluyoruz.
+          Mekanik, elektronik ve yazılımdan oluşan 3 temel platformumuz ile bu hizmeti kaliteli ve kullanışlı bir şekilde vermeyi amaçlıyoruz.
+          Çalışma mekanizmasında, otopark sahibi alanını istediği bir saatte kendi hesabı üzerinden açarak, diğer sürücülerin haritalarına düşüp park imkanı sağlanmış oluyor. Otoparka gitmek isteyen sürücü üzerine tıklayınca alana yönlendirilip vardığı zaman duba otomatik olarak açılıyor ve çıkış yaptığında kalma süresi otomatik olarak hesaplanıp ücret kredi kartından çekiliyor fakat demo aşamasında ücret alınmamaktadır. Böylece her iki tarafın da kazançlı çıkması ile birlikte, trafik yoğunluğu da azalmış oluyoruz. İnsanlar için de temiz bir çevre ile dijital bir şehir hediye etmiş oluyoruz.</p>
   </section>
 
 
@@ -136,7 +126,23 @@
       <div class="row">
         <div class="col-lg-12">
           <ul class="timeline">
-    
+
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="/promotion/img/about/1.jpeg" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>Eylül 2020</h4>
+                  <h4 class="subheading">Teknofest 2020</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">  Teknofest 2020 Akıllı Ulaşım Yarışmasında 4. sıradan finale kaldık.
+                  </p>
+                </div>
+              </div>
+            </li>
+
             <li>
               <div class="timeline-image">
                 <img class="rounded-circle img-fluid" src="/promotion/img/about/2.jpeg" alt="">
@@ -147,7 +153,7 @@
                   <h4 class="subheading">Prototip Aşaması</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Projemizin prototipini geliştirmeye başladık.</p>
+                  <p class="text-muted">Projenin prototip geliştirme aşaması başladı.</p>
                 </div>
               </div>
             </li>

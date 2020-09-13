@@ -96,7 +96,7 @@ function parkingUsages(){
             var myTable="";
             var i;
 
-            for(i=0;i<data.length;i++){
+            for(i=data.length; i>0;i--){
                 myTable +=" <tr> "
                 myTable += "<th scope=\"row\">" +i + "</th>";
                 myTable += "<td>" + data[i].name + "</td>";

@@ -5,7 +5,11 @@
 <head>
     <title>Park Alanları</title>
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
+    <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/promotion/css/agency.min.css" rel="stylesheet">
+    <link href="/promotion/css/agency.css" rel="stylesheet">
+    <link href="/promotion/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="/promotion/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/promotion/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" type="text/css">
@@ -19,32 +23,33 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="/promotion/vendor/jquery/jquery.js"></script>
     <script src="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
-
+    <script src="/promotion/vendor/jquery/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://rawgit.com/tempusdominus/bootstrap-4/master/build/js/tempusdominus-bootstrap-4.js"></script>
     <link href="https://rawgit.com/tempusdominus/bootstrap-4/master/build/css/tempusdominus-bootstrap-4.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 
 </head>
 <body>
 
 <div class="mapAndNavBar">
 
-    <nav class="  fixed-top ortala" id="mainNav" style="position: relative;bottom: 50px">
+    <nav class="  fixed-top ortala" id="mainNav" style="position: relative; ">
 
-        <button class="solToggler navbar-toggler navbar-toggler-left" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+        <div style="float: left">
+            <button class="solToggler navbar-toggler navbar-toggler-left" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
 
-        <div class="ortala container navbar-brand">
+        <div style="float: none" class="ortala container navbar-brand">
             <a>Self Garage</a>
 
         </div>
     </nav>
 
-    <div id="map"></div>
 
 </div>
 
@@ -52,7 +57,7 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#" onclick="parkInfo()">Park Alanlarınız</a>
     <a href="#" onclick="profile()">Profil Bilgileriniz</a>
-    <a href="#" >Hata Bildir !</a>
+    <a href="#" onclick="reportError()">Hata Bildir !</a>
     <a href="/" >ÇIKIŞ </a>
 </div>
 
@@ -63,18 +68,7 @@
         <div> <h5 class="baslik"> Park Alanlarınız </h5></div>
         <div id="parkPage" class="shadow-lg p-3 mb-5 bg-white rounded backFont">
 
-            <div id="parkSpaces">
-
-
-            </div>
-            <!--
-                <div class="verticalLine" id="verticalLine">
-                    <a id="Timer"><button id="setTime" type="button" class="btn " data-toggle="modal" data-target="#exampleModalCenter">Tarih Ayarla</button></a>
-                    <a><h id="pLogo">P</h></a>
-                    <a id="parkButtonClose"><button id="closeButton" type="button" class="btn btn-outline-warning">Kullanıma Kapat</button></a>
-                    <a id="parkButtonOpen"><button id="openButton" type="button" class="btn btn-outline-warning">&nbsp Kullanıma Aç &nbsp  </button></a>
-                </div>
--->
+            <div id="parkSpaces"> </div>
 
             <div>
                 <!-- Modal -->
@@ -128,18 +122,16 @@
 
         <div id="parkUsages" class="shadow-lg p-3 mb-5 bg-white rounded backFont">
 
-
+            <div style="overflow-y:scroll; height:auto; max-height: 400px; overflow: auto;">
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Park Id</th>
-                    <th scope="col">İl</th>
-                    <th scope="col">İlçe</th>
-                    <th scope="col">Adres</th>
-                    <th scope="col">Griş Saati</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">İl/ilçe</th>
+                    <th scope="col">Giriş Saati</th>
                     <th scope="col">Çıkış Saati</th>
-                    <th scope="col">Toplam Süre</th>
+                    <th scope="col">Süre</th>
                     <th scope="col">Tutar</th>
                 </tr>
                 </thead>
@@ -150,7 +142,7 @@
 
                 </tbody>
             </table>
-
+            </div>
 
 
         </div>
@@ -182,6 +174,57 @@
         </div>
     </div>
 
+    <div id="reportError" class="shadow-lg p-3 mb-5 bg-white rounded backFont">
+
+        <div> <h5 class="baslik"> Bize Hata Bildirin </h5></div>
+
+        <div class="form-group">
+            <label style="position: center" for="exampleFormControlTextarea1">Uygulamamız demo aşamasında olduğu için bir çok hata bulundurabilir. Gördüğünüz problemleri belirtiniz seviniriz.</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary btn-lg btn-block">Gönder</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <span class="copyright">SelfGarage &copy; 2019</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">SelfGarage Tüm Hakları Saklıdır</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 
 <script>

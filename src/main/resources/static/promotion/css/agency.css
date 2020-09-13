@@ -713,3 +713,136 @@ ul.social-buttons li a {
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #fed136;
 }
+
+@media screen and (max-width: 500px){
+  .RegisterCard1 {
+    margin-top: 2%;
+    margin-right: 20%;
+    margin-left:5%;
+    width: 20rem !important;
+  }
+
+  .RegisterCard2 {
+    margin-top: 170%;
+    margin-right: 30%;
+    margin-left: 5%;
+    width: 20rem !important;
+  }
+
+  .btn{
+    margin-right: 12%;
+    margin-left: 8%;
+
+  }
+
+  .center {
+    width: 100%;
+  }
+  #production_text {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+
+}
+
+@media screen and (max-width: 350px){
+  .RegisterCard1 {
+    margin-top: 2%;
+    margin-right: 20%;
+    margin-left:7%;
+    width: 17rem !important;
+  }
+
+  .RegisterCard2 {
+    margin-top: 170%;
+    margin-right: 30%;
+    margin-left: 7%;
+    width: 17rem !important;
+  }
+
+  .btn{
+    margin-right: 12%;
+    margin-left: 9%;
+
+  }
+  #portfolio * {
+    font-size: 12px;
+  }
+  .page-section {
+    padding: 30px 0;
+  }
+
+}
+
+@media screen and (max-width: 300px){
+  .RegisterCard1 {
+    margin-top: 2%;
+    margin-right: 20%;
+    margin-left:9%;
+    width: 14rem !important;
+  }
+
+  .RegisterCard2 {
+    margin-top: 170%;
+    margin-right: 30%;
+    margin-left: 9%;
+    width: 14rem !important;
+  }
+
+  .btn{
+    margin-right: 12%;
+    margin-left: 3%;
+
+  }
+  #portfolio * {
+    font-size: 11px;
+  }
+
+  .page-section h2.section-heading {
+    font-size: 30px;
+  }
+  .page-section h3.section-subheading {
+    font-size: 12px;
+  }
+
+  .page-section {
+    padding: 20px 0;
+  }
+
+}
+
+@media screen and (max-width: 250px){
+  .RegisterCard1 {
+    margin-top: 2%;
+    margin-right: 20%;
+    margin-left:14%;
+    width: 10rem !important;
+  }
+
+  .RegisterCard2 {
+    margin-top: 170%;
+    margin-right: 30%;
+    margin-left: 14%;
+    width: 10rem !important;
+  }
+
+  .btn{
+    margin-right: 0%;
+    margin-left: 0%;
+
+  }
+  #portfolio * {
+    font-size: 10px;
+  }
+
+  .page-section h2.section-heading {
+    font-size: 10px;
+  }
+  .page-section h3.section-subheading {
+    font-size: 10px;
+  }
+
+}

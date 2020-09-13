@@ -62,17 +62,15 @@ function parkingUsages(){
             var myTable="";
             var i;
             for(i=0;i<data.length;i++){
-                myTable +="<tr >"
+                myTable +=" <tr> "
                 myTable += "<th scope=\"row\">" +i + "</th>";
                 myTable += "<td>" + data[i].name + "</td>";
-                myTable += "<td>" + data[i].province + "</td>";
-                myTable += "<td>" + data[i].district + "</td>";
-                myTable += "<td>" + data[i].address + "</td>";
+                myTable += "<td>" + data[i].province + "/ "+ data[i].district +"</td>";
                 myTable += "<td>" + data[i].entry + "</td>";
                 myTable += "<td>" + data[i].departure + "</td>";
-                myTable += "<td>" + data[i].totalTime + "</td>";
-                myTable += "<td>" + data[i].price + "</td>";
-                myTable +="</tr>"
+                myTable += "<td>" + data[i].totalTime + " Dk "+ "</td>";
+                myTable += "<td>" + data[i].price + " Tl "+"</td>";
+                myTable +=" </tr> "
             }
             myTable += "";
             document.getElementById("getParkingInfo").innerHTML = myTable;
@@ -187,6 +185,7 @@ function getOwnerInfo(ownerName){
 
 function parkInfo(){
     $("#profile").hide();
+    $("#reportError").hide();
     $("#parkInfo").show();
 
     getParkAreas(ownerName);
@@ -198,12 +197,19 @@ function parkInfo(){
 }
 
 function profile(){
-
+    $("#reportError").hide();
     $("#parkInfo").hide();
     $("#profile").show();
 
     getOwnerInfo(ownerName);
 
+}
+
+function reportError(){
+    $("#parkInfo").hide();
+    $("#profile").hide();
+    $("#exit").hide();
+    $("#reportError").show();
 }
 
 
@@ -295,7 +301,6 @@ $("#saveTime").click(function (event){
 
     var firstDate= firstYear+"-"+firstMonth+"-"+firstDay+" "+firstHour+":"+firstMinute+":00";
 
-    alert(firstDate);
 
     var secondMonth= secondDate.substring(0, 2);
     var secondDay= secondDate.substring(3, 5);
@@ -322,7 +327,7 @@ $("#saveTime").click(function (event){
 
     var secondDate= secondYear+"-"+secondMonth+"-"+secondDay+" "+secondHour+":"+secondMinute+":00";
 
-    alert(secondDate);
+    alert("Talebiniz Alınmıştır");
 
 
 
