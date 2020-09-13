@@ -96,7 +96,7 @@ function parkingUsages(){
             var myTable="";
             var i;
 
-            for(i=data.length; i>0;i--){
+            for(i=data.length-1; i>=0;i--){
                 myTable +=" <tr> "
                 myTable += "<th scope=\"row\">" +i + "</th>";
                 myTable += "<td>" + data[i].name + "</td>";
@@ -186,6 +186,29 @@ function reportError(){
     $("#exit").hide();
     $("#reportError").show();
 }
+
+function reportErrorMessage(){
+    var name = obj.userId;
+    var message = $("#FormControlTextarea").val();
+
+    $.ajax({
+        url: "/mail/sendComplaint",
+        type: "POST",
+        data: {
+            name: name,
+            message: message
+        },
+        cache: false,
+        success: function() {
+        alert("Geri bildiriminiz tarafımıza ulaşmıştır. Teşekkür ederiz.")
+        },
+        error: function() {
+         alert("sunucan cevap alınamadı")
+        }
+    });
+
+}
+
 
 function exit() {
     $("#driverUsages").hide();

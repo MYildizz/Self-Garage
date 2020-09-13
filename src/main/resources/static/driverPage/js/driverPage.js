@@ -236,7 +236,7 @@ function rezerveLocation(){
     document.cookie = jsonString;
 
     displayTime(null);
-    setInterval("displayTime(null)", 100000);
+    setInterval("displayTime(null)", 10000);
 
     var lat=sessionStorage.getItem("nearDistanceLatitude");
     var lot=sessionStorage.getItem("nearDistanceLongitude");
@@ -440,18 +440,22 @@ function cancel(){
     updateParkingStatus(parkStatus);
 
     var minute=diff;
-    var price =minute*0.5;
+    var price =minute*0.2;
+    minute=minute.toString();
+    minute=minute.substring(0,5);
+    price = price.toString();
+    price=price.substring(0,4);
     var text="";
 
     if(minute < 60){
         if(minute <10){
             text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
-            text+= "GEÇEN SÜRE : "+ "00:0"+minute+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+ "00:0"+" DAKİKA ";
             text+="- UCRET : "+price +" TL </p>";
         }
         else{
             text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
-            text+= "GEÇEN SÜRE : "+ "00:"+minute+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+ "00:"+" DAKİKA ";
             text+="- UCRET : "+price +" TL </p>";
         }
     }
@@ -460,14 +464,14 @@ function cancel(){
             var hours = minute/60;
             var minute= minute%60;
             text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
-            text+= "GEÇEN SÜRE : "+ "00:0"+minute+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+hours+ ":0"+" DAKİKA ";
             text+="- UCRET : "+price+" TL </p>";
         }
         else{
             var hours = minute/60;
             var minute= minute%60;
             text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
-            text+= "GEÇEN SÜRE : "+ "00:"+minute+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+hours+ ":"+" DAKİKA ";
             text+="- UCRET : "+price+" TL </p>";
         }
     }
@@ -510,11 +514,6 @@ function updateParkingStatus(parkStatus){
     })
 }
 
-
-
-function parkUsageState() {
-
-}
 function checkDistance() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -546,14 +545,8 @@ function checkDistance() {
     }
 }
 
-
-
 function getFirebaseSignal(){
    readData();
-
-}
-
-function openDubaFirebase(){
 
 }
 
@@ -565,6 +558,8 @@ function displayTime(beginDate){
     }
     var minute=diff_dates(beginDate);
     var price =minute*0.2;
+    price = price.toString();
+    price=price.substring(0,4);
     var text="";
     var time="";
     if(minute < 60){
@@ -641,9 +636,6 @@ function deleteMarker(){
 
 var obj = JSON.parse(document.cookie)
 
-console.log("aa "+obj.userId);
-console.log("bb "+obj.dataEntry);
-console.log("bb "+obj.ownerId);
 if(obj.userId==null){
     window.location.href = "/driverLogin";
 }

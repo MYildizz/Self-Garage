@@ -27,10 +27,11 @@
 	  <link href="/promotion/css/agency.css" rel="stylesheet">
 
   <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+  <link rel="icon" href="/promotion/img/service/self-garage.jpeg">
 </head>
 
 <body id="page-top">
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
@@ -129,7 +130,7 @@
 
             <li class="timeline-inverted">
               <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="/promotion/img/about/1.jpeg" alt="">
+                <img class="rounded-circle img-fluid" src="/promotion/img/service/teknofest.png" alt="" style="margin-top: 25px">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -145,7 +146,7 @@
 
             <li>
               <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="/promotion/img/about/2.jpeg" alt="">
+                <img class="rounded-circle img-fluid" src="/promotion/img/service/self-garage.jpeg" alt="" style="height: 100%">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -275,17 +276,17 @@
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" id="email" type="email" placeholder="Mail Adresiniz *" required="required" data-validation-required-message="Please enter your email address.">
+                  <input class="form-control" id="email" type="email" placeholder="Mail Adresiniz *" required="required" data-validation-required-message="Lütfen mail adresinizi giriniz.">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" id="phone" type="tel" placeholder="Telefonunuz *" required="required" data-validation-required-message="Please enter your phone number.">
+                  <input class="form-control" id="phone" type="tel" placeholder="Telefonunuz *" required="required" data-validation-required-message="Lütfen telefon numaranızı giriniz.">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <textarea class="form-control" id="message" placeholder="Mesajınız *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                  <textarea class="form-control" id="message" placeholder="Mesajınız *" required="required" data-validation-required-message="Lütfen mesajınızı giriniz."></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -306,26 +307,10 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-4">
-          <span class="copyright">SelfGarage &copy; 2019</span>
+          <span class="copyright">SelfGarage &copy; 2020</span>
         </div>
         <div class="col-md-4">
-          <ul class="list-inline social-buttons">
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
+          <img src="/promotion/img/service/self-garage.jpeg" alt="logo" width="100" height="50">
         </div>
         <div class="col-md-4">
           <ul class="list-inline quicklinks">

@@ -20,6 +20,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="/promotion/vendor/jquery/jquery.min.js"></script>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="icon" href="/promotion/img/service/self-garage.jpeg">
 </head>
 <body>
 
@@ -141,9 +142,9 @@
         <div> <h5 class="baslik"> Bize Hata Bildirin </h5></div>
 
         <div class="form-group">
-            <label style="position: center" for="exampleFormControlTextarea1">Uygulamamız demo aşamasında olduğu için bir çok hata bulundurabilir. Gördüğünüz problemleri belirtiniz seviniriz.</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-            <button type="button" class="btn btn-secondary btn-lg btn-block">Gönder</button>
+            <label style="position: center" for="FormControlTextarea">Uygulamamız demo aşamasında olduğu için bir çok hata bulundurabilir. Gördüğünüz problemleri belirtiniz seviniriz.</label>
+            <textarea class="form-control" id="FormControlTextarea" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="reportErrorMessage()">Gönder</button>
         </div>
 
     </div>
@@ -155,41 +156,25 @@
 
 <div>
     <footer class="footer">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
-                            <span class="copyright">SelfGarage &copy; 2019</span>
-                        </div>
-                        <div class="col-md-4">
-                            <ul class="list-inline social-buttons">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <ul class="list-inline quicklinks">
-                                <li class="list-inline-item">
-                                    <a href="#">SelfGarage Tüm Hakları Saklıdır</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <span class="copyright">SelfGarage &copy; 2020</span>
                 </div>
-            </footer>
+                <div class="col-md-4">
+                    <img src="/promotion/img/service/self-garage.jpeg" alt="logo" width="100" height="50">
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">SelfGarage Tüm Hakları Saklıdır</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 
 

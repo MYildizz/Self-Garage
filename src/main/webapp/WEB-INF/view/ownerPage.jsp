@@ -30,7 +30,7 @@
     <link href="https://rawgit.com/tempusdominus/bootstrap-4/master/build/css/tempusdominus-bootstrap-4.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-
+    <link rel="icon" href="/promotion/img/service/self-garage.jpeg">
 </head>
 <body>
 
@@ -179,9 +179,9 @@
         <div> <h5 class="baslik"> Bize Hata Bildirin </h5></div>
 
         <div class="form-group">
-            <label style="position: center" for="exampleFormControlTextarea1">Uygulamamız demo aşamasında olduğu için bir çok hata bulundurabilir. Gördüğünüz problemleri belirtiniz seviniriz.</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-            <button type="button" class="btn btn-secondary btn-lg btn-block">Gönder</button>
+            <label style="position: center" for="FormControlTextarea">Uygulamamız demo aşamasında olduğu için bir çok hata bulundurabilir. Gördüğünüz problemleri belirtiniz seviniriz.</label>
+            <textarea class="form-control" id="FormControlTextarea" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="reportErrorMessage()">Gönder</button>
         </div>
 
     </div>
@@ -193,26 +193,10 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4">
-                    <span class="copyright">SelfGarage &copy; 2019</span>
+                    <span class="copyright">SelfGarage &copy; 2020</span>
                 </div>
                 <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    <img src="/promotion/img/service/self-garage.jpeg" alt="logo" width="100" height="50">
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
@@ -229,21 +213,23 @@
 
 <script>
 
-    var size=sessionStorage.getItem("size");
+function getParks(size){
+   // var size=sessionStorage.getItem("size");
     var i;
     var parkArea="";
-for(i=0;i<size;i++){
-    var number=i;
-    parkArea+= '<div class="verticalLine" id="verticalLine'+i+ '">'
-    parkArea+=' <a class="Timer" id="Timer'+i+ '"><button id="setTime'+i+ '" type="button" class="btn setTime" data-toggle="modal" data-target="#exampleModalCenter">Tarih Ayarla</button></a>'
-    parkArea+=' <a><h class="pLogo" id="pLogo'+i+ '">P</h></a>'
-    parkArea+=' <a class="parkButtonClose" id="parkButtonClose'+i+ '"><button id="ButtonClose'+i+ '" type="button" class="btn btn-outline-warning closeButton " onclick="closeButtons(this.id)" >Kullanıma Kapat</button></a>'
-    parkArea+=' <a class="parkButtonOpen" id="parkButtonOpen'+i+ '"><button id="ButtonOpen'+i+ '" type="button" class="btn btn-outline-warning openButton" onclick="openButtons(this.id)">&nbsp Kullanıma Aç &nbsp  </button></a>'
-    parkArea+=' </div>'
-    parkArea+="";
+    for(i=0;i<size;i++){
+        var number=i;
+        parkArea+= '<div class="verticalLine" id="verticalLine'+i+ '">'
+        parkArea+=' <a class="Timer" id="Timer'+i+ '"><button id="setTime'+i+ '" type="button" class="btn setTime" data-toggle="modal" data-target="#exampleModalCenter">Tarih Ayarla</button></a>'
+        parkArea+=' <a><h class="pLogo" id="pLogo'+i+ '">P</h></a>'
+        parkArea+=' <a class="parkButtonClose" id="parkButtonClose'+i+ '"><button id="ButtonClose'+i+ '" type="button" class="btn btn-outline-warning closeButton " onclick="closeButtons(this.id)" >Kullanıma Kapat</button></a>'
+        parkArea+=' <a class="parkButtonOpen" id="parkButtonOpen'+i+ '"><button id="ButtonOpen'+i+ '" type="button" class="btn btn-outline-warning openButton" onclick="openButtons(this.id)">&nbsp Kullanıma Aç &nbsp  </button></a>'
+        parkArea+=' </div>'
+        parkArea+="";
 
-}
+    }
     document.getElementById("parkSpaces").innerHTML = parkArea;
+}
 
 </script>
 <script src="/promotion/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

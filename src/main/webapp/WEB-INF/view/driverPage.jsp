@@ -27,7 +27,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-
+    <link rel="icon" href="/promotion/img/service/self-garage.jpeg">
 </head>
 <body>
 
@@ -145,40 +145,26 @@
 
 
 <footer class="footer">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-4">
-                <span class="copyright">SelfGarage &copy; 2019</span>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline social-buttons">
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline quicklinks">
-                    <li class="list-inline-item">
-                        <a href="#">SelfGarage Tüm Hakları Saklıdır</a>
-                    </li>
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <span class="copyright">SelfGarage &copy; 2020</span>
+                </div>
+                <div class="col-md-4">
+                    <img src="/promotion/img/service/self-garage.jpeg" alt="logo" width="100" height="50">
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">SelfGarage Tüm Hakları Saklıdır</a>
+                        </li>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
 </footer>
 
 

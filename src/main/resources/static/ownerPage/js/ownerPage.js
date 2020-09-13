@@ -1,6 +1,5 @@
 var obj = JSON.parse(document.cookie)
 
-console.log("aa "+obj.ownerId);
 
 if(obj.ownerId==null){
     window.location.href = "/ownerLogin";
@@ -61,7 +60,7 @@ function parkingUsages(){
 
             var myTable="";
             var i;
-            for(i=0;i<data.length;i++){
+            for(i=data.length-1; i>=0;i--){
                 myTable +=" <tr> "
                 myTable += "<th scope=\"row\">" +i + "</th>";
                 myTable += "<td>" + data[i].name + "</td>";
@@ -114,7 +113,7 @@ function getParkAreas(Id){
             var sizeTemp=data.length;
             parkSize=sizeTemp;
             sessionStorage.setItem("size",sizeTemp);
-
+            getParks(sizeTemp);
             var i;
             for(i=0;i<sizeTemp;i++){
                 var parkButtonClose="#parkButtonClose"+i;
@@ -210,6 +209,28 @@ function reportError(){
     $("#profile").hide();
     $("#exit").hide();
     $("#reportError").show();
+}
+
+function reportErrorMessage(){
+    var name = obj.ownerId;
+    var message = $("#FormControlTextarea").val();
+
+    $.ajax({
+        url: "/mail/sendComplaint",
+        type: "POST",
+        data: {
+            name: name,
+            message: message
+        },
+        cache: false,
+        success: function() {
+            alert("Geri bildiriminiz tarafımıza ulaşmıştır. Teşekkür ederiz.")
+        },
+        error: function() {
+            alert("sunucan cevap alınamadı")
+        }
+    });
+
 }
 
 
