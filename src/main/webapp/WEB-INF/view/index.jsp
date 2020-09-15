@@ -205,28 +205,28 @@
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="/promotion/img/team/1.jpg" alt="">
             <h4>Murat Yıldız</h4>
-            <p class="text-muted">Yazılım Geiştirici</p>
+            <p class="text-muted">Yazılım Geliştirici</p>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="/promotion/img/team/2.jpg" alt="">
             <h4>Büşra Çaldıran</h4>
-            <p class="text-muted">Tasarımcı</p>
+            <p class="text-muted">Malzemeci</p>
           </div>
         </div>
 
         <div class="col-sm-4">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="/promotion/img/team/3.jpg" alt="">
+            <img class="mx-auto rounded-circle" src="/promotion/img/team/3.jpeg" alt="">
             <h4>Abdulkadir Yaldız</h4>
-            <p class="text-muted">Mekanikci</p>
+            <p class="text-muted">Ürün Geliştirici ve Tasarımcı</p>
           </div>
         </div>
 
         <div class="col-sm-4">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="/promotion/img/team/2.jpg" alt="">
+            <img class="mx-auto rounded-circle" src="/promotion/img/team/4.jpeg" alt="">
             <h4> Yunus Emre Mavi</h4>
             <p class="text-muted">Elektronikci</p>
           </div>
@@ -234,22 +234,22 @@
 
         <div class="col-sm-4">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="/promotion/img/team/2.jpg" alt="">
+            <img class="mx-auto rounded-circle" src="/promotion/img/team/5.jpeg" alt="">
             <h4>Abdurrahman Kocağa </h4>
             <p class="text-muted">İş Geliştirici</p>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="/promotion/img/team/3.jpg" alt="">
+            <img class="mx-auto rounded-circle" src="/promotion/img/team/6.jpeg" alt="">
             <h4>Beyza Öztürk </h4>
-            <p class="text-muted">İş Geliştirici</p>
+            <p class="text-muted">Pazarlamacı</p>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted"> Akıllı Şehirler ve nesnelerin interneti için sürekli olarak projeler geliştirmeye devam ediyoruz.</p>
+          <p class="large text-muted"></p>
         </div>
       </div>
     </div>
@@ -262,7 +262,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Bizimle İletişime Geçin !</h2>
+          <h2 class="section-heading text-uppercase">BİZİMLE İLETİŞİME GEÇİN</h2>
          
         </div>
       </div>

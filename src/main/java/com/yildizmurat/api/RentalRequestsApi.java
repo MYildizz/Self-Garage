@@ -2,18 +2,21 @@ package com.yildizmurat.api;
 
 
 import com.yildizmurat.dto.RentalRequestsDto;
+import com.yildizmurat.service.email.EmailService;
 import com.yildizmurat.service.implementation.RentalRequestsImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/information/rentalRequestsApi")
 public class RentalRequestsApi {
 
     private final RentalRequestsImpl rentalRequestsImpl;
-
+    EmailService emailService=new EmailService();
     public RentalRequestsApi(RentalRequestsImpl rentalRequestsImpl) {
         this.rentalRequestsImpl = rentalRequestsImpl;
     }
@@ -33,6 +36,30 @@ public class RentalRequestsApi {
         if(rentalRequestsImpl.mailExist(rentalRequestsDto.getMail()))
             return ResponseEntity.ok("Bu Mail adresi kullanımdadır");
         rentalRequestsImpl.save(rentalRequestsDto);
+
+
+        try {
+            String content=rentalRequestsDto.getIdName()+
+                    rentalRequestsDto.getId()+" - "+
+                    rentalRequestsDto.getMail()+" - "+
+                    rentalRequestsDto.getAddress()+" - "+
+                    rentalRequestsDto.getDistrict()+" - "+
+                    rentalRequestsDto.getPassword()+" - "+
+                    rentalRequestsDto.getSurname()+" - "+
+                    rentalRequestsDto.getName()+" - "+
+                    rentalRequestsDto.getProvince();
+
+
+            emailService.parkRequests(content);
+        } catch (MessagingException e) {
+            System.out.println("hata 1"+e);
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("hata 2"+e);
+        }
+
+
         return ResponseEntity.ok("Kaydınız Alınmıştır");
     }
 

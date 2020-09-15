@@ -76,7 +76,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Lütfen Belirlediğiniz Tarih Aralıklarınızı Giriniz</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Lütfen Park Alanınızın Açık Kalmasını İstediğiniz Tarih Aralıklarınızı Giriniz</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -220,7 +220,7 @@ function getParks(size){
     for(i=0;i<size;i++){
         var number=i;
         parkArea+= '<div class="verticalLine" id="verticalLine'+i+ '">'
-        parkArea+=' <a class="Timer" id="Timer'+i+ '"><button id="setTime'+i+ '" type="button" class="btn setTime" data-toggle="modal" data-target="#exampleModalCenter">Tarih Ayarla</button></a>'
+        parkArea+=' <a class="Timer" id="Timer'+i+ '"><button id="setTime'+i+ '" type="button" class="btn setTime" data-toggle="modal" data-target="#exampleModalCenter" onclick="changeCurrentPark(this.id)">Tarih Ayarla</button></a>'
         parkArea+=' <a><h class="pLogo" id="pLogo'+i+ '">P</h></a>'
         parkArea+=' <a class="parkButtonClose" id="parkButtonClose'+i+ '"><button id="ButtonClose'+i+ '" type="button" class="btn btn-outline-warning closeButton " onclick="closeButtons(this.id)" >Kullanıma Kapat</button></a>'
         parkArea+=' <a class="parkButtonOpen" id="parkButtonOpen'+i+ '"><button id="ButtonOpen'+i+ '" type="button" class="btn btn-outline-warning openButton" onclick="openButtons(this.id)">&nbsp Kullanıma Aç &nbsp  </button></a>'

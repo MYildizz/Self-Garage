@@ -31,66 +31,106 @@ public class DriverInformationImpl implements DriverInformationService {
     @Override
     public DriverInformationDto save(DriverInformationDto driverInformationDto) {
 
+        try{
+            DriverInformation driverInformation=  modelMapper.map(driverInformationDto,DriverInformation.class);
+            driverInformation= driverInformationRepository.save(driverInformation);
+            return modelMapper.map(driverInformation,DriverInformationDto.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
 
-        DriverInformation driverInformation=  modelMapper.map(driverInformationDto,DriverInformation.class);
-        driverInformation= driverInformationRepository.save(driverInformation);
-
-        return modelMapper.map(driverInformation,DriverInformationDto.class);
     }
 
     @Override
     public DriverInformationDto getById(Long id) {
-        DriverInformation driverInformation = driverInformationRepository.getOne(id);
-        return modelMapper.map(driverInformation,DriverInformationDto.class);
+
+        try{
+            DriverInformation driverInformation = driverInformationRepository.getOne(id);
+            return modelMapper.map(driverInformation,DriverInformationDto.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
     }
 
     @Override
     public DriverInformationDto update(Long id, DriverInformationDto driverInformationDto) {
 
-        DriverInformation checkDriver = driverInformationRepository.getOne(id);
+        try{
+            DriverInformation checkDriver = driverInformationRepository.getOne(id);
 
-        if (checkDriver == null)
-            throw new IllegalArgumentException("Project Code not Exit " + id);
-        DriverInformation driverInformation = modelMapper.map(driverInformationDto,DriverInformation.class);
-        driverInformation= driverInformationRepository.save(driverInformation);
+            if (checkDriver == null)
+                throw new IllegalArgumentException("Project Code not Exit " + id);
+            DriverInformation driverInformation = modelMapper.map(driverInformationDto,DriverInformation.class);
+            driverInformation= driverInformationRepository.save(driverInformation);
 
-        return modelMapper.map(driverInformation,DriverInformationDto.class);
+            return modelMapper.map(driverInformation,DriverInformationDto.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
 
     }
 
-
-
     @Override
     public Boolean delete(Long id) {
-             driverInformationRepository.deleteById(id);
-        return Boolean.TRUE;
+
+        try{
+            driverInformationRepository.deleteById(id);
+            return Boolean.TRUE;
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
     }
 
     @Override
     public Boolean userExist(String userId) {
 
-        return driverInformationRepository.existsDriverInformationByIdName(userId);
+        try{
+            return driverInformationRepository.existsDriverInformationByIdName(userId);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean mailExist(String e_mail) {
-        return driverInformationRepository.existsDriverInformationByMail(e_mail);
+        try{
+            return driverInformationRepository.existsDriverInformationByMail(e_mail);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean checkPassword(String password) {
-        return driverInformationRepository.existsDriverInformationByPassword(password);
+        try{
+            return driverInformationRepository.existsDriverInformationByPassword(password);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public DriverInformationDto getByIdName(String IdName) {
 
-        DriverInformation driverInformation=driverInformationRepository.getByIdName(IdName);
+        try{
+            DriverInformation driverInformation=driverInformationRepository.getByIdName(IdName);
 
-        if(driverInformation==null)
+            if(driverInformation==null)
+                return null;
+            else
+                return modelMapper.map(driverInformation, DriverInformationDto.class);
+        }catch (Exception e){
+            System.out.println(e);
             return null;
-        else
-            return modelMapper.map(driverInformation, DriverInformationDto.class);
-
+        }
     }
 }

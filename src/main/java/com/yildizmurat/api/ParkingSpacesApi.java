@@ -92,6 +92,17 @@ public class ParkingSpacesApi {
         return parkingSpacesImpl.updateParkStatus(nameId,ownerId,parkStatus);
     }
 
+    @RequestMapping(value="/changeParkStatusWithTimer",method = RequestMethod.POST)
+    public Boolean changeParkStatusWithTimer(String firstDate,String secondDate, String currentPark){
+
+        if(firstDate==null || secondDate==null || currentPark==null){
+            return false;
+        }
+        parkingSpacesImpl.updateParkStatusWithTimer(firstDate,secondDate,currentPark);
+        System.out.println(firstDate+secondDate+currentPark);
+        return true;
+    }
+
 
 
     @DeleteMapping("/{id}")

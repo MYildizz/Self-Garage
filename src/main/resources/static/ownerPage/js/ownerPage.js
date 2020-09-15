@@ -94,7 +94,7 @@ function getParkAreas(Id){
 
     var parkArea={
         nameId:null,
-        ownerId:ownerId,
+        ownerId:obj.ownerId,
         latitude:null,
         longitude:null,
         parkStatus:null,
@@ -292,6 +292,14 @@ $(function () {
 
 
 
+function changeCurrentPark(id){
+    sessionStorage.setItem("currentPark",id);
+}
+
+
+
+
+
 
 $("#saveTime").click(function (event){
     var firstDate=$('#datetimepicker7').find("input").val();
@@ -348,10 +356,34 @@ $("#saveTime").click(function (event){
 
     var secondDate= secondYear+"-"+secondMonth+"-"+secondDay+" "+secondHour+":"+secondMinute+":00";
 
-    alert("Talebiniz Alınmıştır");
 
 
+sendTimes(firstDate,secondDate);
 
 });
+
+function sendTimes(firstDate, secondDate){
+
+    var park=sessionStorage.getItem("currentPark");
+    var temp=parseInt(park.charAt(7))+1;
+   park="park"+temp;
+    $.ajax({
+        url: "/information/parkingSpacesApi/changeParkStatusWithTimer",
+        type: "POST",
+        data: {
+            firstDate: firstDate,
+            secondDate: secondDate,
+            currentPark:park
+        },
+        cache: false,
+        success: function() {
+            alert("Talebiniz Alınmıştır");
+        },
+        error: function() {
+            alert("bir hata ile karşılaştık lütfen tekrar deneyiniz.")
+        }
+    });
+}
+
 
 window.onload = parkInfo();

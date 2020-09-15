@@ -19,7 +19,7 @@ public abstract class BaseUserInformation implements Serializable {
     private String idName;
     @Column(name="password",length = 20)
     private String password;
-    @Column(name="e_mail",length = 20)
+    @Column(name="e_mail",length = 40)
     private String mail;
     @Column(name="phone_number",length = 15)
     private String phoneNumber;

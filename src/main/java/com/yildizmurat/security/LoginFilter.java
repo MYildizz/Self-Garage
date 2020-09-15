@@ -20,7 +20,7 @@ public class LoginFilter implements Filter {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-/*
+
         HttpServletRequest request= (HttpServletRequest) req;
         HttpServletResponse response= (HttpServletResponse) resp;
         String driverId=(String)request.getSession().getAttribute("driverId");
@@ -51,7 +51,7 @@ public class LoginFilter implements Filter {
             }
         }
 
- */
+
         chain.doFilter(req, resp);
 
 

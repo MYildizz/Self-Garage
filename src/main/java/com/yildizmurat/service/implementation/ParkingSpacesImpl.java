@@ -1,6 +1,7 @@
 package com.yildizmurat.service.implementation;
 
 import com.yildizmurat.dto.ParkingSpacesDto;
+import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 import com.yildizmurat.entity.ParkStatus;
 import com.yildizmurat.entity.ParkingSpaces;
 import com.yildizmurat.entity.UsageStatus;
@@ -11,8 +12,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @Service
 public class ParkingSpacesImpl implements ParkingSpacesService {
@@ -31,36 +35,65 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
 
     @Override
     public ParkingSpacesDto save(ParkingSpacesDto parkingSpacesDto) {
-        ParkingSpaces parkingSpaces=  modelMapper.map(parkingSpacesDto,ParkingSpaces.class);
-        parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
 
-        return modelMapper.map(parkingSpaces,ParkingSpacesDto.class);
+        try{
+            ParkingSpaces parkingSpaces=  modelMapper.map(parkingSpacesDto,ParkingSpaces.class);
+            parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
+
+            return modelMapper.map(parkingSpaces,ParkingSpacesDto.class);
+
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
     }
 
     @Override
     public ParkingSpacesDto getById(Long id) {
-        ParkingSpaces parkingSpaces = parkingSpacesRepository.getOne(id);
-        return modelMapper.map(parkingSpaces,ParkingSpacesDto.class);
+
+        try{
+            ParkingSpaces parkingSpaces = parkingSpacesRepository.getOne(id);
+            return modelMapper.map(parkingSpaces,ParkingSpacesDto.class);
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
     }
 
     @Override
     public ParkingSpacesDto update(Long id, ParkingSpacesDto parkingSpacesDto) {
 
-        ParkingSpaces checkDriver = parkingSpacesRepository.getOne(id);
 
-        if (checkDriver == null)
-            throw new IllegalArgumentException("Project Code not Exit " + id);
-        ParkingSpaces parkingSpaces = modelMapper.map(parkingSpacesDto,ParkingSpaces.class);
-        parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
+        try{
+            ParkingSpaces checkDriver = parkingSpacesRepository.getOne(id);
 
-        return modelMapper.map(parkingSpaces,ParkingSpacesDto.class);
+            if (checkDriver == null)
+                throw new IllegalArgumentException("Project Code not Exit " + id);
+            ParkingSpaces parkingSpaces = modelMapper.map(parkingSpacesDto,ParkingSpaces.class);
+            parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
+
+            return modelMapper.map(parkingSpaces,ParkingSpacesDto.class);
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
 
     }
 
     @Override
     public Boolean delete(Long id) {
-        parkingSpacesRepository.deleteById(id);
-        return Boolean.TRUE;
+        try{
+            parkingSpacesRepository.deleteById(id);
+            return Boolean.TRUE;
+        }
+        catch (Exception e){
+            return Boolean.FALSE;
+        }
     }
 
     @Override
@@ -121,26 +154,43 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
 
     @Override
     public Boolean updateParkStatus(String nameId,String ownerId,ParkStatus parkStatus) {
-        ParkingSpaces parkingSpaces = parkingSpacesRepository.getByIdNameAndIdOwner(nameId,ownerId);
 
-        if (parkingSpaces == null)
-            throw new IllegalArgumentException("Park area not exists " + nameId);
+        try {
+            ParkingSpaces parkingSpaces = parkingSpacesRepository.getByIdNameAndIdOwner(nameId,ownerId);
 
-        parkingSpaces.setParkStatus(parkStatus);
-        parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
+            if (parkingSpaces == null)
+                throw new IllegalArgumentException("Park area not exists " + nameId);
 
-        if(parkStatus==ParkStatus.BUSY){
-            this.nameId=nameId;
-            this.ownerId=ownerId;
-            flag=1;
-            checkSignal();
+            parkingSpaces.setParkStatus(parkStatus);
+            parkingSpaces= parkingSpacesRepository.save(parkingSpaces);
+
+            if(parkStatus==ParkStatus.BUSY){
+                this.nameId=nameId;
+                this.ownerId=ownerId;
+                flag=1;
+                checkSignal();
+            }
+            ParkingSpaces checkState= parkingSpacesRepository.getByIdName(nameId);
+            if(checkState.getParkStatus()==parkStatus)
+                return true;
+        }catch (Exception e){
+            System.out.println(e);
         }
-        ParkingSpaces checkState= parkingSpacesRepository.getByIdName(nameId);
-        System.out.println("aaa" +checkState.getParkStatus()+ " "+checkState.getIdName());
+        return false;
+    }
 
 
-        if(checkState.getParkStatus()==parkStatus)
+    @Override
+    public Boolean updateParkStatusWithTimer(String firstDate, String secondDate, String currentPark) {
+
+        try {
+            parkingSpacesRepository.createEventOpen(firstDate,currentPark);
+            parkingSpacesRepository.createEventClose(secondDate,currentPark);
             return true;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
         return false;
     }
 
@@ -149,8 +199,13 @@ public class ParkingSpacesImpl implements ParkingSpacesService {
         if(flag==1){
             firebase.getSignal();
             if(firebase.isCheckSignal()==true) {
-                System.out.println("bbb");
-                updateParkStatus(nameId,ownerId,ParkStatus.OPEN);
+
+                try {
+                    updateParkStatus(nameId,ownerId,ParkStatus.OPEN);
+                }catch (Exception e){
+                    System.out.println(e);
+                }
+
                 flag=0;
             }
         }

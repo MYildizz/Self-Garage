@@ -25,65 +25,102 @@ public class ParkingOwnerInformationImpl implements ParkingOwnerInformationServi
 
     @Override
     public ParkingOwnerInformationDto save(ParkingOwnerInformationDto parkingOwnerInformationDto) {
-        ParkingOwnerInformation parkingOwnerInformation=  modelMapper.map(parkingOwnerInformationDto,ParkingOwnerInformation.class);
-        parkingOwnerInformation= parkingOwnerInformationRepository.save(parkingOwnerInformation);
+        try{
+            ParkingOwnerInformation parkingOwnerInformation=  modelMapper.map(parkingOwnerInformationDto,ParkingOwnerInformation.class);
+            parkingOwnerInformation= parkingOwnerInformationRepository.save(parkingOwnerInformation);
 
-        return modelMapper.map(parkingOwnerInformation,ParkingOwnerInformationDto.class);
+            return modelMapper.map(parkingOwnerInformation,ParkingOwnerInformationDto.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public ParkingOwnerInformationDto getById(Long id) {
-        ParkingOwnerInformation parkingOwnerInformation = parkingOwnerInformationRepository.getOne(id);
-        return modelMapper.map(parkingOwnerInformation,ParkingOwnerInformationDto.class);
+
+        try{
+            ParkingOwnerInformation parkingOwnerInformation = parkingOwnerInformationRepository.getOne(id);
+            return modelMapper.map(parkingOwnerInformation,ParkingOwnerInformationDto.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public ParkingOwnerInformationDto update(Long id, ParkingOwnerInformationDto parkingOwnerInformationDto) {
 
-        ParkingOwnerInformation checkDriver = parkingOwnerInformationRepository.getOne(id);
+        try{
+            ParkingOwnerInformation checkDriver = parkingOwnerInformationRepository.getOne(id);
 
-        if (checkDriver == null)
-            throw new IllegalArgumentException("Project Code not Exit " + id);
-        ParkingOwnerInformation parkingOwnerInformation = modelMapper.map(parkingOwnerInformationDto,ParkingOwnerInformation.class);
-        parkingOwnerInformation= parkingOwnerInformationRepository.save(parkingOwnerInformation);
+            if (checkDriver == null)
+                throw new IllegalArgumentException("Project Code not Exit " + id);
+            ParkingOwnerInformation parkingOwnerInformation = modelMapper.map(parkingOwnerInformationDto,ParkingOwnerInformation.class);
+            parkingOwnerInformation= parkingOwnerInformationRepository.save(parkingOwnerInformation);
 
-        return modelMapper.map(parkingOwnerInformation,ParkingOwnerInformationDto.class);
+            return modelMapper.map(parkingOwnerInformation,ParkingOwnerInformationDto.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
 
     }
 
 
     @Override
     public Boolean delete(Long id) {
-        parkingOwnerInformationRepository.deleteById(id);
-        return Boolean.TRUE;
+        try{
+            parkingOwnerInformationRepository.deleteById(id);
+            return Boolean.TRUE;
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean userExist(String userId) {
-        return parkingOwnerInformationRepository.existsParkingOwnerInformationByIdName(userId);
+        try{
+            return parkingOwnerInformationRepository.existsParkingOwnerInformationByIdName(userId);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean mailExist(String e_mail) {
-        return parkingOwnerInformationRepository.existsParkingOwnerInformationByMail(e_mail);
+        try{
+            return parkingOwnerInformationRepository.existsParkingOwnerInformationByMail(e_mail);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean checkPassword(String password) {
-        return parkingOwnerInformationRepository.existsParkingOwnerInformationByPassword(password);
+        try{
+            return parkingOwnerInformationRepository.existsParkingOwnerInformationByPassword(password);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public ParkingOwnerInformationDto getByIdName(String IdName) {
 
-        ParkingOwnerInformation parkingOwnerInformation=parkingOwnerInformationRepository.getByIdName(IdName);
-
-        System.out.println(parkingOwnerInformation.getIdName());
-
-
-        if(parkingOwnerInformation==null)
+        try{
+            ParkingOwnerInformation parkingOwnerInformation=parkingOwnerInformationRepository.getByIdName(IdName);
+            if(parkingOwnerInformation==null)
+                return null;
+            else
+                return modelMapper.map(parkingOwnerInformation, ParkingOwnerInformationDto.class);
+        }catch (Exception e){
+            System.out.println(e);
             return null;
-        else
-            return modelMapper.map(parkingOwnerInformation, ParkingOwnerInformationDto.class);
+        }
     }
 }

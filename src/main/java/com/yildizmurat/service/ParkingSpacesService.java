@@ -21,4 +21,5 @@ public interface ParkingSpacesService {
     List<ParkingSpacesDto> getAllByParkStatusOpen() throws IOException;
     List<ParkingSpacesDto> getAllByParkStatusBusy();
     Boolean updateParkStatus(String nameId,String ownerId,ParkStatus parkStatus);
+    Boolean updateParkStatusWithTimer(String firstDate, String secondDate, String currentPark);
 }

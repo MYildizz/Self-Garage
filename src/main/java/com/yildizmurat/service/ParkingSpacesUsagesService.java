@@ -18,5 +18,5 @@ public interface ParkingSpacesUsagesService {
     ParkingSpacesUsagesDto getByDriverAndUsageStatus(String Driver);
     Boolean updateByDriverAndUsageStatus(String Driver,UsageStatus usageStatus);
     Boolean delete(Long id);
-
+    void check10minute(String driverId,String parkId);
 }

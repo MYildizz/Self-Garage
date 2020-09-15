@@ -1,6 +1,8 @@
 package com.yildizmurat.service.implementation;
 
+import com.yildizmurat.dto.ParkingSpacesUsagesDto;
 import com.yildizmurat.dto.RentalRequestsDto;
+import com.yildizmurat.entity.ParkingSpacesUsages;
 import com.yildizmurat.entity.RentalRequests;
 import com.yildizmurat.entity.RentalRequests;
 import com.yildizmurat.repository.RentalRequestsRepository;
@@ -23,51 +25,92 @@ public class RentalRequestsImpl implements RentalRequestsService {
 
     @Override
     public RentalRequestsDto save(RentalRequestsDto rentalRequestsDto) {
-        RentalRequests rentalRequests=  modelMapper.map(rentalRequestsDto,RentalRequests.class);
-        rentalRequests= rentalRequestsRepository.save(rentalRequests);
 
-        return modelMapper.map(rentalRequests,RentalRequestsDto.class);
+        try{
+            RentalRequests rentalRequests=  modelMapper.map(rentalRequestsDto,RentalRequests.class);
+            rentalRequests= rentalRequestsRepository.save(rentalRequests);
+
+            return modelMapper.map(rentalRequests,RentalRequestsDto.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public RentalRequestsDto getById(Long id) {
-        RentalRequests rentalRequests = rentalRequestsRepository.getOne(id);
-        return modelMapper.map(rentalRequests,RentalRequestsDto.class);
+
+        try{
+            RentalRequests rentalRequests = rentalRequestsRepository.getOne(id);
+            return modelMapper.map(rentalRequests,RentalRequestsDto.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
     }
 
     @Override
     public RentalRequestsDto update(Long id, RentalRequestsDto rentalRequestsDto) {
 
-        RentalRequests checkDriver = rentalRequestsRepository.getOne(id);
+        try{
+            RentalRequests checkDriver = rentalRequestsRepository.getOne(id);
 
-        if (checkDriver == null)
-            throw new IllegalArgumentException("Project Code not Exit " + id);
-        RentalRequests rentalRequests = modelMapper.map(rentalRequestsDto,RentalRequests.class);
-        rentalRequests= rentalRequestsRepository.save(rentalRequests);
+            if (checkDriver == null)
+                throw new IllegalArgumentException("Project Code not Exit " + id);
+            RentalRequests rentalRequests = modelMapper.map(rentalRequestsDto,RentalRequests.class);
+            rentalRequests= rentalRequestsRepository.save(rentalRequests);
 
-        return modelMapper.map(rentalRequests,RentalRequestsDto.class);
+            return modelMapper.map(rentalRequests,RentalRequestsDto.class);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
 
     }
 
 
     @Override
     public Boolean delete(Long id) {
-        rentalRequestsRepository.deleteById(id);
-        return Boolean.TRUE;
+
+        try{
+            rentalRequestsRepository.deleteById(id);
+            return Boolean.TRUE;
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean userExist(String userId) {
-        return rentalRequestsRepository.existsRentalRequestsByIdName(userId);
+        try{
+            return rentalRequestsRepository.existsRentalRequestsByIdName(userId);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean mailExist(String e_mail) {
-        return rentalRequestsRepository.existsRentalRequestsByMail(e_mail);
+
+        try{
+            return rentalRequestsRepository.existsRentalRequestsByMail(e_mail);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean checkPassword(String password) {
-        return rentalRequestsRepository.existsRentalRequestsByPassword(password);
+
+        try{
+            return rentalRequestsRepository.existsRentalRequestsByPassword(password);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 }

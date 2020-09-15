@@ -17,17 +17,32 @@ public class ParkingOwnerCreditCardInformationImpl implements ParkingOwnerCredit
 
     @Override
     public ParkingOwnerCreditCardInformation save(ParkingOwnerCreditCardInformation parkingOwnerCreditCardInformation) {
-        return parkingOwnerCreditCardInformationRepository.save(parkingOwnerCreditCardInformation);
+        try{
+            return parkingOwnerCreditCardInformationRepository.save(parkingOwnerCreditCardInformation);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public ParkingOwnerCreditCardInformation getById(Long id) {
-        return parkingOwnerCreditCardInformationRepository.getOne(id);
+        try{
+            return parkingOwnerCreditCardInformationRepository.getOne(id);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean delete(ParkingOwnerCreditCardInformation parkingOwnerCreditCardInformation) {
-        parkingOwnerCreditCardInformationRepository.delete(parkingOwnerCreditCardInformation);
-        return Boolean.TRUE;
+        try{
+            parkingOwnerCreditCardInformationRepository.delete(parkingOwnerCreditCardInformation);
+            return Boolean.TRUE;
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 }

@@ -23,30 +23,54 @@ public class DriverCreditCardInformationImpl implements DriverCreditCardInformat
 
     @Override
     public DriverCreditCardInformation save(DriverCreditCardInformation driverCreditCardInformation) {
-        return driverCreditCardInformationRepository.save(driverCreditCardInformation);
+
+        try{
+            return driverCreditCardInformationRepository.save(driverCreditCardInformation);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
     }
 
     @Override
     public DriverCreditCardInformation getById(Long id) {
-        return driverCreditCardInformationRepository.getOne(id);
+        try{
+            return driverCreditCardInformationRepository.getOne(id);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public Boolean delete(DriverCreditCardInformation driverCreditCardInformation) {
-        driverCreditCardInformationRepository.delete(driverCreditCardInformation);
-        return Boolean.TRUE;
+
+        try{
+            driverCreditCardInformationRepository.delete(driverCreditCardInformation);
+            return Boolean.TRUE;
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
     }
 
     @Override
     public List<DriverCreditCardInformationDto> getDriverCreditCardInformation(String idName) {
-        long id =0;
-        List<DriverCreditCardInformation> driverCreditCardInformation=driverCreditCardInformationRepository.getAllByIdName(idName);
-        if(driverCreditCardInformation.isEmpty())
-        return null;
-        else{
-            return Arrays.asList(modelMapper.map(driverCreditCardInformation,DriverCreditCardInformationDto[].class));
+
+        try{
+            long id =0;
+            List<DriverCreditCardInformation> driverCreditCardInformation=driverCreditCardInformationRepository.getAllByIdName(idName);
+            if(driverCreditCardInformation.isEmpty())
+                return null;
+            else{
+                return Arrays.asList(modelMapper.map(driverCreditCardInformation,DriverCreditCardInformationDto[].class));
+            }
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
         }
-     //   List<User> data = userRepository.findAll();
-     //   return Arrays.asList(modelMapper.map(data, UserDto[].class));
+
     }
 }

@@ -75,16 +75,18 @@ function initMap() {
                         icon: '/driverPage/img/bluecircle.png',
                         scale: 200
                     });
-
-
-                    var distance= google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(data[0].latitude, data[0].longitude));
-                    var directionsDisplay = new google.maps.DirectionsRenderer();
-                    var parkId=data[0].nameId;
-                    var ownerId=data[0].ownerId;
-                    var address=data[0].address;
-                    var district=data[0].district;
-                    var province =data[0].province;
-
+                    if(data.length==0){
+                        alert("Aktif park alanı bulunmamaktadır.");
+                    }
+                    else{
+                        var distance= google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(data[0].latitude, data[0].longitude));
+                        var directionsDisplay = new google.maps.DirectionsRenderer();
+                        var parkId=data[0].nameId;
+                        var ownerId=data[0].ownerId;
+                        var address=data[0].address;
+                        var district=data[0].district;
+                        var province =data[0].province;
+                    }
 
                     if(data.length!=0){
                         var i;
@@ -130,6 +132,9 @@ function initMap() {
                         sessionStorage.setItem("distance",distance);
 
                     }
+
+
+
 
                 });
             }
@@ -216,6 +221,11 @@ function rezerveLocation(){
 
     changePark(status);
     addParkingSpacesUsages();
+
+    setInterval(function() {
+        window.location.reload();
+    }, 600000);
+
 
     document.getElementById("rezerveParkArea").style.display="none";
     document.getElementById("iptalEt").style.display="";
@@ -439,10 +449,9 @@ function cancel(){
     changePark("OPEN");
     updateParkingStatus(parkStatus);
 
-    var minute=diff;
+    var minute=diff_dates(obj.dataEntry);
+    console.log(minute);
     var price =minute*0.2;
-    minute=minute.toString();
-    minute=minute.substring(0,5);
     price = price.toString();
     price=price.substring(0,4);
     var text="";
@@ -450,12 +459,12 @@ function cancel(){
     if(minute < 60){
         if(minute <10){
             text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
-            text+= "GEÇEN SÜRE : "+ "00:0"+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+ "00:0"+minute+" DAKİKA ";
             text+="- UCRET : "+price +" TL </p>";
         }
         else{
             text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
-            text+= "GEÇEN SÜRE : "+ "00:"+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+ "00:"+minute+" DAKİKA ";
             text+="- UCRET : "+price +" TL </p>";
         }
     }
@@ -464,14 +473,14 @@ function cancel(){
             var hours = minute/60;
             var minute= minute%60;
             text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
-            text+= "GEÇEN SÜRE : "+hours+ ":0"+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+hours+ ":0"+minute+" DAKİKA ";
             text+="- UCRET : "+price+" TL </p>";
         }
         else{
             var hours = minute/60;
             var minute= minute%60;
             text="<p> İŞLEMİNİZ SONLANDIRILMIŞTIR <br>";
-            text+= "GEÇEN SÜRE : "+hours+ ":"+" DAKİKA ";
+            text+= "GEÇEN SÜRE : "+hours+ ":"+minute+" DAKİKA ";
             text+="- UCRET : "+price+" TL </p>";
         }
     }
