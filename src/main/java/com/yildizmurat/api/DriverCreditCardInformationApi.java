@@ -23,6 +23,10 @@ public class DriverCreditCardInformationApi {
 
     @GetMapping("/getParkingSpacesUsagesDriver/{id}")
     public List<DriverCreditCardInformationDto> getParkingSpacesUsagesDriver(@PathVariable("id") String id){
+
+        if(id==null){
+            return null;
+        }
         List<DriverCreditCardInformationDto> info =driverCreditCardInformationImpl.getDriverCreditCardInformation(id);
         return info;
     }

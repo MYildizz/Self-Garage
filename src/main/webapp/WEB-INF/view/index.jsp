@@ -21,7 +21,7 @@
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
   <!-- Custom styles for this template -->
   <link href="/promotion/css/agency.min.css" rel="stylesheet">
 	  <link href="/promotion/css/agency.css" rel="stylesheet">
@@ -68,16 +68,16 @@
       <div class="intro-text">
         <div class="intro-lead-in">Park Noktalarındaki Dijital Dönüşüm</div>
         <div class="intro-heading text-uppercase">SELF GARAGE</div>
-       
+
       </div>
     </div>
   </header>
 
   <!-- Services -->
   <section class="page-section " id="services">
-    
+
     	<img src="/promotion/img/service/self-garage.jpeg" class="img-fluid center" alt="Responsive image">
-    	
+
     	<p id="production_text" class="text-center p-3 mb-2 bg-light text-dark">
           Günümüzde yoğun trafik birçok şehirde başlıca problemlerden biri haline gelmiştir. Bu trafiğin büyük bir bölümünü ise park yeri arayan araçlar oluşturmaktadır. Park yeri aramak belirli bölgelerde çok zor hale gelmiş, otoparklar yetersiz kalmış ve yasadışı değnekçiler, otopark mafyaları ortaya çıkmıştır .
           Bunun sonucunda araç sahipleri park yeri ararken büyük stres yaşamakta, trafik cezaları yemekte, zaman kaybetmekte ve yakıtının bir kısmını israf etmektedir. Araç sahipleri bu problemleri yaşarken kişisel otopark sahipleri ise kendi alanlarının kullanılmaması için belli bir bariyer koymakta ve diğer araçların bu alanlara girişini engellemektedir. Bu sebeple, bu alanlar boş kalırken, belli alanlara düzensiz park edilip, trafiğin kitlenmesinde büyük rol oynayan ve çevrenin egzoz dumanıyla kirletildiği kötü manzaralarla karşılaşmaktayız.
@@ -89,7 +89,7 @@
 
   <!-- Portfolio Grid -->
   <section class="bg-light page-section" id="portfolio">
-  
+
 <div class="card RegisterCard1" style="width: 25rem; float: left">
   <img class="card-img-top" src="/promotion/img/service/mobile.jpg" alt="Card image cap">
   <div class="card-body">
@@ -99,8 +99,8 @@
     <a href="/driverSignUp" class="btn btn-primary"> KAYIT </a>
     <a href="/driverLogin" class="btn btn-primary">GİRİŞ</a>
   </div>
-  
-  
+
+
 </div>
 
 <div class="card RegisterCard2" style="width: 25rem; ">
@@ -170,7 +170,7 @@
                 <div class="timeline-body">
                   <p class="text-muted"> T.C Cumhuriyeti Cumhurbaşkanlığı himayelerinde TURKSAT A.Ş Tarafından düzenlenen Dijital Türkiye Fikir Maratonu
                   etkinliğine daha dijital bir Türkiye hayal ederek çıkara ülkemizin büyük sorunu olan trafik ve park problemlerine çözüm bularak Dijital Değnekçiler ekibimizi kurduk.
-                  Geliştirdiğimiz Self Garage projemiz ile 169 takım 584 üniversite öğrencisi arasından projemiz birinciliğe layık görüldü ve 15.000 tl hibe almaya hak kazandı. 
+                  Geliştirdiğimiz Self Garage projemiz ile 169 takım 584 üniversite öğrencisi arasından projemiz birinciliğe layık görüldü ve 15.000 tl hibe almaya hak kazandı.
                   </p>
                 </div>
               </div>
@@ -263,7 +263,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">BİZİMLE İLETİŞİME GEÇİN</h2>
-         
+
         </div>
       </div>
       <div class="row">
@@ -324,7 +324,7 @@
     </div>
   </footer>
 
- 
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="/promotion/vendor/jquery/jquery.min.js"></script>
@@ -340,7 +340,45 @@
   <!-- Custom scripts for this template -->
   <script src="/promotion/js/agency.min.js"></script>
 
-  
+
+  <script>
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyD2-gpjSfAS2QXXO1Ho0X5yWQHvmCdAUUs",
+      authDomain: "self-garage.firebaseapp.com",
+      databaseURL: "https://self-garage.firebaseio.com",
+      projectId: "self-garage",
+      storageBucket: "self-garage.appspot.com",
+      messagingSenderId: "383027804024",
+      appId: "1:383027804024:web:7bd2a6f363799d8d133a8d"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var flag=1;
+    readData();
+
+    function readData(){
+      firebase.database().ref('/').on('value',(snap)=>{
+
+      if(flag==1){
+        flag=0;
+        var data= snap.val().counter;
+        data=data+1;
+        console.log(data);
+        writeData(data);
+
+      }
+
+      });
+    }
+    function writeData(data) {
+      firebase.database().ref("/").update({
+        counter:data
+      });
+    }
+  </script>
+
+
 </body>
 
 

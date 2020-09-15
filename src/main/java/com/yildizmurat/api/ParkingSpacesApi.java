@@ -23,19 +23,27 @@ public class ParkingSpacesApi {
     // GET
     @GetMapping("/{id}")
     public ResponseEntity<ParkingSpacesDto> getById(@PathVariable("id") Long id){
+        if(id==null ){
+            return null;
+        }
         ParkingSpacesDto parkingSpacesDto = parkingSpacesImpl.getById(1L);
         return ResponseEntity.ok(parkingSpacesDto);
     }
     // POST
     @PostMapping
     public ResponseEntity<ParkingSpacesDto> createParkingSpaces(@Valid @RequestBody ParkingSpacesDto parkingSpacesDto){
-
+        if(parkingSpacesDto==null ){
+            return null;
+        }
         return ResponseEntity.ok(parkingSpacesImpl.save(parkingSpacesDto));
     }
 
     // GET
     @PutMapping("/{id}")
     public ResponseEntity<ParkingSpacesDto> updateParkingSpaces(@PathVariable("id") Long id, @Valid @RequestBody ParkingSpacesDto parkingSpacesDto){
+        if(id==null || parkingSpacesDto==null){
+            return null;
+        }
         return ResponseEntity.ok(parkingSpacesImpl.update(id,parkingSpacesDto));
     }
 
@@ -53,6 +61,10 @@ public class ParkingSpacesApi {
 
     @GetMapping("getAllByOwnerId/{id}")
     public List<ParkingSpacesDto> getAllByOwnerId(@PathVariable("id") String id){
+
+        if(id==null){
+            return null;
+        }
         List<ParkingSpacesDto> parkingSpacesDto = parkingSpacesImpl.getAllByIdOwner(id);
         System.out.println("api "+ id);
         if(parkingSpacesDto==null)
@@ -83,6 +95,9 @@ public class ParkingSpacesApi {
 
     @RequestMapping(value="/changeParkStatus",method = RequestMethod.POST)
     public Boolean checkDriverInformation(@Valid @RequestBody ParkingSpacesDto parkingSpacesDto){
+        if(parkingSpacesDto==null){
+            return null;
+        }
         String nameId= parkingSpacesDto.getNameId();
         String ownerId=parkingSpacesDto.getOwnerId();
         ParkStatus parkStatus=parkingSpacesDto.getParkStatus();
@@ -107,6 +122,9 @@ public class ParkingSpacesApi {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable(value ="id",required = true) Long id ){
+        if(id==null){
+            return null;
+        }
         Boolean isSuccesful =  parkingSpacesImpl.delete(id);
         return ResponseEntity.ok(isSuccesful);
     }

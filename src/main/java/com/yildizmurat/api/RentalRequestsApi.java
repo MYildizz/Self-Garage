@@ -23,6 +23,9 @@ public class RentalRequestsApi {
     // GET
     @GetMapping("/{id}")
     public ResponseEntity<RentalRequestsDto> getById(@PathVariable("id") Long id){
+        if(id==null){
+            return null;
+        }
         RentalRequestsDto rentalRequestsDto = rentalRequestsImpl.getById(1L);
         return ResponseEntity.ok(rentalRequestsDto);
     }
@@ -30,7 +33,9 @@ public class RentalRequestsApi {
     // POST
     @RequestMapping(value="/saveRegister",method = RequestMethod.POST)
     public ResponseEntity<String> createRentalRequests(@Valid @RequestBody RentalRequestsDto rentalRequestsDto){
-
+        if(rentalRequestsDto==null){
+            return null;
+        }
         if(rentalRequestsImpl.userExist(rentalRequestsDto.getIdName()))
             return ResponseEntity.ok("Bu adiName kullanımdadır");
         if(rentalRequestsImpl.mailExist(rentalRequestsDto.getMail()))
@@ -66,11 +71,17 @@ public class RentalRequestsApi {
     // GET
     @PutMapping("/{id}")
     public ResponseEntity<RentalRequestsDto> updateRentalRequests(@PathVariable("id") Long id, @Valid @RequestBody RentalRequestsDto rentalRequestsDto){
+        if(rentalRequestsDto==null || id==null){
+            return null;
+        }
         return ResponseEntity.ok(rentalRequestsImpl.update(id,rentalRequestsDto));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable(value ="id",required = true) Long id ){
+        if(id==null){
+            return null;
+        }
         Boolean isSuccesful =  rentalRequestsImpl.delete(id);
         return ResponseEntity.ok(isSuccesful);
     }

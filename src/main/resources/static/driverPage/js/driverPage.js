@@ -40,7 +40,7 @@ function initMap() {
         contentType: 'application/json; charset=UTF-8',
         url:"/information/parkingSpacesApi/getAllByParkStatusOpen",
         success:function (data) {
-
+            sessionStorage.setItem("aktiveParkArea",data.length);
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     pos = {
@@ -55,19 +55,6 @@ function initMap() {
                      //   icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
                     });
 
-                    /*
-                    const cityCircle = new google.maps.Circle({
-                        strokeColor: "#34495E",
-                        strokeOpacity: 1,
-                        strokeWeight: 2,
-                        fillColor: "#34495E",
-                        fillOpacity: 0.35,
-                        map,
-                        center: new google.maps.LatLng(pos.lat, pos.lng),
-                        radius: 420
-
-                    });
-                    */
                     var marker2 = new google.maps.Marker({
                         position: new google.maps.LatLng(pos.lat, pos.lng),
                         map: map,
@@ -78,6 +65,7 @@ function initMap() {
                     if(data.length==0){
                         alert("Aktif park alanı bulunmamaktadır.");
                     }
+
                     else{
                         var distance= google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(data[0].latitude, data[0].longitude));
                         var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -157,6 +145,8 @@ function initMap() {
 
 function showNearLocation(lat,long,directionsRenderer,flag){
 
+
+if(sessionStorage.getItem("aktiveParkArea")!=0){
     if(directionsRenderer==null)
     {
         directionsRenderer= new google.maps.DirectionsRenderer();
@@ -181,8 +171,8 @@ function showNearLocation(lat,long,directionsRenderer,flag){
             var userLocation = new google.maps.LatLng(pos.lat, pos.lng);
 
             if(lat==null && long==null){
-              var nearDistanceLatitude=  sessionStorage.getItem("nearDistanceLatitude");
-              var nearDistanceLongitude= sessionStorage.getItem("nearDistanceLongitude");
+                var nearDistanceLatitude=  sessionStorage.getItem("nearDistanceLatitude");
+                var nearDistanceLongitude= sessionStorage.getItem("nearDistanceLongitude");
                 var nearPark = new google.maps.LatLng(nearDistanceLatitude, nearDistanceLongitude);
             }
             else
@@ -210,7 +200,10 @@ function showNearLocation(lat,long,directionsRenderer,flag){
 
         })
     }
-
+}
+else{
+    alert("demo aşamasında kısıtlı park alanı olduğu için suan hepsi kullanımdadır");
+}
 
 
 }

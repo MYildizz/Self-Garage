@@ -13,11 +13,6 @@ import java.io.IOException;
 @Component
 public class LoginFilter implements Filter {
 
-    public LoginFilter() {
-    }
-
-    public void destroy() {
-    }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
 

@@ -10,17 +10,16 @@ import com.yildizmurat.dto.DriverInformationDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
 
 @Service
-
 public class DriverInformationImpl implements DriverInformationService {
 
 
     private final DriverInformationRepository driverInformationRepository;
     private final ModelMapper modelMapper;
-
 
     public DriverInformationImpl(DriverInformationRepository driverInformationRepository, ModelMapper modelMapper) {
         this.driverInformationRepository = driverInformationRepository;
