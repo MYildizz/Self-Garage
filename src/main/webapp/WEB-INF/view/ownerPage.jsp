@@ -155,7 +155,7 @@
             <div class="jumbotron">
                 <div class="row">
                     <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                        <img src="https://www.svgimages.com/svg-image/s5/man-passportsize-silhouette-icon-256x256.png" alt="stack photo" class="img">
+                        <img src="/ownerPage/img/profile.png" alt="stack photo" class="img">
                     </div>
                     <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
                         <div class="container" style="border-bottom:1px solid black">
@@ -179,7 +179,7 @@
         <div> <h5 class="baslik"> Bize Hata Bildirin </h5></div>
 
         <div class="form-group">
-            <label style="position: center" for="FormControlTextarea">Uygulamamız demo aşamasında olduğu için bir çok hata bulundurabilir. Gördüğünüz problemleri belirtiniz seviniriz.</label>
+            <label style="position: center" for="FormControlTextarea">Uygulamamız demo aşamasında olduğu için bir çok hata bulundurabilir. Gördüğünüz problemleri belirtip bize geri dönüş yaparsanız size daha iyi hizmet verebiliriz.</label>
             <textarea class="form-control" id="FormControlTextarea" rows="10"></textarea>
             <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="reportErrorMessage()">Gönder</button>
         </div>

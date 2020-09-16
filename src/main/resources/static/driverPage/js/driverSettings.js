@@ -3,7 +3,14 @@ var obj = JSON.parse(document.cookie);
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
+
+   if(screen.width>400){
+       document.getElementById("mySidenav").style.width = "250px";
+   }
+   else{
+       document.getElementById("mySidenav").style.width = "150px";
+       document.getElementById("mySidenav").style.fontSize="10px";
+   }
 }
 
 /* Set the width of the side navigation to 0 */

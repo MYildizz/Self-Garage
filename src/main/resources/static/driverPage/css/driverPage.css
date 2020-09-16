@@ -772,8 +772,8 @@ tr:nth-child(even) {
     }
 
     .btn {
-        height: 35px;
-        width: 200px;
+        height: 55px;
+        width: 220px;
         float: left;
         margin: 1%;
         min-width: 150px;
@@ -783,9 +783,9 @@ tr:nth-child(even) {
 
     .parkArea{
         margin-left: 12%;
-        height: 60px;
-        width: 300px;
-        font-size: 15px;
+        height: 80px;
+        width: 320px;
+        font-size: 18px;
     }
 
     #rezerveParkArea{
@@ -804,7 +804,7 @@ tr:nth-child(even) {
     }
 
     .others{
-        margin-left: 19%;
+        margin-left: 21%;
     }
 
     .content {
@@ -852,42 +852,43 @@ tr:nth-child(even) {
     }
 
     .btn {
-        height: 40px;
-        width: 200px;
+        height: 50px;
+        width: 220px;
         float: left;
         margin: 1%;
         min-width: 150px;
         margin-left: 3%;
         font-size:11px ;
-        margin-top: 1%;
+        margin-top: 0%;
         margin-bottom: 1%;
     }
 
     .parkArea{
-        margin-left: 11%;
+        margin-left: 6%;
         margin-right: 11%;
-        height: 60px;
-        width: 300px;
-        font-size: 16px;
+        height: 80px;
+        width: 320px;
+        font-size: 20px;
     }
 
     #rezerveParkArea{
-        margin-left: 11%;
-        height: 60px;
-        width: 300px;
-        font-size: 16px;
-        color: black;
+        margin-left: 6%;
+        margin-right: 11%;
+        height: 80px;
+        width: 320px;
+        font-size: 20px;
     }
 
     #iptalEt{
-        margin-left: 11%;
-        height: 60px;
-        width: 300px;
-        font-size: 16px;
+        margin-left: 6%;
+        margin-right: 11%;
+        height: 80px;
+        width: 320px;
+        font-size: 20px;
     }
 
     .others{
-        margin-left: 19%;
+        margin-left: 15%;
     }
 
     .content {
@@ -917,6 +918,13 @@ tr:nth-child(even) {
 }
 
 @media screen and (max-width: 360px) {
+
+    .buttons{
+        height: 30%;
+        padding-bottom: 1%;
+        padding-top: 0%;
+    }
+
     .ortala{
         text-align: center;
         margin-left: 0%;
@@ -924,39 +932,38 @@ tr:nth-child(even) {
     }
 
     .btn {
-        height: 30px;
-        width: 150px;
+        height: 40px;
+        width: 200px;
         float: left;
         margin: 1%;
         min-width: 150px;
         margin-left: 3%;
-        font-size:9px ;
+        font-size:13px ;
     }
 
     .parkArea{
-        margin-left: 11%;
-        height: 55px;
-        width: 250px;
-        font-size: 12px;
+        margin-left: 9%;
+        height: 80px;
+        width: 280px;
+        font-size: 18px;
     }
 
     #rezerveParkArea{
-        margin-left: 11%;
-        height: 55px;
-        width: 250px;
-        font-size: 12px;
-        color: black;
+        margin-left: 9%;
+        height: 80px;
+        width: 280px;
+        font-size: 18px;
     }
 
     #iptalEt{
-        margin-left: 11%;
-        height: 55px;
-        width: 250px;
-        font-size: 15px;
+        margin-left: 9%;
+        height: 80px;
+        width: 280px;
+        font-size: 18px;
     }
 
     .others{
-        margin-left: 21%;
+        margin-left: 15%;
     }
 
     .content {
@@ -985,6 +992,32 @@ tr:nth-child(even) {
 
 }
 
+@media screen and (max-width: 340px) {
+    .parkArea{
+        margin-left: 5%;
+        height: 85px;
+        width: 280px;
+        font-size: 18px;
+    }
+    #rezerveParkArea{
+        margin-left: 5%;
+        height: 85px;
+        width: 280px;
+        font-size: 18px;
+    }
+
+    #iptalEt{
+        margin-left: 5%;
+        height: 85px;
+        width: 280px;
+        font-size: 18px;
+    }
+    .others{
+        margin-left: 13%;
+    }
+
+}
+
 @media screen and (max-width: 320px) {
     .ortala{
         text-align: center;
@@ -993,8 +1026,8 @@ tr:nth-child(even) {
     }
 
     .btn {
-        height: 30px;
-        width: 150px;
+        height: 40px;
+        width: 200px;
         float: left;
         margin: 1%;
         min-width: 150px;
@@ -1003,29 +1036,28 @@ tr:nth-child(even) {
     }
 
     .parkArea{
-        margin-left: 9%;
-        height: 55px;
-        width: 250px;
-        font-size: 12px;
+        margin-left: 5%;
+        height: 75px;
+        width: 270px;
+        font-size: 18px;
     }
 
     #rezerveParkArea{
-        margin-left: 9%;
-        height: 55px;
-        width: 250px;
-        font-size: 12px;
-        color: black;
+        margin-left: 5%;
+        height: 75px;
+        width: 270px;
+        font-size: 18px;
     }
 
     #iptalEt{
-        margin-left: 9%;
-        height: 55px;
-        width: 250px;
-        font-size: 15px;
+        margin-left: 5%;
+        height: 75px;
+        width: 270px;
+        font-size: 18px;
     }
 
     .others{
-        margin-left: 21%;
+        margin-left: 12%;
     }
 
     .content {
@@ -1061,8 +1093,8 @@ tr:nth-child(even) {
     }
 
     .btn {
-        height: 30px;
-        width: 150px;
+        height: 40px;
+        width: 180px;
         float: left;
         margin: 1%;
         min-width: 150px;
@@ -1072,28 +1104,27 @@ tr:nth-child(even) {
 
     .parkArea{
         margin-left: 5%;
-        height: 55px;
+        height: 75px;
         width: 250px;
-        font-size: 12px;
+        font-size: 18px;
     }
 
     #rezerveParkArea{
         margin-left: 5%;
-        height: 55px;
+        height: 75px;
         width: 250px;
-        font-size: 12px;
-        color: black;
+        font-size: 18px;
     }
 
     #iptalEt{
         margin-left: 5%;
-        height: 55px;
+        height: 75px;
         width: 250px;
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .others{
-        margin-left: 19%;
+        margin-left: 13%;
     }
 
     .content {
@@ -1129,13 +1160,13 @@ tr:nth-child(even) {
     }
 
     .btn {
-        height: 30px;
-        width: 130px;
+        height: 40px;
+        width: 150px;
         float: left;
         margin: 1%;
         min-width: 150px;
         margin-left: 3%;
-        font-size:9px ;
+        font-size:12px ;
     }
 
     .parkArea{
@@ -1150,14 +1181,13 @@ tr:nth-child(even) {
         height: 55px;
         width: 200px;
         font-size: 12px;
-        color: black;
     }
 
     #iptalEt{
         margin-left: 9%;
         height: 55px;
         width: 200px;
-        font-size: 15px;
+        font-size: 12px;
     }
 
     .others{
@@ -1199,39 +1229,39 @@ tr:nth-child(even) {
     }
 
     .btn {
-        height: 20px;
-        width: 100px;
+        height: 35px;
+        width: 150px;
         float: left;
         margin: 1%;
         min-width: 1px;
         margin-left: 3%;
-        font-size:9px ;
+        font-size:12px ;
     }
 
     .parkArea{
-        margin-left: 14%;
-        height: 40px;
-        width: 155px;
-        font-size: 12px;
+        margin-left: 5%;
+        height: 70px;
+        width: 195px;
+        font-size: 15px;
     }
 
     #rezerveParkArea{
-        margin-left: 14%;
-        height: 40px;
-        width: 155px;
-        font-size: 12px;
+        margin-left: 5%;
+        height: 70px;
+        width: 195px;
+        font-size: 15px;
         color: black;
     }
 
     #iptalEt{
-        margin-left: 14%;
-        height: 40px;
-        width: 155px;
+        margin-left: 5%;
+        height: 70px;
+        width: 195px;
         font-size: 15px;
     }
 
     .others{
-        margin-left: 20%;
+        margin-left: 10%;
     }
 
     .content {

@@ -130,7 +130,7 @@
 
             <li class="timeline-inverted">
               <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="/promotion/img/service/teknofest.png" alt="" style="margin-top: 25px">
+                <img class="rounded-circle img-fluid" src="/promotion/img/service/teknofest.png" alt="" style="margin-top: 15px">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">

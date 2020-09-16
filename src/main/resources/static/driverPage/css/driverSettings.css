@@ -59,7 +59,7 @@ html, body {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
-    z-index: 0; /* Stay on top */
+    z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
     background-color: #212529; /* Black*/
@@ -246,16 +246,15 @@ img {
     }
 
     .p-3 {
-        padding: 0.5rem!important;
+        padding: 0.5rem;
     }
 
     .sidenav {
-        width: 150px;
-        font-size: 8px;
+        font-size: 10px;
     }
 
     .sidenav a {
-        font-size: 8px;
+        font-size: 10px;
     }
 
 }
@@ -280,6 +279,7 @@ img {
     #nameId{
         margin-top: 20px;
     }
+
 
 }
 
