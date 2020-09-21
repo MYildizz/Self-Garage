@@ -25,9 +25,9 @@
     <script src="/promotion/vendor/jquery/jquery.js"></script>
     <script src="/promotion/vendor/jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
-
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="icon" href="/promotion/img/service/self-garage.jpeg">
+    <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body>
 
@@ -201,6 +201,8 @@
     }
 
 </script>
+
+
 
 <script src="/promotion/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

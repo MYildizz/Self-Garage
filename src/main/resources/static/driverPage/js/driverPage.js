@@ -49,7 +49,7 @@ function initMap() {
                     };
 
                      map = new google.maps.Map(document.getElementById("map"), {
-                        zoom: 15,
+                        zoom: 10,
                         center: new google.maps.LatLng(pos.lat, pos.lng),
                         disableDefaultUI: true
                      //   icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
@@ -244,8 +244,26 @@ function rezerveLocation(){
     var lat=sessionStorage.getItem("nearDistanceLatitude");
     var lot=sessionStorage.getItem("nearDistanceLongitude");
 
-   // window.location="https://www.google.com/maps/dir//"+lat+","+lot+"/@"+lat+","+lot+","+"20.74z/data=!4m2!4m1!3e0";
-    window.open("https://www.google.com/maps/dir//"+lat+","+lot+"/@"+lat+","+lot+","+"20.74z/data=!4m2!4m1!3e0",'_blank');
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            var parkLat=  sessionStorage.getItem("nearDistanceLatitude");
+            var parkLot= sessionStorage.getItem("nearDistanceLongitude");
+
+            var distance= google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(pos.lat, pos.lng), new google.maps.LatLng(parkLat, parkLot));
+
+            if(distance >= 20){
+                window.open("https://www.google.com/maps/dir//"+lat+","+lot+"/@"+lat+","+lot+","+"20.74z/data=!4m2!4m1!3e0",'_blank');
+            }
+        })
+    }
+
+
     deleteMarker();
     distanceInterval=setInterval("checkDistance()", 200);
     document.getElementById("roadCounter").style.display="";
@@ -546,6 +564,7 @@ function checkDistance() {
         })
     }
 }
+
 
 function getFirebaseSignal(){
    readData();

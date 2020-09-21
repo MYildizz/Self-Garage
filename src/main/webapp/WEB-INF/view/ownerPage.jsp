@@ -31,6 +31,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="icon" href="/promotion/img/service/self-garage.jpeg">
+    <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body>
 

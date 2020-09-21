@@ -21,6 +21,7 @@
     <script src="/promotion/vendor/jquery/jquery.min.js"></script>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="icon" href="/promotion/img/service/self-garage.jpeg">
+    <meta name="mobile-web-app-capable" content="yes">
 </head>
 <body>
 
