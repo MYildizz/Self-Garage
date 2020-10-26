@@ -76,15 +76,25 @@
 
   <!-- Services -->
   <section class="page-section " id="services">
-
-    	<img src="/promotion/img/service/self-garage.jpeg" class="img-fluid center" alt="Responsive image">
-
+      <div style="text-align: center;">
+      <iframe width="80%" height="515" src="https://www.youtube.com/embed/k4gdgDy6n-I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     	<p id="production_text" class="text-center p-3 mb-2 bg-light text-dark">
-          Günümüzde yoğun trafik birçok şehirde başlıca problemlerden biri haline gelmiştir. Bu trafiğin büyük bir bölümünü ise park yeri arayan araçlar oluşturmaktadır. Park yeri aramak belirli bölgelerde çok zor hale gelmiş, otoparklar yetersiz kalmış ve yasadışı değnekçiler, otopark mafyaları ortaya çıkmıştır .
-          Bunun sonucunda araç sahipleri park yeri ararken büyük stres yaşamakta, trafik cezaları yemekte, zaman kaybetmekte ve yakıtının bir kısmını israf etmektedir. Araç sahipleri bu problemleri yaşarken kişisel otopark sahipleri ise kendi alanlarının kullanılmaması için belli bir bariyer koymakta ve diğer araçların bu alanlara girişini engellemektedir. Bu sebeple, bu alanlar boş kalırken, belli alanlara düzensiz park edilip, trafiğin kitlenmesinde büyük rol oynayan ve çevrenin egzoz dumanıyla kirletildiği kötü manzaralarla karşılaşmaktayız.
-          Self Garage projemiz ile, kişisel park alanlarını gelir modeli haline getirerek, park alanı sahiplerine otoparklarını kullanmadıkları zaman, kullanıma açtırıp, park yeri arayan diğer araç şoförlerine bu alanları kolay bir şekilde ulaştırmayı amaçlıyoruz. Böylece araç sahipleri için park yeri ararken yaşanan stresi bitirme imkanı sağlıyoruz. Trafikteki araç yoğunluğunu da bu çözüm ile gidermiş oluyoruz.
-          Mekanik, elektronik ve yazılımdan oluşan 3 temel platformumuz ile bu hizmeti kaliteli ve kullanışlı bir şekilde vermeyi amaçlıyoruz.
-          Çalışma mekanizmasında, otopark sahibi alanını istediği bir saatte kendi hesabı üzerinden açarak, diğer sürücülerin haritalarına düşüp park imkanı sağlanmış oluyor. Otoparka gitmek isteyen sürücü üzerine tıklayınca alana yönlendirilip vardığı zaman duba otomatik olarak açılıyor ve çıkış yaptığında kalma süresi otomatik olarak hesaplanıp ücret kredi kartından çekiliyor fakat demo aşamasında ücret alınmamaktadır. Böylece her iki tarafın da kazançlı çıkması ile birlikte, trafik yoğunluğu da azalmış oluyoruz. İnsanlar için de temiz bir çevre ile dijital bir şehir hediye etmiş oluyoruz.</p>
+            Günümüzde yoğun trafik birçok şehirde başlıca problemlerden biri haline gelmiştir. Bu trafiğin %20'sini park yeri arayan araçlar oluşturmaktadır.
+            Marmara Üniversitesi'nde yayınlanan bir makaleye göre, trafiğin yoğun olduğu bölgelerde, park yeri arayan bir sürücü ortalama 12 dakika zaman harcamakta ve bu süreç içerisinde ortalama 3-5 litre
+            arası yakıt tüketmektedir. Bunlarla birlikte park yeri ararken çok yüksek stresler yaşanmakta, düzensiz park yerleri oluşmakta ve çok fazla trafik cezalarına neden olmaktadır.
+            Bu sıkıntılar ile birlikte kamusal alanların yasadışı değnekçilerin eline geçmesi ise problemin ne kadar büyük olduğunun göstergesidir.
+
+            Bu problemler yaşanırken, kişisel otopark sahipleri ve bina otoparkları, belirli bariyerlerle kendi alanlarını kullanıma kapatarak bu alanların kullanımı engellenmektedir. Bu da var olan otoparkların
+            eksikliğinden ziyade ne kadar verimsiz kullanıldığının bir göstergesidir. Dijital Değnekçiler ekibi olarak, Self Garage projesi ile bu probleme var olanlardan çok daha farklı bir çözüm getirerek, kişisel otoparkların
+            sahibi tarafından kullanılmadığı zamanlarda, diğer araç sürücülerinin kullanımına açılması hedefleniyor. Böylece kişisel otopark sahibi boş zamanlarda kendi otoparkı üzerinden ek gelir elde edebilecek iken,
+            araç sürücüleri ciddi miktarda zaman ve yakıt tasarufu sağlayarak bu stresten kurtulacaktır. Trafiğin %20'sini oluşturan park problemi de çözülerek trafik rahatlatılmış olacaktır.
+             Çözüm için geliştirilen platform mekanik, elektronik ve yazılımsal kısımlardan oluşmaktadır. Tamamen otonom olarak tasarlanan sistemde,
+            otopark sahibi kendi paneli üzerinden istediği zamanlarda, kendi alanlarını kullanıma açabilecek,
+            araç sürücüsü ise mobil uygulamasında kendisine en yakın otoparkları görebilecek ve rezerve edebilecektir. Araç sürücüsü dubaya 10 metre yaklaştığında duba otomatik olarak açılacak,
+            çıkış yaptığında ise üzerindeki sensörler tarafından algınıp otomatik olarak kapanarak ücret de otomatik olarak kesilecektir.
+
+        </p>
   </section>
 
 

@@ -942,7 +942,7 @@ tr:nth-child(even) {
     }
 
     .parkArea{
-        margin-left: 9%;
+        margin-left: 9.1%;
         height: 80px;
         width: 280px;
         font-size: 18px;
@@ -963,7 +963,7 @@ tr:nth-child(even) {
     }
 
     .others{
-        margin-left: 15%;
+        margin-left: 17%;
     }
 
     .content {
@@ -994,7 +994,7 @@ tr:nth-child(even) {
 
 @media screen and (max-width: 340px) {
     .parkArea{
-        margin-left: 5%;
+        margin-left: 6.5%;
         height: 85px;
         width: 280px;
         font-size: 18px;
@@ -1013,7 +1013,7 @@ tr:nth-child(even) {
         font-size: 18px;
     }
     .others{
-        margin-left: 13%;
+        margin-left: 14%;
     }
 
 }
